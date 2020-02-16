@@ -212,7 +212,6 @@ publish/
 *.csproj
 *.csproj.user
 *.settings
-*.Designer.cs
 
 # Windows Azure Build Output
 csx/
