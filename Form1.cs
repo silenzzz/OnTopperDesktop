@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -13,7 +11,7 @@ namespace OnTopper
         {
             InitializeComponent();
             listBoxProcesses.DisplayMember = "ProcessName";
-            update();
+            UpdateProcesses();
         }
 
         [DllImport("user32.dll")]
@@ -29,10 +27,10 @@ namespace OnTopper
 
         private void ButtonUpdate_Click(object sender, EventArgs e)
         {
-            update();
+            Update();
         }
 
-        private void update()
+        private void UpdateProcesses()
         {
             listBoxProcesses.BeginUpdate();
             listBoxProcesses.Items.Clear();
@@ -40,11 +38,12 @@ namespace OnTopper
             {
                 if (settings.hideNonIntaractive)
                 {
-                    if (hasMainWindow(process))
+                    if (HasMainWindow(process))
                     {
                         listBoxProcesses.Items.Add(process);
                     }
-                } else
+                }
+                else
                 {
                     listBoxProcesses.Items.Add(process);
                 }
@@ -52,7 +51,7 @@ namespace OnTopper
             listBoxProcesses.EndUpdate();
         }
 
-        private bool hasMainWindow(Process p)
+        private bool HasMainWindow(Process p)
         {
             return p.MainWindowHandle != IntPtr.Zero;
         }
@@ -65,7 +64,7 @@ namespace OnTopper
                 return;
             }
             labelSelectProcess.Hide();
-            setWindowState(WINDOW_STATE.TOP);
+            SetWindowState(WINDOW_STATE.TOP);
         }
 
         private void ButtonUnsetTop_Click(object sender, EventArgs e)
@@ -76,33 +75,33 @@ namespace OnTopper
                 return;
             }
             labelSelectProcess.Hide();
-            setWindowState(WINDOW_STATE.UNTOP);
+            SetWindowState(WINDOW_STATE.UNTOP);
         }
 
-        private void setWindowState(WINDOW_STATE state)
+        private void SetWindowState(WINDOW_STATE state)
         {
             try
             {
                 if (state == WINDOW_STATE.TOP)
                 {
-                    SetWindowPos(getWindowHandle((Process)listBoxProcesses.SelectedItem)
+                    SetWindowPos(GetWindowHandle((Process)listBoxProcesses.SelectedItem)
                     , HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE | SWP_SHOWWINDOW);
                 }
                 else
                 {
-                    SetWindowPos(getWindowHandle((Process)listBoxProcesses.SelectedItem)
+                    SetWindowPos(GetWindowHandle((Process)listBoxProcesses.SelectedItem)
                     , HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE | SWP_SHOWWINDOW);
                 }
             }
             catch (ArgumentException)
             {
-                MessageBox.Show("Process does not exists anymore",
+                MessageBox.Show("Process doesn't exists anymore",
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                update();
+                UpdateProcesses();
             }
         }
 
-        private IntPtr getWindowHandle(Process p)
+        private IntPtr GetWindowHandle(Process p)
         {
             return Process.GetProcessById(p.Id).MainWindowHandle;
         }
@@ -127,12 +126,12 @@ namespace OnTopper
             about.ShowDialog();
         }
 
-        private SettingsForm settings = new SettingsForm(false);
+        private readonly SettingsForm settings = new SettingsForm(false);
 
         private void ButtonSettings_Click(object sender, EventArgs e)
         {
             settings.ShowDialog();
-            update();
+            UpdateProcesses();
         }
 
         private void TextBoxSearch_TextChanged(object sender, EventArgs e)
