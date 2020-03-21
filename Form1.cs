@@ -1,13 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace OnTopper
 {
-    public partial class FormMain : Form
+    public partial class MainForm : Form
     {
-        public FormMain()
+        public MainForm()
         {
             InitializeComponent();
             listBoxProcesses.DisplayMember = "ProcessName";
@@ -15,13 +17,13 @@ namespace OnTopper
         }
 
         [DllImport("user32.dll")]
-        static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, uint uFlags);
+        private static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, uint uFlags);
 
-        static readonly IntPtr HWND_TOPMOST = new IntPtr(-1);
-        static readonly IntPtr HWND_NOTOPMOST = new IntPtr(-2);
-        const uint SWP_NOSIZE = 0x0001;
-        const uint SWP_NOMOVE = 0x0002;
-        const uint SWP_SHOWWINDOW = 0x0040;
+        private static readonly IntPtr HWND_TOPMOST = new IntPtr(-1);
+        private static readonly IntPtr HWND_NOTOPMOST = new IntPtr(-2);
+        private const uint SWP_NOSIZE = 0x0001;
+        private const uint SWP_NOMOVE = 0x0002;
+        private const uint SWP_SHOWWINDOW = 0x0040;
 
         private enum WINDOW_STATE { TOP, UNTOP }
 
@@ -32,11 +34,27 @@ namespace OnTopper
 
         private void update()
         {
+            listBoxProcesses.BeginUpdate();
             listBoxProcesses.Items.Clear();
             foreach (var process in Process.GetProcesses())
             {
-                listBoxProcesses.Items.Add(process);
+                if (settings.hideNonIntaractive)
+                {
+                    if (hasMainWindow(process))
+                    {
+                        listBoxProcesses.Items.Add(process);
+                    }
+                } else
+                {
+                    listBoxProcesses.Items.Add(process);
+                }
             }
+            listBoxProcesses.EndUpdate();
+        }
+
+        private bool hasMainWindow(Process p)
+        {
+            return p.MainWindowHandle != IntPtr.Zero;
         }
 
         private void ButtonSetTop_Click(object sender, EventArgs e)
@@ -89,15 +107,6 @@ namespace OnTopper
             return Process.GetProcessById(p.Id).MainWindowHandle;
         }
 
-        private void ButtonSearch_Click(object sender, EventArgs e)
-        {
-            int id = listBoxProcesses.FindString(textBoxSearch.Text);
-            if (id != -1)
-            {
-                listBoxProcesses.SelectedIndex = id;
-            }
-        }
-
         private void ButtonThisOnTop_Click(object sender, EventArgs e)
         {
             if (TopMost)
@@ -114,8 +123,25 @@ namespace OnTopper
 
         private void ButtonAbout_Click(object sender, EventArgs e)
         {
-            AboutForm about = new AboutForm();
+            AboutForm about = new AboutForm(TopMost);
             about.ShowDialog();
+        }
+
+        private SettingsForm settings = new SettingsForm(false);
+
+        private void ButtonSettings_Click(object sender, EventArgs e)
+        {
+            settings.ShowDialog();
+            update();
+        }
+
+        private void TextBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+            int index = listBoxProcesses.FindString(textBoxSearch.Text);
+            if (index != -1)
+            {
+                listBoxProcesses.SelectedIndex = index;
+            }
         }
     }
 }
