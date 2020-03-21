@@ -23,11 +23,13 @@ namespace OnTopper
         private const uint SWP_NOMOVE = 0x0002;
         private const uint SWP_SHOWWINDOW = 0x0040;
 
+        private readonly SettingsForm settings = new SettingsForm(false);
+
         private enum WINDOW_STATE { TOP, UNTOP }
 
         private void ButtonUpdate_Click(object sender, EventArgs e)
         {
-            Update();
+            UpdateProcesses();
         }
 
         private void UpdateProcesses()
@@ -125,8 +127,6 @@ namespace OnTopper
             AboutForm about = new AboutForm(TopMost);
             about.ShowDialog();
         }
-
-        private readonly SettingsForm settings = new SettingsForm(false);
 
         private void ButtonSettings_Click(object sender, EventArgs e)
         {
