@@ -23,7 +23,8 @@ namespace OnTopper
         private const uint SWP_NOMOVE = 0x0002;
         private const uint SWP_SHOWWINDOW = 0x0040;
 
-        private readonly SettingsForm settings = new SettingsForm(false);
+        private readonly SettingsForm settingsForm = new SettingsForm();
+        private readonly AboutForm aboutForm = new AboutForm();
 
         private enum WINDOW_STATE { TOP, UNTOP }
 
@@ -38,7 +39,7 @@ namespace OnTopper
             listBoxProcesses.Items.Clear();
             foreach (var process in Process.GetProcesses())
             {
-                if (settings.hideNonIntaractive)
+                if (settingsForm.hideNonIntaractive)
                 {
                     if (HasMainWindow(process))
                     {
@@ -124,13 +125,12 @@ namespace OnTopper
 
         private void ButtonAbout_Click(object sender, EventArgs e)
         {
-            AboutForm about = new AboutForm(TopMost);
-            about.ShowDialog();
+            aboutForm.ShowDialogWithTopMostState(TopMost);
         }
 
         private void ButtonSettings_Click(object sender, EventArgs e)
         {
-            settings.ShowDialog();
+            settingsForm.ShowDialogWithTopMostState(TopMost);
             UpdateProcesses();
         }
 

@@ -5,10 +5,15 @@ namespace OnTopper
 {
     public partial class AboutForm : Form
     {
-        public AboutForm(bool OnTop)
+        public AboutForm()
         {
             InitializeComponent();
-            this.TopMost = OnTop;
+        }
+
+        public void ShowDialogWithTopMostState(bool onTop)
+        {
+            this.TopMost = onTop;
+            ShowDialog();
         }
 
         private void ButtonClose_Click(object sender, EventArgs e)

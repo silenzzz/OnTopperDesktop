@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.listBoxProcesses = new System.Windows.Forms.ListBox();
             this.buttonUpdate = new System.Windows.Forms.Button();
@@ -38,6 +39,7 @@
             this.buttonAbout = new System.Windows.Forms.Button();
             this.labelSelectProcess = new System.Windows.Forms.Label();
             this.buttonSettings = new System.Windows.Forms.Button();
+            this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.SuspendLayout();
             // 
             // listBoxProcesses
@@ -141,6 +143,11 @@
             this.buttonSettings.UseVisualStyleBackColor = true;
             this.buttonSettings.Click += new System.EventHandler(this.ButtonSettings_Click);
             // 
+            // notifyIcon
+            // 
+            this.notifyIcon.Text = "notifyIcon1";
+            this.notifyIcon.Visible = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -177,6 +184,7 @@
         private System.Windows.Forms.Button buttonAbout;
         private System.Windows.Forms.Label labelSelectProcess;
         private System.Windows.Forms.Button buttonSettings;
+        private System.Windows.Forms.NotifyIcon notifyIcon;
     }
 }
 

@@ -4,13 +4,18 @@ namespace OnTopper
 {
     public partial class SettingsForm : Form
     {
-        public SettingsForm(bool onTop)
+        public bool hideNonIntaractive = true;
+
+        public SettingsForm()
         {
             InitializeComponent();
-            TopMost = onTop;
         }
 
-        public bool hideNonIntaractive = true;
+        public void ShowDialogWithTopMostState(bool onTop)
+        {
+            this.TopMost = onTop;
+            ShowDialog();
+        }
 
         private void ButtonApply_Click(object sender, System.EventArgs e)
         {
