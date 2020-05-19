@@ -14,7 +14,7 @@ namespace OnTopper
             UpdateProcesses();
         }
 
-        [DllImport("user32.dll")]
+        [DllImport("user32.dll")]       
         private static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, uint uFlags);
 
         private static readonly IntPtr HWND_TOPMOST = new IntPtr(-1);
@@ -99,7 +99,7 @@ namespace OnTopper
             {
                 MessageBox.Show("Process doesn't exists anymore",
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                UpdateProcesses();
+                UpdateProcesses();                
             }
         }
 
