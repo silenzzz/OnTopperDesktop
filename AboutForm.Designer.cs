@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutForm));
             this.label1 = new System.Windows.Forms.Label();
             this.buttonClose = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -37,19 +36,21 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(9, 9);
+            this.label1.Location = new System.Drawing.Point(10, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(361, 130);
+            this.label1.Size = new System.Drawing.Size(326, 78);
             this.label1.TabIndex = 0;
-            this.label1.Text = resources.GetString("label1.Text");
+            this.label1.Text = "OnTopper v1.3 Created by DeMmAge\r\nContacts:\r\ndemmagesoft@gmail.com\r\nHow to use:\r\n" +
+    "Select process in left menu and press set top or unset buttons\r\nPress update but" +
+    "ton to refresh current processes\r\n";
             // 
             // buttonClose
             // 
-            this.buttonClose.Location = new System.Drawing.Point(255, 131);
+            this.buttonClose.Location = new System.Drawing.Point(245, 90);
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(107, 23);
+            this.buttonClose.Size = new System.Drawing.Size(91, 23);
             this.buttonClose.TabIndex = 1;
-            this.buttonClose.Text = "Understood";
+            this.buttonClose.Text = "Ok";
             this.buttonClose.UseVisualStyleBackColor = true;
             this.buttonClose.Click += new System.EventHandler(this.ButtonClose_Click);
             // 
@@ -58,7 +59,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(374, 166);
+            this.ClientSize = new System.Drawing.Size(340, 119);
             this.ControlBox = false;
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.label1);
