@@ -40,6 +40,7 @@
             this.labelSelectProcess = new System.Windows.Forms.Label();
             this.buttonSettings = new System.Windows.Forms.Button();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // listBoxProcesses
@@ -148,6 +149,11 @@
             this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
             this.notifyIcon.Text = "OnTopper";
             // 
+            // timer
+            // 
+            this.timer.Interval = 3000;
+            this.timer.Tick += new System.EventHandler(this.Timer_Tick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -184,6 +190,7 @@
         private System.Windows.Forms.Label labelSelectProcess;
         private System.Windows.Forms.Button buttonSettings;
         private System.Windows.Forms.NotifyIcon notifyIcon;
+        private System.Windows.Forms.Timer timer;
     }
 }
 

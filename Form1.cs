@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -60,7 +61,8 @@ namespace OnTopper
             else if (text.Equals("&Hide in task bar"))
             {
                 item.Checked = ToggleTaskbarVisibility();
-            } else if (text.Equals("&Close"))
+            }
+            else if (text.Equals("&Close"))
             {
                 this.Close();
             }
@@ -71,7 +73,8 @@ namespace OnTopper
             if (this.ShowInTaskbar)
             {
                 this.ShowInTaskbar = false;
-            } else
+            }
+            else
             {
                 this.ShowInTaskbar = true;
             }
@@ -85,8 +88,12 @@ namespace OnTopper
 
         private void UpdateProcesses()
         {
+            int selected = listBoxProcesses.SelectedIndex;
+            // TODO: maybe rewrite
+            string selectedName = GetProcessNameByIndex(selected);
             listBoxProcesses.BeginUpdate();
             listBoxProcesses.Items.Clear();
+            // TODO: optimize
             foreach (var process in Process.GetProcesses())
             {
                 if (settingsForm.hideNonIntaractive)
@@ -102,6 +109,25 @@ namespace OnTopper
                 }
             }
             listBoxProcesses.EndUpdate();
+            if (selected != -1)
+            {
+                if (selectedName.Equals(GetProcessNameByIndex(selected)))
+                {
+                    listBoxProcesses.SelectedIndex = selected;
+                }
+            }
+        }
+
+        private string GetProcessNameByIndex(int index)
+        {
+            try
+            {
+                return ((Process)listBoxProcesses.Items[index]).ProcessName;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         private bool HasMainWindow(Process p)
@@ -181,6 +207,14 @@ namespace OnTopper
         private void ButtonSettings_Click(object sender, EventArgs e)
         {
             settingsForm.ShowDialogWithTopMostState(TopMost);
+            if (settingsForm.timerEnabled)
+            {
+                timer.Interval = settingsForm.interval;
+                timer.Start();
+            } else
+            {
+                timer.Stop();
+            }
             UpdateProcesses();
         }
 
@@ -204,6 +238,11 @@ namespace OnTopper
             {
                 notifyIcon.Visible = false;
             }
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            UpdateProcesses();
         }
     }
 }
