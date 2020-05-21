@@ -20,6 +20,8 @@ namespace OnTopper
         private readonly SettingsForm settingsForm = new SettingsForm();
         private readonly AboutForm aboutForm = new AboutForm();
 
+        private bool ballonShowed = false;
+
         private enum WINDOW_STATE { TOP, UNTOP }
 
         public MainForm()
@@ -46,6 +48,8 @@ namespace OnTopper
             iconMenu.MenuItems.Add(closeItem);
 
             notifyIcon.Text = "OnTopper";
+            notifyIcon.BalloonTipTitle = "OnTopper minimized";
+            notifyIcon.BalloonTipText = "OnTopper has been minimized, right click on the icon below to open";
             notifyIcon.ContextMenu = iconMenu;
         }
 
@@ -232,6 +236,11 @@ namespace OnTopper
             if (this.WindowState == FormWindowState.Minimized)
             {
                 notifyIcon.Visible = true;
+                if (!ballonShowed)
+                {
+                    notifyIcon.ShowBalloonTip(5000);
+                    ballonShowed = true;
+                }
             }
             else if (this.WindowState == FormWindowState.Maximized ||
                 this.WindowState == FormWindowState.Normal)
