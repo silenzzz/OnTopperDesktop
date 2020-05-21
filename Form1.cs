@@ -27,6 +27,7 @@ namespace OnTopper
         public MainForm()
         {
             InitializeComponent();
+            // TODO: store only machine name field in listbox
             listBoxProcesses.DisplayMember = "ProcessName";
             SetNotifyIcon();
             UpdateProcesses();
@@ -181,6 +182,10 @@ namespace OnTopper
                 MessageBox.Show("Process doesn't exists anymore",
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 UpdateProcesses();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Unknown error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
