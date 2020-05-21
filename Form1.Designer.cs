@@ -145,8 +145,8 @@
             // 
             // notifyIcon
             // 
-            this.notifyIcon.Text = "notifyIcon1";
-            this.notifyIcon.Visible = true;
+            this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
+            this.notifyIcon.Text = "OnTopper";
             // 
             // MainForm
             // 
@@ -163,12 +163,11 @@
             this.Controls.Add(this.buttonUpdate);
             this.Controls.Add(this.listBoxProcesses);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(301, 223);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OnTopper";
+            this.SizeChanged += new System.EventHandler(this.MainForm_SizeChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 

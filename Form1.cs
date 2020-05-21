@@ -7,14 +7,7 @@ namespace OnTopper
 {
     public partial class MainForm : Form
     {
-        public MainForm()
-        {
-            InitializeComponent();
-            listBoxProcesses.DisplayMember = "ProcessName";
-            UpdateProcesses();
-        }
-
-        [DllImport("user32.dll")]       
+        [DllImport("user32.dll")]
         private static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, uint uFlags);
 
         private static readonly IntPtr HWND_TOPMOST = new IntPtr(-1);
@@ -27,6 +20,63 @@ namespace OnTopper
         private readonly AboutForm aboutForm = new AboutForm();
 
         private enum WINDOW_STATE { TOP, UNTOP }
+
+        public MainForm()
+        {
+            InitializeComponent();
+            listBoxProcesses.DisplayMember = "ProcessName";
+            SetNotifyIcon();
+            UpdateProcesses();
+        }
+
+        private void SetNotifyIcon()
+        {
+            ContextMenu iconMenu = new ContextMenu();
+            MenuItem openItem = new MenuItem("&Open");
+            MenuItem hideItem = new MenuItem("&Hide in task bar");
+            MenuItem closeItem = new MenuItem("&Close");
+
+            var handler = new EventHandler(OnClickIconMenuItem);
+            openItem.Click += handler;
+            hideItem.Click += handler;
+            closeItem.Click += handler;
+            iconMenu.MenuItems.Add(openItem);
+            iconMenu.MenuItems.Add(hideItem);
+            iconMenu.MenuItems.Add(closeItem);
+
+            notifyIcon.Text = "OnTopper";
+            notifyIcon.ContextMenu = iconMenu;
+        }
+
+        private void OnClickIconMenuItem(object sender, EventArgs e)
+        {
+            var item = sender as MenuItem;
+            string text = item.Text;
+            // TODO: rewrite этот бля поиск по строке
+            if (text.Equals("&Open"))
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+            else if (text.Equals("&Hide in task bar"))
+            {
+                item.Checked = ToggleTaskbarVisibility();
+            } else if (text.Equals("&Close"))
+            {
+                this.Close();
+            }
+        }
+
+        private bool ToggleTaskbarVisibility()
+        {
+            if (this.ShowInTaskbar)
+            {
+                this.ShowInTaskbar = false;
+            } else
+            {
+                this.ShowInTaskbar = true;
+            }
+            return !this.ShowInTaskbar;
+        }
 
         private void ButtonUpdate_Click(object sender, EventArgs e)
         {
@@ -100,7 +150,7 @@ namespace OnTopper
             {
                 MessageBox.Show("Process doesn't exists anymore",
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                UpdateProcesses();                
+                UpdateProcesses();
             }
         }
 
@@ -140,6 +190,19 @@ namespace OnTopper
             if (index != -1)
             {
                 listBoxProcesses.SelectedIndex = index;
+            }
+        }
+
+        private void MainForm_SizeChanged(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                notifyIcon.Visible = true;
+            }
+            else if (this.WindowState == FormWindowState.Maximized ||
+                this.WindowState == FormWindowState.Normal)
+            {
+                notifyIcon.Visible = false;
             }
         }
     }
