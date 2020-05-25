@@ -258,5 +258,24 @@ namespace OnTopper
         {
             UpdateProcesses();
         }
+
+        private void ListBoxProcesses_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int index = listBoxProcesses.SelectedIndex;
+            if (index != -1)
+            {
+                try
+                {
+                    var proc = (Process)listBoxProcesses.Items[index];
+                    MessageBox.Show(string.Format("Priority: {0}\nId: {1}\nName: {2}\nResponding: {3}\nStarted: {4}\n" +
+                        "Threads: {5}\nTotal time: {6}\nVirtual mem size: {7}b", proc.BasePriority, proc.Id, proc.ProcessName,
+                        proc.Responding, proc.StartTime, proc.Threads.Count, proc.UserProcessorTime, proc.VirtualMemorySize64),
+                        "Process info");
+                } catch (Exception)
+                {
+                    UpdateProcesses();
+                }
+            }
+        }
     }
 }

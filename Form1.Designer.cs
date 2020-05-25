@@ -53,6 +53,7 @@
             this.listBoxProcesses.Name = "listBoxProcesses";
             this.listBoxProcesses.Size = new System.Drawing.Size(161, 134);
             this.listBoxProcesses.TabIndex = 0;
+            this.listBoxProcesses.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ListBoxProcesses_MouseDoubleClick);
             // 
             // buttonUpdate
             // 
