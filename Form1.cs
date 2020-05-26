@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -11,11 +10,16 @@ namespace OnTopper
         [DllImport("user32.dll")]
         private static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, uint uFlags);
 
+        [DllImport("user32.dll", SetLastError = true)]
+        private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
+
         private static readonly IntPtr HWND_TOPMOST = new IntPtr(-1);
         private static readonly IntPtr HWND_NOTOPMOST = new IntPtr(-2);
         private const uint SWP_NOSIZE = 0x0001;
         private const uint SWP_NOMOVE = 0x0002;
         private const uint SWP_SHOWWINDOW = 0x0040;
+        private const int GWL_EXSTYLE = (-20);
+        private const uint WS_EX_TOPMOST = 0x0008;
 
         private readonly SettingsForm settingsForm = new SettingsForm();
         private readonly AboutForm aboutForm = new AboutForm();
@@ -162,6 +166,16 @@ namespace OnTopper
             SetWindowState(WINDOW_STATE.UNTOP);
         }
 
+        private bool IsTopMost(Process p)
+        {
+            int dwExStyle = GetWindowLong(GetWindowHandle(p), GWL_EXSTYLE);
+            if ((dwExStyle & WS_EX_TOPMOST) != 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
         private void SetWindowState(WINDOW_STATE state)
         {
             try
@@ -220,7 +234,8 @@ namespace OnTopper
             {
                 timer.Interval = settingsForm.interval;
                 timer.Start();
-            } else
+            }
+            else
             {
                 timer.Stop();
             }
@@ -268,10 +283,11 @@ namespace OnTopper
                 {
                     var proc = (Process)listBoxProcesses.Items[index];
                     MessageBox.Show(string.Format("Priority: {0}\nId: {1}\nName: {2}\nResponding: {3}\nStarted: {4}\n" +
-                        "Threads: {5}\nTotal time: {6}\nVirtual mem size: {7}b", proc.BasePriority, proc.Id, proc.ProcessName,
-                        proc.Responding, proc.StartTime, proc.Threads.Count, proc.UserProcessorTime, proc.VirtualMemorySize64),
+                        "Threads: {5}\nTop most: {6}\nVirtual mem size: {7}b", proc.BasePriority, proc.Id, proc.ProcessName,
+                        proc.Responding, proc.StartTime, proc.Threads.Count, IsTopMost(proc), proc.VirtualMemorySize64),
                         "Process info");
-                } catch (Exception)
+                }
+                catch (Exception)
                 {
                     UpdateProcesses();
                 }
