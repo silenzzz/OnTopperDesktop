@@ -38,143 +38,7 @@ namespace OnTopper
             UpdateProcesses();
         }
 
-        private bool InAutoRunAndMinimized()
-        {
-            return Settings.Default.AutoHide && Settings.Default.AutoStart;
-        }
-
-        private void SetNotifyIcon()
-        {
-            ContextMenu iconMenu = new ContextMenu();
-            MenuItem openItem = new MenuItem("&Open");
-            MenuItem hideItem = new MenuItem("&Hide in task bar");
-            if (InAutoRunAndMinimized())
-            {
-                hideItem.Checked = true;
-            }
-            MenuItem closeItem = new MenuItem("&Close");
-
-            var handler = new EventHandler(OnClickIconMenuItem);
-            openItem.Click += handler;
-            hideItem.Click += handler;
-            closeItem.Click += handler;
-            iconMenu.MenuItems.Add(openItem);
-            iconMenu.MenuItems.Add(hideItem);
-            iconMenu.MenuItems.Add(closeItem);
-
-            notifyIcon.Text = "OnTopper";
-            notifyIcon.BalloonTipTitle = "OnTopper minimized";
-            notifyIcon.BalloonTipText = "OnTopper has been minimized, right click on the icon below to open";
-            notifyIcon.ContextMenu = iconMenu;
-        }
-
-        private void OnClickIconMenuItem(object sender, EventArgs e)
-        {
-            var item = sender as MenuItem;
-            string text = item.Text;
-            // TODO: rewrite этот бля поиск по строке
-            if (text.Equals("&Open"))
-            {
-                this.WindowState = FormWindowState.Normal;
-            }
-            else if (text.Equals("&Hide in task bar"))
-            {
-                item.Checked = ToggleTaskbarVisibility();
-            }
-            else if (text.Equals("&Close"))
-            {
-                this.Close();
-            }
-        }
-
-        private bool ToggleTaskbarVisibility()
-        {
-            if (this.ShowInTaskbar)
-            {
-                this.ShowInTaskbar = false;
-            }
-            else
-            {
-                this.ShowInTaskbar = true;
-            }
-            return !this.ShowInTaskbar;
-        }
-
-        private void ButtonUpdate_Click(object sender, EventArgs e)
-        {
-            UpdateProcesses();
-        }
-
-        private void UpdateProcesses()
-        {
-            int selected = listBoxProcesses.SelectedIndex;
-            // TODO: maybe rewrite
-            string selectedName = GetProcessNameByIndex(selected);
-            listBoxProcesses.BeginUpdate();
-            listBoxProcesses.Items.Clear();
-            // TODO: optimize
-            foreach (var process in Process.GetProcesses())
-            {
-                if (settingsForm.hideNonIntaractive)
-                {
-                    if (HasMainWindow(process))
-                    {
-                        listBoxProcesses.Items.Add(process);
-                    }
-                }
-                else
-                {
-                    listBoxProcesses.Items.Add(process);
-                }
-            }
-            listBoxProcesses.EndUpdate();
-            if (selected != -1)
-            {
-                if (selectedName.Equals(GetProcessNameByIndex(selected)))
-                {
-                    listBoxProcesses.SelectedIndex = selected;
-                }
-            }
-        }
-
-        private string GetProcessNameByIndex(int index)
-        {
-            try
-            {
-                return ((Process)listBoxProcesses.Items[index]).ProcessName;
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-        }
-
-        private bool HasMainWindow(Process p)
-        {
-            return p.MainWindowHandle != IntPtr.Zero;
-        }
-
-        private void ButtonSetTop_Click(object sender, EventArgs e)
-        {
-            if (listBoxProcesses.SelectedItem == null)
-            {
-                labelSelectProcess.Show();
-                return;
-            }
-            labelSelectProcess.Hide();
-            SetWindowState(WINDOW_STATE.TOP);
-        }
-
-        private void ButtonUnsetTop_Click(object sender, EventArgs e)
-        {
-            if (listBoxProcesses.SelectedItem == null)
-            {
-                labelSelectProcess.Show();
-                return;
-            }
-            labelSelectProcess.Hide();
-            SetWindowState(WINDOW_STATE.UNTOP);
-        }
+        #region STUFF
 
         private bool IsTopMost(Process p)
         {
@@ -216,6 +80,156 @@ namespace OnTopper
         private IntPtr GetWindowHandle(Process p)
         {
             return Process.GetProcessById(p.Id).MainWindowHandle;
+        }
+
+        private string GetProcessNameByIndex(int index)
+        {
+            try
+            {
+                return ((Process)listBoxProcesses.Items[index]).ProcessName;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        private bool HasMainWindow(Process p)
+        {
+            return p.MainWindowHandle != IntPtr.Zero;
+        }
+
+        private bool InAutoRunAndMinimized()
+        {
+            return Settings.Default.AutoHide && Settings.Default.AutoStart;
+        }
+
+        private void UpdateProcesses()
+        {
+            int selected = listBoxProcesses.SelectedIndex;
+            // TODO: maybe rewrite
+            string selectedName = GetProcessNameByIndex(selected);
+            listBoxProcesses.BeginUpdate();
+            listBoxProcesses.Items.Clear();
+            // TODO: optimize
+            foreach (var process in Process.GetProcesses())
+            {
+                if (settingsForm.hideNonIntaractive)
+                {
+                    if (HasMainWindow(process))
+                    {
+                        listBoxProcesses.Items.Add(process);
+                    }
+                }
+                else
+                {
+                    listBoxProcesses.Items.Add(process);
+                }
+            }
+            listBoxProcesses.EndUpdate();
+            if (selected != -1)
+            {
+                if (selectedName.Equals(GetProcessNameByIndex(selected)))
+                {
+                    listBoxProcesses.SelectedIndex = selected;
+                }
+            }
+        }
+
+        #endregion
+
+        #region UI_SETUP
+
+        private void SetNotifyIcon()
+        {
+            ContextMenu iconMenu = new ContextMenu();
+            MenuItem openItem = new MenuItem("&Open");
+            MenuItem hideItem = new MenuItem("&Hide in task bar");
+            if (InAutoRunAndMinimized())
+            {
+                hideItem.Checked = true;
+            }
+            MenuItem closeItem = new MenuItem("&Close");
+
+            var handler = new EventHandler(OnClickIconMenuItem);
+            openItem.Click += handler;
+            hideItem.Click += handler;
+            closeItem.Click += handler;
+            iconMenu.MenuItems.Add(openItem);
+            iconMenu.MenuItems.Add(hideItem);
+            iconMenu.MenuItems.Add(closeItem);
+
+            notifyIcon.Text = "OnTopper";
+            notifyIcon.BalloonTipTitle = "OnTopper minimized";
+            notifyIcon.BalloonTipText = "OnTopper has been minimized, right click on the icon below to open";
+            notifyIcon.ContextMenu = iconMenu;
+        }
+
+        #endregion
+
+        #region UI_CONFIGURE
+
+        private bool ToggleTaskbarVisibility()
+        {
+            if (this.ShowInTaskbar)
+            {
+                this.ShowInTaskbar = false;
+            }
+            else
+            {
+                this.ShowInTaskbar = true;
+            }
+            return !this.ShowInTaskbar;
+        }
+
+        #endregion
+
+        #region UI_SYS_EVENTS
+
+        private void OnClickIconMenuItem(object sender, EventArgs e)
+        {
+            var item = sender as MenuItem;
+            string text = item.Text;
+            // TODO: rewrite этот бля поиск по строке
+            if (text.Equals("&Open"))
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+            else if (text.Equals("&Hide in task bar"))
+            {
+                item.Checked = ToggleTaskbarVisibility();
+            }
+            else if (text.Equals("&Close"))
+            {
+                this.Close();
+            }
+        }
+
+        private void ButtonUpdate_Click(object sender, EventArgs e)
+        {
+            UpdateProcesses();
+        }
+       
+        private void ButtonSetTop_Click(object sender, EventArgs e)
+        {
+            if (listBoxProcesses.SelectedItem == null)
+            {
+                labelSelectProcess.Show();
+                return;
+            }
+            labelSelectProcess.Hide();
+            SetWindowState(WINDOW_STATE.TOP);
+        }
+
+        private void ButtonUnsetTop_Click(object sender, EventArgs e)
+        {
+            if (listBoxProcesses.SelectedItem == null)
+            {
+                labelSelectProcess.Show();
+                return;
+            }
+            labelSelectProcess.Hide();
+            SetWindowState(WINDOW_STATE.UNTOP);
         }
 
         private void ButtonThisOnTop_Click(object sender, EventArgs e)
@@ -312,5 +326,7 @@ namespace OnTopper
                 this.ShowInTaskbar = false;
             }
         }
+
+        #endregion
     }
 }

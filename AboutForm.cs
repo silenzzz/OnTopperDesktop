@@ -16,9 +16,13 @@ namespace OnTopper
             ShowDialog();
         }
 
+        #region UI_SYS_EVENTS
+
         private void ButtonClose_Click(object sender, EventArgs e)
         {
             Close();
         }
+
+        #endregion
     }
 }

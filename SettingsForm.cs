@@ -29,11 +29,26 @@ namespace OnTopper
             }
         }
 
+        #region STUFF
+
         public void ShowDialogWithTopMostState(bool onTop)
         {
             this.TopMost = onTop;
             ShowDialog();
         }
+
+        private bool InAutorun()
+        {
+            var rkApp = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+            if (rkApp.GetValue(APP_NAME) == null)
+                return false;
+            else
+                return true;
+        }
+
+        #endregion
+
+        #region UI_SYS_EVENTS
 
         private void ButtonApply_Click(object sender, System.EventArgs e)
         {
@@ -70,15 +85,6 @@ namespace OnTopper
             Settings.Default.Save();
         }
 
-        private bool InAutorun()
-        {
-            var rkApp = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
-            if (rkApp.GetValue(APP_NAME) == null)
-                return false;
-            else
-                return true;
-        }
-
         private void CheckBoxAutoUpdate_CheckedChanged(object sender, System.EventArgs e)
         {
             if (checkBoxAutoUpdate.Checked)
@@ -97,5 +103,7 @@ namespace OnTopper
             Settings.Default.AutoHide = checkBoxAutoHide.Checked;
             Settings.Default.Save();
         }
+
+        #endregion
     }
 }
