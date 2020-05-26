@@ -47,15 +47,17 @@
             this.checkBoxHideUninteractive.AutoSize = true;
             this.checkBoxHideUninteractive.Checked = true;
             this.checkBoxHideUninteractive.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxHideUninteractive.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.checkBoxHideUninteractive.Location = new System.Drawing.Point(6, 19);
             this.checkBoxHideUninteractive.Name = "checkBoxHideUninteractive";
-            this.checkBoxHideUninteractive.Size = new System.Drawing.Size(121, 17);
+            this.checkBoxHideUninteractive.Size = new System.Drawing.Size(130, 17);
             this.checkBoxHideUninteractive.TabIndex = 0;
             this.checkBoxHideUninteractive.Text = "Hide non interactive";
             this.checkBoxHideUninteractive.UseVisualStyleBackColor = true;
             // 
             // buttonApply
             // 
+            this.buttonApply.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonApply.Location = new System.Drawing.Point(164, 96);
             this.buttonApply.Name = "buttonApply";
             this.buttonApply.Size = new System.Drawing.Size(121, 23);
@@ -67,9 +69,10 @@
             // checkBoxAutoUpdate
             // 
             this.checkBoxAutoUpdate.AutoSize = true;
+            this.checkBoxAutoUpdate.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.checkBoxAutoUpdate.Location = new System.Drawing.Point(6, 42);
             this.checkBoxAutoUpdate.Name = "checkBoxAutoUpdate";
-            this.checkBoxAutoUpdate.Size = new System.Drawing.Size(84, 17);
+            this.checkBoxAutoUpdate.Size = new System.Drawing.Size(91, 17);
             this.checkBoxAutoUpdate.TabIndex = 3;
             this.checkBoxAutoUpdate.Text = "Auto update";
             this.checkBoxAutoUpdate.UseVisualStyleBackColor = true;
@@ -77,7 +80,7 @@
             // 
             // buttonAutorun
             // 
-            this.buttonAutorun.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonAutorun.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonAutorun.Location = new System.Drawing.Point(6, 19);
             this.buttonAutorun.Name = "buttonAutorun";
             this.buttonAutorun.Size = new System.Drawing.Size(111, 40);
@@ -92,6 +95,7 @@
             this.groupBoxProcesses.Controls.Add(this.numericUpDownInterval);
             this.groupBoxProcesses.Controls.Add(this.checkBoxAutoUpdate);
             this.groupBoxProcesses.Controls.Add(this.checkBoxHideUninteractive);
+            this.groupBoxProcesses.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBoxProcesses.Location = new System.Drawing.Point(6, 12);
             this.groupBoxProcesses.Name = "groupBoxProcesses";
             this.groupBoxProcesses.Size = new System.Drawing.Size(152, 107);
@@ -102,37 +106,39 @@
             // labelInterval
             // 
             this.labelInterval.AutoSize = true;
+            this.labelInterval.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelInterval.Location = new System.Drawing.Point(6, 62);
             this.labelInterval.Name = "labelInterval";
-            this.labelInterval.Size = new System.Drawing.Size(79, 13);
+            this.labelInterval.Size = new System.Drawing.Size(86, 13);
             this.labelInterval.TabIndex = 5;
             this.labelInterval.Text = "Update interval";
             this.labelInterval.Visible = false;
             // 
             // numericUpDownInterval
             // 
+            this.numericUpDownInterval.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.numericUpDownInterval.Increment = new decimal(new int[] {
-            100,
+            5,
             0,
             0,
             0});
             this.numericUpDownInterval.Location = new System.Drawing.Point(6, 78);
             this.numericUpDownInterval.Maximum = new decimal(new int[] {
-            60000,
+            60,
             0,
             0,
             0});
             this.numericUpDownInterval.Minimum = new decimal(new int[] {
-            1000,
+            1,
             0,
             0,
             0});
             this.numericUpDownInterval.Name = "numericUpDownInterval";
             this.numericUpDownInterval.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.numericUpDownInterval.Size = new System.Drawing.Size(79, 20);
+            this.numericUpDownInterval.Size = new System.Drawing.Size(86, 22);
             this.numericUpDownInterval.TabIndex = 4;
             this.numericUpDownInterval.Value = new decimal(new int[] {
-            3000,
+            5,
             0,
             0,
             0});
@@ -142,6 +148,7 @@
             // 
             this.groupBoxStartup.Controls.Add(this.checkBoxAutoHide);
             this.groupBoxStartup.Controls.Add(this.buttonAutorun);
+            this.groupBoxStartup.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBoxStartup.Location = new System.Drawing.Point(164, 12);
             this.groupBoxStartup.Name = "groupBoxStartup";
             this.groupBoxStartup.Size = new System.Drawing.Size(121, 78);
@@ -152,9 +159,10 @@
             // checkBoxAutoHide
             // 
             this.checkBoxAutoHide.AutoSize = true;
-            this.checkBoxAutoHide.Location = new System.Drawing.Point(13, 59);
+            this.checkBoxAutoHide.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBoxAutoHide.Location = new System.Drawing.Point(9, 59);
             this.checkBoxAutoHide.Name = "checkBoxAutoHide";
-            this.checkBoxAutoHide.Size = new System.Drawing.Size(96, 17);
+            this.checkBoxAutoHide.Size = new System.Drawing.Size(105, 17);
             this.checkBoxAutoHide.TabIndex = 6;
             this.checkBoxAutoHide.Text = "Start minimized";
             this.checkBoxAutoHide.UseVisualStyleBackColor = true;
@@ -166,7 +174,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(293, 127);
+            this.ClientSize = new System.Drawing.Size(289, 123);
             this.ControlBox = false;
             this.Controls.Add(this.groupBoxProcesses);
             this.Controls.Add(this.buttonApply);

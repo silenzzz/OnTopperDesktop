@@ -48,6 +48,7 @@
             this.listBoxProcesses.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.listBoxProcesses.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listBoxProcesses.FormattingEnabled = true;
             this.listBoxProcesses.Location = new System.Drawing.Point(12, 38);
             this.listBoxProcesses.Name = "listBoxProcesses";
@@ -58,34 +59,46 @@
             // buttonUpdate
             // 
             this.buttonUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonUpdate.BackColor = System.Drawing.SystemColors.Highlight;
+            this.buttonUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonUpdate.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonUpdate.ForeColor = System.Drawing.Color.White;
             this.buttonUpdate.Location = new System.Drawing.Point(179, 61);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Size = new System.Drawing.Size(94, 23);
             this.buttonUpdate.TabIndex = 1;
             this.buttonUpdate.Text = "Update";
-            this.buttonUpdate.UseVisualStyleBackColor = true;
+            this.buttonUpdate.UseVisualStyleBackColor = false;
             this.buttonUpdate.Click += new System.EventHandler(this.ButtonUpdate_Click);
             // 
             // buttonSetTop
             // 
             this.buttonSetTop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSetTop.BackColor = System.Drawing.SystemColors.Highlight;
+            this.buttonSetTop.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonSetTop.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonSetTop.ForeColor = System.Drawing.Color.White;
             this.buttonSetTop.Location = new System.Drawing.Point(179, 120);
             this.buttonSetTop.Name = "buttonSetTop";
             this.buttonSetTop.Size = new System.Drawing.Size(94, 23);
             this.buttonSetTop.TabIndex = 2;
             this.buttonSetTop.Text = "Set top";
-            this.buttonSetTop.UseVisualStyleBackColor = true;
+            this.buttonSetTop.UseVisualStyleBackColor = false;
             this.buttonSetTop.Click += new System.EventHandler(this.ButtonSetTop_Click);
             // 
             // buttonUnsetTop
             // 
             this.buttonUnsetTop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonUnsetTop.BackColor = System.Drawing.SystemColors.Highlight;
+            this.buttonUnsetTop.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonUnsetTop.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonUnsetTop.ForeColor = System.Drawing.Color.White;
             this.buttonUnsetTop.Location = new System.Drawing.Point(179, 149);
             this.buttonUnsetTop.Name = "buttonUnsetTop";
             this.buttonUnsetTop.Size = new System.Drawing.Size(94, 23);
             this.buttonUnsetTop.TabIndex = 3;
             this.buttonUnsetTop.Text = "Unset top";
-            this.buttonUnsetTop.UseVisualStyleBackColor = true;
+            this.buttonUnsetTop.UseVisualStyleBackColor = false;
             this.buttonUnsetTop.Click += new System.EventHandler(this.ButtonUnsetTop_Click);
             // 
             // textBoxSearch
@@ -93,42 +106,51 @@
             this.textBoxSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxSearch.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBoxSearch.Location = new System.Drawing.Point(12, 12);
             this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(161, 20);
+            this.textBoxSearch.Size = new System.Drawing.Size(161, 22);
             this.textBoxSearch.TabIndex = 4;
             this.textBoxSearch.TextChanged += new System.EventHandler(this.TextBoxSearch_TextChanged);
             // 
             // buttonThisOnTop
             // 
             this.buttonThisOnTop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonThisOnTop.BackColor = System.Drawing.SystemColors.Highlight;
+            this.buttonThisOnTop.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonThisOnTop.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonThisOnTop.ForeColor = System.Drawing.Color.White;
             this.buttonThisOnTop.Location = new System.Drawing.Point(179, 90);
             this.buttonThisOnTop.Name = "buttonThisOnTop";
             this.buttonThisOnTop.Size = new System.Drawing.Size(94, 23);
             this.buttonThisOnTop.TabIndex = 6;
             this.buttonThisOnTop.Text = "Set this";
-            this.buttonThisOnTop.UseVisualStyleBackColor = true;
+            this.buttonThisOnTop.UseVisualStyleBackColor = false;
             this.buttonThisOnTop.Click += new System.EventHandler(this.ButtonThisOnTop_Click);
             // 
             // buttonAbout
             // 
             this.buttonAbout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAbout.BackColor = System.Drawing.SystemColors.Highlight;
+            this.buttonAbout.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonAbout.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonAbout.ForeColor = System.Drawing.Color.White;
             this.buttonAbout.Location = new System.Drawing.Point(253, 12);
             this.buttonAbout.Name = "buttonAbout";
             this.buttonAbout.Size = new System.Drawing.Size(20, 20);
             this.buttonAbout.TabIndex = 7;
             this.buttonAbout.Text = "I";
-            this.buttonAbout.UseVisualStyleBackColor = true;
+            this.buttonAbout.UseVisualStyleBackColor = false;
             this.buttonAbout.Click += new System.EventHandler(this.ButtonAbout_Click);
             // 
             // labelSelectProcess
             // 
             this.labelSelectProcess.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.labelSelectProcess.AutoSize = true;
-            this.labelSelectProcess.Location = new System.Drawing.Point(178, 38);
+            this.labelSelectProcess.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelSelectProcess.Location = new System.Drawing.Point(176, 38);
             this.labelSelectProcess.Name = "labelSelectProcess";
-            this.labelSelectProcess.Size = new System.Drawing.Size(96, 13);
+            this.labelSelectProcess.Size = new System.Drawing.Size(102, 13);
             this.labelSelectProcess.TabIndex = 8;
             this.labelSelectProcess.Text = "Select process first";
             this.labelSelectProcess.Visible = false;
@@ -136,13 +158,16 @@
             // buttonSettings
             // 
             this.buttonSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSettings.BackColor = System.Drawing.SystemColors.Highlight;
+            this.buttonSettings.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonSettings.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonSettings.ForeColor = System.Drawing.Color.White;
             this.buttonSettings.Location = new System.Drawing.Point(227, 12);
             this.buttonSettings.Name = "buttonSettings";
             this.buttonSettings.Size = new System.Drawing.Size(20, 20);
             this.buttonSettings.TabIndex = 9;
             this.buttonSettings.Text = "S";
-            this.buttonSettings.UseVisualStyleBackColor = true;
+            this.buttonSettings.UseVisualStyleBackColor = false;
             this.buttonSettings.Click += new System.EventHandler(this.ButtonSettings_Click);
             // 
             // notifyIcon
@@ -159,6 +184,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(285, 184);
             this.Controls.Add(this.buttonSettings);
             this.Controls.Add(this.labelSelectProcess);

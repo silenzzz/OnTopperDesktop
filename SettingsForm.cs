@@ -54,7 +54,7 @@ namespace OnTopper
         {
             hideNonIntaractive = checkBoxHideUninteractive.Checked;
             timerEnabled = checkBoxAutoUpdate.Checked;
-            interval = (int) numericUpDownInterval.Value;
+            interval = (int) numericUpDownInterval.Value * 1000;
             Close();
         }
 
