@@ -174,6 +174,7 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OnTopper";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.SizeChanged += new System.EventHandler(this.MainForm_SizeChanged);
             this.ResumeLayout(false);
             this.PerformLayout();

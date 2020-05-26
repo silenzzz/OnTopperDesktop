@@ -1,16 +1,15 @@
 ﻿using Microsoft.Win32;
+using OnTopper.Properties;
 using System.Windows.Forms;
 
 namespace OnTopper
 {
     public partial class SettingsForm : Form
     {
-
         // TODO: make private
         public bool hideNonIntaractive = true;
         public bool timerEnabled = false;
         public int interval = 3000;
-
 
         private const string APP_NAME = "OnTopper.exe";
         private const string DELETE_AUTORUN = "Dont enable on startup";
@@ -21,7 +20,12 @@ namespace OnTopper
             InitializeComponent();
             if (InAutorun())
             {
+                checkBoxAutoHide.Visible = true;
                 buttonAutorun.Text = DELETE_AUTORUN;
+            }
+            if (Settings.Default.AutoHide)
+            {
+                checkBoxAutoHide.Checked = true;
             }
         }
 
@@ -51,14 +55,19 @@ namespace OnTopper
             {
                 rkApp.DeleteValue(APP_NAME, false);
                 MessageBox.Show("Deleted from autorun", "Autostart", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                checkBoxAutoHide.Visible = false;
+                Settings.Default.AutoStart = false;
                 buttonAutorun.Text = ADD_AUTORUN;
             }
             else
             {
                 rkApp.SetValue(APP_NAME, Application.ExecutablePath.ToString());
                 MessageBox.Show("Added to autorun", "Autostart", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                checkBoxAutoHide.Visible = true;
+                Settings.Default.AutoStart = true;
                 buttonAutorun.Text = DELETE_AUTORUN;
             }
+            Settings.Default.Save();
         }
 
         private bool InAutorun()
@@ -81,6 +90,12 @@ namespace OnTopper
                 labelInterval.Visible = false;
                 numericUpDownInterval.Visible = false;
             }
+        }
+
+        private void CheckBoxAutoHide_CheckedChanged(object sender, System.EventArgs e)
+        {
+            Settings.Default.AutoHide = checkBoxAutoHide.Checked;
+            Settings.Default.Save();
         }
     }
 }

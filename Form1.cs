@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OnTopper.Properties;
+using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -37,11 +38,20 @@ namespace OnTopper
             UpdateProcesses();
         }
 
+        private bool InAutoRunAndMinimized()
+        {
+            return Settings.Default.AutoHide && Settings.Default.AutoStart;
+        }
+
         private void SetNotifyIcon()
         {
             ContextMenu iconMenu = new ContextMenu();
             MenuItem openItem = new MenuItem("&Open");
             MenuItem hideItem = new MenuItem("&Hide in task bar");
+            if (InAutoRunAndMinimized())
+            {
+                hideItem.Checked = true;
+            }
             MenuItem closeItem = new MenuItem("&Close");
 
             var handler = new EventHandler(OnClickIconMenuItem);
@@ -291,6 +301,15 @@ namespace OnTopper
                 {
                     UpdateProcesses();
                 }
+            }
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            if (InAutoRunAndMinimized())
+            {
+                this.WindowState = FormWindowState.Minimized;
+                this.ShowInTaskbar = false;
             }
         }
     }

@@ -33,10 +33,13 @@
             this.checkBoxAutoUpdate = new System.Windows.Forms.CheckBox();
             this.buttonAutorun = new System.Windows.Forms.Button();
             this.groupBoxProcesses = new System.Windows.Forms.GroupBox();
-            this.numericUpDownInterval = new System.Windows.Forms.NumericUpDown();
             this.labelInterval = new System.Windows.Forms.Label();
+            this.numericUpDownInterval = new System.Windows.Forms.NumericUpDown();
+            this.groupBoxStartup = new System.Windows.Forms.GroupBox();
+            this.checkBoxAutoHide = new System.Windows.Forms.CheckBox();
             this.groupBoxProcesses.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownInterval)).BeginInit();
+            this.groupBoxStartup.SuspendLayout();
             this.SuspendLayout();
             // 
             // checkBoxHideUninteractive
@@ -75,9 +78,9 @@
             // buttonAutorun
             // 
             this.buttonAutorun.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonAutorun.Location = new System.Drawing.Point(164, 18);
+            this.buttonAutorun.Location = new System.Drawing.Point(6, 19);
             this.buttonAutorun.Name = "buttonAutorun";
-            this.buttonAutorun.Size = new System.Drawing.Size(121, 40);
+            this.buttonAutorun.Size = new System.Drawing.Size(111, 40);
             this.buttonAutorun.TabIndex = 4;
             this.buttonAutorun.Text = "Enable on startup";
             this.buttonAutorun.UseVisualStyleBackColor = true;
@@ -95,6 +98,16 @@
             this.groupBoxProcesses.TabIndex = 5;
             this.groupBoxProcesses.TabStop = false;
             this.groupBoxProcesses.Text = "Processes";
+            // 
+            // labelInterval
+            // 
+            this.labelInterval.AutoSize = true;
+            this.labelInterval.Location = new System.Drawing.Point(6, 62);
+            this.labelInterval.Name = "labelInterval";
+            this.labelInterval.Size = new System.Drawing.Size(79, 13);
+            this.labelInterval.TabIndex = 5;
+            this.labelInterval.Text = "Update interval";
+            this.labelInterval.Visible = false;
             // 
             // numericUpDownInterval
             // 
@@ -125,26 +138,39 @@
             0});
             this.numericUpDownInterval.Visible = false;
             // 
-            // labelInterval
+            // groupBoxStartup
             // 
-            this.labelInterval.AutoSize = true;
-            this.labelInterval.Location = new System.Drawing.Point(6, 62);
-            this.labelInterval.Name = "labelInterval";
-            this.labelInterval.Size = new System.Drawing.Size(79, 13);
-            this.labelInterval.TabIndex = 5;
-            this.labelInterval.Text = "Update interval";
-            this.labelInterval.Visible = false;
+            this.groupBoxStartup.Controls.Add(this.checkBoxAutoHide);
+            this.groupBoxStartup.Controls.Add(this.buttonAutorun);
+            this.groupBoxStartup.Location = new System.Drawing.Point(164, 12);
+            this.groupBoxStartup.Name = "groupBoxStartup";
+            this.groupBoxStartup.Size = new System.Drawing.Size(121, 78);
+            this.groupBoxStartup.TabIndex = 6;
+            this.groupBoxStartup.TabStop = false;
+            this.groupBoxStartup.Text = "Startup";
+            // 
+            // checkBoxAutoHide
+            // 
+            this.checkBoxAutoHide.AutoSize = true;
+            this.checkBoxAutoHide.Location = new System.Drawing.Point(13, 59);
+            this.checkBoxAutoHide.Name = "checkBoxAutoHide";
+            this.checkBoxAutoHide.Size = new System.Drawing.Size(96, 17);
+            this.checkBoxAutoHide.TabIndex = 6;
+            this.checkBoxAutoHide.Text = "Start minimized";
+            this.checkBoxAutoHide.UseVisualStyleBackColor = true;
+            this.checkBoxAutoHide.Visible = false;
+            this.checkBoxAutoHide.CheckedChanged += new System.EventHandler(this.CheckBoxAutoHide_CheckedChanged);
             // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(297, 131);
+            this.ClientSize = new System.Drawing.Size(293, 127);
             this.ControlBox = false;
             this.Controls.Add(this.groupBoxProcesses);
-            this.Controls.Add(this.buttonAutorun);
             this.Controls.Add(this.buttonApply);
+            this.Controls.Add(this.groupBoxStartup);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -156,6 +182,8 @@
             this.groupBoxProcesses.ResumeLayout(false);
             this.groupBoxProcesses.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownInterval)).EndInit();
+            this.groupBoxStartup.ResumeLayout(false);
+            this.groupBoxStartup.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -169,5 +197,7 @@
         private System.Windows.Forms.GroupBox groupBoxProcesses;
         private System.Windows.Forms.Label labelInterval;
         private System.Windows.Forms.NumericUpDown numericUpDownInterval;
+        private System.Windows.Forms.GroupBox groupBoxStartup;
+        private System.Windows.Forms.CheckBox checkBoxAutoHide;
     }
 }
