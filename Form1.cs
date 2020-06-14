@@ -14,6 +14,15 @@ namespace OnTopper
         [DllImport("user32.dll", SetLastError = true)]
         private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
 
+        [DllImport("user32.dll")]
+        private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
+
+        [DllImport("user32.dll")]
+        private static extern bool SetLayeredWindowAttributes(IntPtr hwnd, uint crKey, byte bAlpha, uint dwFlags);
+
+        private const int WS_EX_LAYERED = 0x80000;
+        private const int LWA_ALPHA = 0x00000002;
+
         private static readonly IntPtr HWND_TOPMOST = new IntPtr(-1);
         private static readonly IntPtr HWND_NOTOPMOST = new IntPtr(-2);
         private const uint SWP_NOSIZE = 0x0001;
@@ -104,6 +113,13 @@ namespace OnTopper
             return Settings.Default.AutoHide && Settings.Default.AutoStart;
         }
 
+        public static void SetWindowTransparency(Process p, int transparency)
+        {
+            SetWindowLong(p.MainWindowHandle, GWL_EXSTYLE,
+                GetWindowLong(p.MainWindowHandle, GWL_EXSTYLE) ^ WS_EX_LAYERED);
+            SetLayeredWindowAttributes(p.MainWindowHandle, 0, (byte)((255 * transparency) / 100), LWA_ALPHA);
+        }
+
         private void UpdateProcesses()
         {
             int selected = listBoxProcesses.SelectedIndex;
@@ -134,6 +150,11 @@ namespace OnTopper
                     listBoxProcesses.SelectedIndex = selected;
                 }
             }
+        }
+
+        private void ShowSelectProcessMessageBox()
+        {
+            MessageBox.Show("Select process first", "OnTopper", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
 
         #endregion
@@ -209,7 +230,7 @@ namespace OnTopper
         {
             UpdateProcesses();
         }
-       
+
         private void ButtonSetTop_Click(object sender, EventArgs e)
         {
             if (listBoxProcesses.SelectedItem == null)

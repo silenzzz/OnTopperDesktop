@@ -8,6 +8,7 @@ namespace OnTopper
         public AboutForm()
         {
             InitializeComponent();
+            label.Text = string.Format(label.Text, typeof(Program).Assembly.GetName().Version.ToString());
         }
 
         public void ShowDialogWithTopMostState(bool onTop)

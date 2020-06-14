@@ -126,7 +126,7 @@
             // 
             this.labelSelectProcess.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.labelSelectProcess.AutoSize = true;
-            this.labelSelectProcess.Location = new System.Drawing.Point(178, 38);
+            this.labelSelectProcess.Location = new System.Drawing.Point(179, 38);
             this.labelSelectProcess.Name = "labelSelectProcess";
             this.labelSelectProcess.Size = new System.Drawing.Size(96, 13);
             this.labelSelectProcess.TabIndex = 8;
@@ -137,7 +137,7 @@
             // 
             this.buttonSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonSettings.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonSettings.Location = new System.Drawing.Point(227, 12);
+            this.buttonSettings.Location = new System.Drawing.Point(182, 11);
             this.buttonSettings.Name = "buttonSettings";
             this.buttonSettings.Size = new System.Drawing.Size(20, 20);
             this.buttonSettings.TabIndex = 9;
@@ -147,7 +147,6 @@
             // 
             // notifyIcon
             // 
-            this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
             this.notifyIcon.Text = "OnTopper";
             // 
             // timer
