@@ -236,10 +236,9 @@ namespace OnTopper
         {
             if (listBoxProcesses.SelectedItem == null)
             {
-                labelSelectProcess.Show();
+                ShowSelectProcessMessageBox();
                 return;
             }
-            labelSelectProcess.Hide();
             SetWindowState(WINDOW_STATE.TOP);
         }
 
@@ -247,10 +246,9 @@ namespace OnTopper
         {
             if (listBoxProcesses.SelectedItem == null)
             {
-                labelSelectProcess.Show();
+                ShowSelectProcessMessageBox();
                 return;
             }
-            labelSelectProcess.Hide();
             SetWindowState(WINDOW_STATE.UNTOP);
         }
 
@@ -349,11 +347,11 @@ namespace OnTopper
             }
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        private void ButtonTransparency_Click(object sender, EventArgs e)
         {
             if (listBoxProcesses.SelectedItem == null)
             {
-                labelSelectProcess.Show();
+                ShowSelectProcessMessageBox();
                 return;
             }
             transparencyForm.ShowDialogAndSetTransparency((Process)listBoxProcesses.SelectedItem);

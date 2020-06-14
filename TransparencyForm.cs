@@ -19,7 +19,7 @@ namespace OnTopper
 
         private const int GWL_EXSTYLE = -20;
         private const int WS_EX_LAYERED = 0x80000;
-        private const int LWA_ALPHA = 0x00000002;
+        private const int LWA_ALPHA = 0x2;
 
         private Process process;
 

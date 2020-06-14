@@ -37,11 +37,10 @@
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.buttonThisOnTop = new System.Windows.Forms.Button();
             this.buttonAbout = new System.Windows.Forms.Button();
-            this.labelSelectProcess = new System.Windows.Forms.Label();
             this.buttonSettings = new System.Windows.Forms.Button();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonTransparency = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBoxProcesses
@@ -50,16 +49,16 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listBoxProcesses.FormattingEnabled = true;
-            this.listBoxProcesses.Location = new System.Drawing.Point(12, 38);
+            this.listBoxProcesses.Location = new System.Drawing.Point(12, 36);
             this.listBoxProcesses.Name = "listBoxProcesses";
-            this.listBoxProcesses.Size = new System.Drawing.Size(161, 134);
+            this.listBoxProcesses.Size = new System.Drawing.Size(161, 147);
             this.listBoxProcesses.TabIndex = 0;
             this.listBoxProcesses.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ListBoxProcesses_MouseDoubleClick);
             // 
             // buttonUpdate
             // 
             this.buttonUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonUpdate.Location = new System.Drawing.Point(179, 61);
+            this.buttonUpdate.Location = new System.Drawing.Point(179, 74);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Size = new System.Drawing.Size(94, 23);
             this.buttonUpdate.TabIndex = 1;
@@ -70,7 +69,7 @@
             // buttonSetTop
             // 
             this.buttonSetTop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSetTop.Location = new System.Drawing.Point(179, 120);
+            this.buttonSetTop.Location = new System.Drawing.Point(179, 132);
             this.buttonSetTop.Name = "buttonSetTop";
             this.buttonSetTop.Size = new System.Drawing.Size(94, 23);
             this.buttonSetTop.TabIndex = 2;
@@ -81,7 +80,7 @@
             // buttonUnsetTop
             // 
             this.buttonUnsetTop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonUnsetTop.Location = new System.Drawing.Point(179, 149);
+            this.buttonUnsetTop.Location = new System.Drawing.Point(179, 161);
             this.buttonUnsetTop.Name = "buttonUnsetTop";
             this.buttonUnsetTop.Size = new System.Drawing.Size(94, 23);
             this.buttonUnsetTop.TabIndex = 3;
@@ -94,7 +93,7 @@
             this.textBoxSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxSearch.Location = new System.Drawing.Point(12, 12);
+            this.textBoxSearch.Location = new System.Drawing.Point(12, 11);
             this.textBoxSearch.Name = "textBoxSearch";
             this.textBoxSearch.Size = new System.Drawing.Size(161, 20);
             this.textBoxSearch.TabIndex = 4;
@@ -103,7 +102,7 @@
             // buttonThisOnTop
             // 
             this.buttonThisOnTop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonThisOnTop.Location = new System.Drawing.Point(179, 90);
+            this.buttonThisOnTop.Location = new System.Drawing.Point(179, 46);
             this.buttonThisOnTop.Name = "buttonThisOnTop";
             this.buttonThisOnTop.Size = new System.Drawing.Size(94, 23);
             this.buttonThisOnTop.TabIndex = 6;
@@ -123,22 +122,11 @@
             this.buttonAbout.UseVisualStyleBackColor = true;
             this.buttonAbout.Click += new System.EventHandler(this.ButtonAbout_Click);
             // 
-            // labelSelectProcess
-            // 
-            this.labelSelectProcess.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelSelectProcess.AutoSize = true;
-            this.labelSelectProcess.Location = new System.Drawing.Point(179, 38);
-            this.labelSelectProcess.Name = "labelSelectProcess";
-            this.labelSelectProcess.Size = new System.Drawing.Size(96, 13);
-            this.labelSelectProcess.TabIndex = 8;
-            this.labelSelectProcess.Text = "Select process first";
-            this.labelSelectProcess.Visible = false;
-            // 
             // buttonSettings
             // 
             this.buttonSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonSettings.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonSettings.Location = new System.Drawing.Point(182, 11);
+            this.buttonSettings.Location = new System.Drawing.Point(179, 12);
             this.buttonSettings.Name = "buttonSettings";
             this.buttonSettings.Size = new System.Drawing.Size(20, 20);
             this.buttonSettings.TabIndex = 9;
@@ -155,24 +143,24 @@
             this.timer.Interval = 3000;
             this.timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
-            // button1
+            // buttonTransparency
             // 
-            this.button1.Location = new System.Drawing.Point(198, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            this.buttonTransparency.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonTransparency.Location = new System.Drawing.Point(179, 103);
+            this.buttonTransparency.Name = "buttonTransparency";
+            this.buttonTransparency.Size = new System.Drawing.Size(94, 23);
+            this.buttonTransparency.TabIndex = 10;
+            this.buttonTransparency.Text = "Opacity";
+            this.buttonTransparency.UseVisualStyleBackColor = true;
+            this.buttonTransparency.Click += new System.EventHandler(this.ButtonTransparency_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(285, 184);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(285, 196);
+            this.Controls.Add(this.buttonTransparency);
             this.Controls.Add(this.buttonSettings);
-            this.Controls.Add(this.labelSelectProcess);
             this.Controls.Add(this.buttonAbout);
             this.Controls.Add(this.buttonThisOnTop);
             this.Controls.Add(this.textBoxSearch);
@@ -200,11 +188,10 @@
         private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.Button buttonThisOnTop;
         private System.Windows.Forms.Button buttonAbout;
-        private System.Windows.Forms.Label labelSelectProcess;
         private System.Windows.Forms.Button buttonSettings;
         private System.Windows.Forms.NotifyIcon notifyIcon;
         private System.Windows.Forms.Timer timer;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonTransparency;
     }
 }
 
