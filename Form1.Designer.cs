@@ -41,6 +41,7 @@
             this.buttonSettings = new System.Windows.Forms.Button();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBoxProcesses
@@ -154,11 +155,22 @@
             this.timer.Interval = 3000;
             this.timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(198, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(285, 184);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonSettings);
             this.Controls.Add(this.labelSelectProcess);
             this.Controls.Add(this.buttonAbout);
@@ -192,6 +204,7 @@
         private System.Windows.Forms.Button buttonSettings;
         private System.Windows.Forms.NotifyIcon notifyIcon;
         private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Button button1;
     }
 }
 

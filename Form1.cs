@@ -33,6 +33,7 @@ namespace OnTopper
 
         private readonly SettingsForm settingsForm = new SettingsForm();
         private readonly AboutForm aboutForm = new AboutForm();
+        private readonly TransparencyForm transparencyForm = new TransparencyForm();
 
         private bool ballonShowed = false;
 
@@ -346,6 +347,16 @@ namespace OnTopper
                 this.WindowState = FormWindowState.Minimized;
                 this.ShowInTaskbar = false;
             }
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            if (listBoxProcesses.SelectedItem == null)
+            {
+                labelSelectProcess.Show();
+                return;
+            }
+            transparencyForm.ShowDialogAndSetTransparency((Process)listBoxProcesses.SelectedItem);
         }
 
         #endregion

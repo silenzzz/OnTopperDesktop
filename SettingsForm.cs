@@ -40,10 +40,7 @@ namespace OnTopper
         private bool InAutorun()
         {
             var rkApp = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
-            if (rkApp.GetValue(APP_NAME) == null)
-                return false;
-            else
-                return true;
+            return rkApp.GetValue(APP_NAME) == null ? false : true;
         }
 
         #endregion
@@ -54,7 +51,7 @@ namespace OnTopper
         {
             hideNonIntaractive = checkBoxHideUninteractive.Checked;
             timerEnabled = checkBoxAutoUpdate.Checked;
-            interval = (int) numericUpDownInterval.Value;
+            interval = (int)numericUpDownInterval.Value;
             Close();
         }
 
@@ -91,7 +88,8 @@ namespace OnTopper
             {
                 labelInterval.Visible = true;
                 numericUpDownInterval.Visible = true;
-            } else
+            }
+            else
             {
                 labelInterval.Visible = false;
                 numericUpDownInterval.Visible = false;
