@@ -105,11 +105,11 @@
             // labelSFTicker
             // 
             this.labelSFTicker.AutoSize = true;
-            this.labelSFTicker.Location = new System.Drawing.Point(85, 146);
+            this.labelSFTicker.Location = new System.Drawing.Point(67, 146);
             this.labelSFTicker.Name = "labelSFTicker";
-            this.labelSFTicker.Size = new System.Drawing.Size(183, 13);
+            this.labelSFTicker.Size = new System.Drawing.Size(224, 13);
             this.labelSFTicker.TabIndex = 5;
-            this.labelSFTicker.Text = "Source here (pull request will be nice)";
+            this.labelSFTicker.Text = "Source here (pull request or ticket will be nice)";
             // 
             // labelTrello
             // 
