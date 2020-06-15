@@ -7,7 +7,6 @@ using System.Windows.Forms;
 namespace OnTopper
 {
     public partial class SizeForm : Form
-    // nHeight
     {
         [DllImport("user32.dll", SetLastError = true)]
         internal static extern bool MoveWindow(IntPtr hWnd, int X, int Y, int nHeight, int nWidth, bool bRepaint);
@@ -53,7 +52,7 @@ namespace OnTopper
 
         private void TextBoxHeight_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            if (!char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }
