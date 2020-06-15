@@ -41,6 +41,7 @@
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.buttonTransparency = new System.Windows.Forms.Button();
+            this.buttonProperties = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBoxProcesses
@@ -51,14 +52,14 @@
             this.listBoxProcesses.FormattingEnabled = true;
             this.listBoxProcesses.Location = new System.Drawing.Point(12, 36);
             this.listBoxProcesses.Name = "listBoxProcesses";
-            this.listBoxProcesses.Size = new System.Drawing.Size(161, 147);
+            this.listBoxProcesses.Size = new System.Drawing.Size(161, 186);
             this.listBoxProcesses.TabIndex = 0;
             this.listBoxProcesses.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ListBoxProcesses_MouseDoubleClick);
             // 
             // buttonUpdate
             // 
             this.buttonUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonUpdate.Location = new System.Drawing.Point(179, 74);
+            this.buttonUpdate.Location = new System.Drawing.Point(179, 54);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Size = new System.Drawing.Size(94, 23);
             this.buttonUpdate.TabIndex = 1;
@@ -69,7 +70,7 @@
             // buttonSetTop
             // 
             this.buttonSetTop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSetTop.Location = new System.Drawing.Point(179, 132);
+            this.buttonSetTop.Location = new System.Drawing.Point(179, 170);
             this.buttonSetTop.Name = "buttonSetTop";
             this.buttonSetTop.Size = new System.Drawing.Size(94, 23);
             this.buttonSetTop.TabIndex = 2;
@@ -80,7 +81,7 @@
             // buttonUnsetTop
             // 
             this.buttonUnsetTop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonUnsetTop.Location = new System.Drawing.Point(179, 161);
+            this.buttonUnsetTop.Location = new System.Drawing.Point(179, 199);
             this.buttonUnsetTop.Name = "buttonUnsetTop";
             this.buttonUnsetTop.Size = new System.Drawing.Size(94, 23);
             this.buttonUnsetTop.TabIndex = 3;
@@ -102,7 +103,7 @@
             // buttonThisOnTop
             // 
             this.buttonThisOnTop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonThisOnTop.Location = new System.Drawing.Point(179, 46);
+            this.buttonThisOnTop.Location = new System.Drawing.Point(179, 83);
             this.buttonThisOnTop.Name = "buttonThisOnTop";
             this.buttonThisOnTop.Size = new System.Drawing.Size(94, 23);
             this.buttonThisOnTop.TabIndex = 6;
@@ -136,6 +137,7 @@
             // 
             // notifyIcon
             // 
+            this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
             this.notifyIcon.Text = "OnTopper";
             // 
             // timer
@@ -146,7 +148,7 @@
             // buttonTransparency
             // 
             this.buttonTransparency.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonTransparency.Location = new System.Drawing.Point(179, 103);
+            this.buttonTransparency.Location = new System.Drawing.Point(179, 112);
             this.buttonTransparency.Name = "buttonTransparency";
             this.buttonTransparency.Size = new System.Drawing.Size(94, 23);
             this.buttonTransparency.TabIndex = 10;
@@ -154,11 +156,23 @@
             this.buttonTransparency.UseVisualStyleBackColor = true;
             this.buttonTransparency.Click += new System.EventHandler(this.ButtonTransparency_Click);
             // 
+            // buttonProperties
+            // 
+            this.buttonProperties.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonProperties.Location = new System.Drawing.Point(179, 141);
+            this.buttonProperties.Name = "buttonProperties";
+            this.buttonProperties.Size = new System.Drawing.Size(94, 23);
+            this.buttonProperties.TabIndex = 11;
+            this.buttonProperties.Text = "Properties";
+            this.buttonProperties.UseVisualStyleBackColor = true;
+            this.buttonProperties.Click += new System.EventHandler(this.ButtonProperties_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(285, 196);
+            this.ClientSize = new System.Drawing.Size(285, 230);
+            this.Controls.Add(this.buttonProperties);
             this.Controls.Add(this.buttonTransparency);
             this.Controls.Add(this.buttonSettings);
             this.Controls.Add(this.buttonAbout);
@@ -192,6 +206,7 @@
         private System.Windows.Forms.NotifyIcon notifyIcon;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Button buttonTransparency;
+        private System.Windows.Forms.Button buttonProperties;
     }
 }
 

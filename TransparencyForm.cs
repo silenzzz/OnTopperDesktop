@@ -7,7 +7,6 @@ namespace OnTopper
 {
     public partial class TransparencyForm : Form
     {
-        // TODO: Move functionality to main form???? idk pls pull request with normal solution
         [DllImport("user32.dll")]
         private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace OnTopper
@@ -17,13 +18,29 @@ namespace OnTopper
             ShowDialog();
         }
 
-        #region UI_SYS_EVENTS
+        private void LinkLabelSF_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start(linkLabelSF.Text);
+        }
+
+        private void LinkLabelSFTicket_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start(linkLabelSFTicket.Text);
+        }
 
         private void ButtonClose_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        #endregion
+        private void LinkLabelGit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start(linkLabelGit.Text);
+        }
+
+        private void LinkLabelTrello_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start(linkLabelTrello.Text);
+        }
     }
 }
