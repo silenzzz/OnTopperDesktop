@@ -183,7 +183,7 @@
             this.Controls.Add(this.buttonUpdate);
             this.Controls.Add(this.listBoxProcesses);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(301, 223);
+            this.MinimumSize = new System.Drawing.Size(301, 269);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OnTopper";
