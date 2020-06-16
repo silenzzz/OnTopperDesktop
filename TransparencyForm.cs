@@ -27,8 +27,9 @@ namespace OnTopper
             InitializeComponent();
         }
 
-        public void ShowDialogAndSetTransparency(Process p)
+        public void ShowDialogAndSetTransparency(Process p, bool topMost)
         {
+            this.TopMost = topMost;
             this.process = p;
             this.ShowDialog();
         }

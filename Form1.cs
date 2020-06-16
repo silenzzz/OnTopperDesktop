@@ -355,7 +355,7 @@ namespace OnTopper
                 ShowSelectProcessMessageBox();
                 return;
             }
-            transparencyForm.ShowDialogAndSetTransparency((Process)listBoxProcesses.SelectedItem);
+            transparencyForm.ShowDialogAndSetTransparency((Process)listBoxProcesses.SelectedItem, this.TopMost);
         }
 
         private void ButtonProperties_Click(object sender, EventArgs e)
@@ -365,7 +365,7 @@ namespace OnTopper
                 ShowSelectProcessMessageBox();
                 return;
             }
-            sizeForm.ShowDialogAndSetWindowSize((Process)listBoxProcesses.SelectedItem);
+            sizeForm.ShowDialogAndSetWindowSize((Process)listBoxProcesses.SelectedItem, this.TopMost);
         }
 
         #endregion

@@ -22,8 +22,9 @@ namespace OnTopper
             InitializeComponent();
         }
 
-        public void ShowDialogAndSetWindowSize(Process p)
+        public void ShowDialogAndSetWindowSize(Process p, bool topMost)
         {
+            this.TopMost = topMost;
             this.handle = p.MainWindowHandle;
             this.oldRectangle = new Rectangle();
 

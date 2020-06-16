@@ -75,7 +75,7 @@
             // labelW
             // 
             this.labelW.AutoSize = true;
-            this.labelW.Location = new System.Drawing.Point(9, 68);
+            this.labelW.Location = new System.Drawing.Point(9, 71);
             this.labelW.Name = "labelW";
             this.labelW.Size = new System.Drawing.Size(35, 13);
             this.labelW.TabIndex = 4;
@@ -167,7 +167,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(223, 157);
+            this.ClientSize = new System.Drawing.Size(219, 153);
             this.ControlBox = false;
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.groupBoxPosition);
