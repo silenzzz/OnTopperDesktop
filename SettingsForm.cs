@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using DmLib.Autorun;
+using Microsoft.Win32;
 using OnTopper.Properties;
 using System.Windows.Forms;
 
@@ -39,8 +40,7 @@ namespace OnTopper
 
         private bool InAutorun()
         {
-            var rkApp = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
-            return rkApp.GetValue(APP_NAME) == null ? false : true;
+            return Autorun.Contains(APP_NAME);
         }
 
         #endregion
@@ -62,10 +62,9 @@ namespace OnTopper
 
         private void ButtonAutorunOff_Click(object sender, System.EventArgs e)
         {
-            var rkApp = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
             if (InAutorun())
             {
-                rkApp.DeleteValue(APP_NAME, false);
+                Autorun.Remove(APP_NAME);
                 MessageBox.Show("Deleted from autorun", "Autostart", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 checkBoxAutoHide.Visible = false;
                 Settings.Default.AutoStart = false;
@@ -73,7 +72,7 @@ namespace OnTopper
             }
             else
             {
-                rkApp.SetValue(APP_NAME, Application.ExecutablePath.ToString());
+                Autorun.Add(APP_NAME, Application.ExecutablePath.ToString());
                 MessageBox.Show("Added to autorun", "Autostart", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 checkBoxAutoHide.Visible = true;
                 Settings.Default.AutoStart = true;

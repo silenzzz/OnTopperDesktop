@@ -1,44 +1,19 @@
-﻿using OnTopper.Properties;
+﻿using DmLib.Window;
+using OnTopper.Properties;
 using System;
 using System.Diagnostics;
-using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace OnTopper
 {
     public partial class MainForm : Form
     {
-        [DllImport("user32.dll")]
-        private static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, uint uFlags);
-
-        [DllImport("user32.dll", SetLastError = true)]
-        private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
-
-        [DllImport("user32.dll")]
-        private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
-
-        [DllImport("user32.dll")]
-        private static extern bool SetLayeredWindowAttributes(IntPtr hwnd, uint crKey, byte bAlpha, uint dwFlags);
-
-        private const int WS_EX_LAYERED = 0x80000;
-        private const int LWA_ALPHA = 0x00000002;
-
-        private static readonly IntPtr HWND_TOPMOST = new IntPtr(-1);
-        private static readonly IntPtr HWND_NOTOPMOST = new IntPtr(-2);
-        private const uint SWP_NOSIZE = 0x0001;
-        private const uint SWP_NOMOVE = 0x0002;
-        private const uint SWP_SHOWWINDOW = 0x0040;
-        private const int GWL_EXSTYLE = (-20);
-        private const uint WS_EX_TOPMOST = 0x0008;
-
         private readonly SettingsForm settingsForm = new SettingsForm();
         private readonly AboutForm aboutForm = new AboutForm();
         private readonly TransparencyForm transparencyForm = new TransparencyForm();
         private readonly SizeForm sizeForm = new SizeForm();
 
         private bool ballonShowed = false;
-
-        private enum WINDOW_STATE { TOP, UNTOP }
 
         public MainForm()
         {
@@ -51,46 +26,18 @@ namespace OnTopper
 
         #region STUFF
 
-        private bool IsTopMost(Process p)
-        {
-            int dwExStyle = GetWindowLong(GetWindowHandle(p), GWL_EXSTYLE);
-            if ((dwExStyle & WS_EX_TOPMOST) != 0)
-            {
-                return true;
-            }
-            return false;
-        }
-
-        private void SetWindowState(WINDOW_STATE state)
+        private void SetWindowState(State.WINDOW_STATE state)
         {
             try
             {
-                if (state == WINDOW_STATE.TOP)
-                {
-                    SetWindowPos(GetWindowHandle((Process)listBoxProcesses.SelectedItem)
-                    , HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE | SWP_SHOWWINDOW);
-                }
-                else
-                {
-                    SetWindowPos(GetWindowHandle((Process)listBoxProcesses.SelectedItem)
-                    , HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE | SWP_SHOWWINDOW);
-                }
+                State.SetWindowState((Process)listBoxProcesses.SelectedItem, state);
             }
-            catch (ArgumentException)
+            catch (ProcessNotExistsException)
             {
                 MessageBox.Show("Process doesn't exists anymore",
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 UpdateProcesses();
             }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message, "Unknown error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private IntPtr GetWindowHandle(Process p)
-        {
-            return Process.GetProcessById(p.Id).MainWindowHandle;
         }
 
         private string GetProcessNameByIndex(int index)
@@ -113,13 +60,6 @@ namespace OnTopper
         private bool InAutoRunAndMinimized()
         {
             return Settings.Default.AutoHide && Settings.Default.AutoStart;
-        }
-
-        public static void SetWindowTransparency(Process p, int transparency)
-        {
-            SetWindowLong(p.MainWindowHandle, GWL_EXSTYLE,
-                GetWindowLong(p.MainWindowHandle, GWL_EXSTYLE) ^ WS_EX_LAYERED);
-            SetLayeredWindowAttributes(p.MainWindowHandle, 0, (byte)((255 * transparency) / 100), LWA_ALPHA);
         }
 
         private void UpdateProcesses()
@@ -240,7 +180,7 @@ namespace OnTopper
                 ShowSelectProcessMessageBox();
                 return;
             }
-            SetWindowState(WINDOW_STATE.TOP);
+            SetWindowState(State.WINDOW_STATE.TOP);
         }
 
         private void ButtonUnsetTop_Click(object sender, EventArgs e)
@@ -250,7 +190,7 @@ namespace OnTopper
                 ShowSelectProcessMessageBox();
                 return;
             }
-            SetWindowState(WINDOW_STATE.UNTOP);
+            SetWindowState(State.WINDOW_STATE.UNTOP);
         }
 
         private void ButtonThisOnTop_Click(object sender, EventArgs e)
@@ -329,7 +269,7 @@ namespace OnTopper
                     var proc = (Process)listBoxProcesses.Items[index];
                     MessageBox.Show(string.Format("Priority: {0}\nId: {1}\nName: {2}\nResponding: {3}\nStarted: {4}\n" +
                         "Threads: {5}\nTop most: {6}\nVirtual mem size: {7}b", proc.BasePriority, proc.Id, proc.ProcessName,
-                        proc.Responding, proc.StartTime, proc.Threads.Count, IsTopMost(proc), proc.VirtualMemorySize64),
+                        proc.Responding, proc.StartTime, proc.Threads.Count, State.IsTopMost(proc), proc.VirtualMemorySize64),
                         "Process info");
                 }
                 catch (Exception)
