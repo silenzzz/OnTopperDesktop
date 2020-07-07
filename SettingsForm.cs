@@ -1,5 +1,4 @@
 ﻿using DmLib.Autorun;
-using Microsoft.Win32;
 using OnTopper.Properties;
 using System.Windows.Forms;
 
@@ -20,6 +19,7 @@ namespace OnTopper
         public SettingsForm()
         {
             InitializeComponent();
+            ApplyUiFromSettings();
             if (InAutorun())
             {
                 checkBoxAutoHide.Visible = true;
@@ -29,6 +29,15 @@ namespace OnTopper
             {
                 checkBoxAutoHide.Checked = true;
             }
+        }
+
+        private void ApplyUiFromSettings()
+        {
+            checkBoxAutoUpdate.Checked = Settings.Default.AutoUpdate;
+            checkBoxAutoHide.Checked = Settings.Default.AutoHide;
+            numericUpDownInterval.Value = Settings.Default.UpdateInterval;
+            checkBoxShowWindowTitles.Checked = Settings.Default.WindowTitles;
+            checkBoxHideUninteractive.Checked = Settings.Default.HideNonInteractive;
         }
 
         #region STUFF
@@ -97,9 +106,14 @@ namespace OnTopper
             }
         }
 
-        private void CheckBoxAutoHide_CheckedChanged(object sender, System.EventArgs e)
+        private void SettingsForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+            Settings.Default.AutoUpdate = checkBoxAutoUpdate.Checked;
             Settings.Default.AutoHide = checkBoxAutoHide.Checked;
+            Settings.Default.UpdateInterval = (int)numericUpDownInterval.Value;
+            Settings.Default.WindowTitles = checkBoxShowWindowTitles.Checked;
+            Settings.Default.HideNonInteractive = checkBoxHideUninteractive.Checked;
+
             Settings.Default.Save();
         }
 

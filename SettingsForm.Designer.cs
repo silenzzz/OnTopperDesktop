@@ -33,11 +33,11 @@
             this.checkBoxAutoUpdate = new System.Windows.Forms.CheckBox();
             this.buttonAutorun = new System.Windows.Forms.Button();
             this.groupBoxProcesses = new System.Windows.Forms.GroupBox();
+            this.checkBoxShowWindowTitles = new System.Windows.Forms.CheckBox();
             this.labelInterval = new System.Windows.Forms.Label();
             this.numericUpDownInterval = new System.Windows.Forms.NumericUpDown();
             this.groupBoxStartup = new System.Windows.Forms.GroupBox();
             this.checkBoxAutoHide = new System.Windows.Forms.CheckBox();
-            this.checkBoxShowWindowTitles = new System.Windows.Forms.CheckBox();
             this.groupBoxProcesses.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownInterval)).BeginInit();
             this.groupBoxStartup.SuspendLayout();
@@ -101,6 +101,16 @@
             this.groupBoxProcesses.TabStop = false;
             this.groupBoxProcesses.Text = "Processes";
             // 
+            // checkBoxShowWindowTitles
+            // 
+            this.checkBoxShowWindowTitles.AutoSize = true;
+            this.checkBoxShowWindowTitles.Location = new System.Drawing.Point(6, 37);
+            this.checkBoxShowWindowTitles.Name = "checkBoxShowWindowTitles";
+            this.checkBoxShowWindowTitles.Size = new System.Drawing.Size(116, 17);
+            this.checkBoxShowWindowTitles.TabIndex = 6;
+            this.checkBoxShowWindowTitles.Text = "Show window titles";
+            this.checkBoxShowWindowTitles.UseVisualStyleBackColor = true;
+            // 
             // labelInterval
             // 
             this.labelInterval.AutoSize = true;
@@ -161,24 +171,13 @@
             this.checkBoxAutoHide.Text = "Start minimized";
             this.checkBoxAutoHide.UseVisualStyleBackColor = true;
             this.checkBoxAutoHide.Visible = false;
-            this.checkBoxAutoHide.CheckedChanged += new System.EventHandler(this.CheckBoxAutoHide_CheckedChanged);
-            // 
-            // checkBoxShowWindowTitles
-            // 
-            this.checkBoxShowWindowTitles.AutoSize = true;
-            this.checkBoxShowWindowTitles.Location = new System.Drawing.Point(6, 37);
-            this.checkBoxShowWindowTitles.Name = "checkBoxShowWindowTitles";
-            this.checkBoxShowWindowTitles.Size = new System.Drawing.Size(116, 17);
-            this.checkBoxShowWindowTitles.TabIndex = 6;
-            this.checkBoxShowWindowTitles.Text = "Show window titles";
-            this.checkBoxShowWindowTitles.UseVisualStyleBackColor = true;
             // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(289, 135);
+            this.ClientSize = new System.Drawing.Size(294, 137);
             this.ControlBox = false;
             this.Controls.Add(this.groupBoxProcesses);
             this.Controls.Add(this.buttonApply);
@@ -191,6 +190,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Settings";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SettingsForm_FormClosing);
             this.groupBoxProcesses.ResumeLayout(false);
             this.groupBoxProcesses.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownInterval)).EndInit();

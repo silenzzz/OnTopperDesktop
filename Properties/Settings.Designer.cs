@@ -34,7 +34,67 @@ namespace OnTopper.Properties {
                 this["AutoHide"] = value;
             }
         }
-        
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool AutoUpdate
+        {
+            get
+            {
+                return ((bool)(this["AutoUpdate"]));
+            }
+            set
+            {
+                this["AutoUpdate"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3000")]
+        public int UpdateInterval
+        {
+            get
+            {
+                return ((int)(this["UpdateInterval"]));
+            }
+            set
+            {
+                this["UpdateInterval"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool WindowTitles
+        {
+            get
+            {
+                return ((bool)(this["WindowTitles"]));
+            }
+            set
+            {
+                this["WindowTitles"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool HideNonInteractive
+        {
+            get
+            {
+                return ((bool)(this["HideNonInteractive"]));
+            }
+            set
+            {
+                this["HideNonInteractive"] = value;
+            }
+        }
+
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
