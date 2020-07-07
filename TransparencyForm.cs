@@ -10,8 +10,6 @@ namespace OnTopper
         public ushort previous = 100;
         public ushort current = 100;
 
-        public event EventHandler SetOpacityEvent;
-
         public TransparencyForm()
         {
             InitializeComponent();
