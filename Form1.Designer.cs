@@ -42,6 +42,7 @@
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.buttonTransparency = new System.Windows.Forms.Button();
             this.buttonProperties = new System.Windows.Forms.Button();
+            this.buttonLog = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBoxProcesses
@@ -115,7 +116,7 @@
             // 
             this.buttonAbout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonAbout.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonAbout.Location = new System.Drawing.Point(253, 12);
+            this.buttonAbout.Location = new System.Drawing.Point(253, 10);
             this.buttonAbout.Name = "buttonAbout";
             this.buttonAbout.Size = new System.Drawing.Size(20, 20);
             this.buttonAbout.TabIndex = 7;
@@ -127,7 +128,7 @@
             // 
             this.buttonSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonSettings.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonSettings.Location = new System.Drawing.Point(179, 12);
+            this.buttonSettings.Location = new System.Drawing.Point(179, 10);
             this.buttonSettings.Name = "buttonSettings";
             this.buttonSettings.Size = new System.Drawing.Size(20, 20);
             this.buttonSettings.TabIndex = 9;
@@ -167,11 +168,24 @@
             this.buttonProperties.UseVisualStyleBackColor = true;
             this.buttonProperties.Click += new System.EventHandler(this.ButtonProperties_Click);
             // 
+            // buttonLog
+            // 
+            this.buttonLog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonLog.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonLog.Location = new System.Drawing.Point(216, 10);
+            this.buttonLog.Name = "buttonLog";
+            this.buttonLog.Size = new System.Drawing.Size(20, 20);
+            this.buttonLog.TabIndex = 12;
+            this.buttonLog.Text = "L";
+            this.buttonLog.UseVisualStyleBackColor = true;
+            this.buttonLog.Click += new System.EventHandler(this.ButtonLog_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(285, 230);
+            this.Controls.Add(this.buttonLog);
             this.Controls.Add(this.buttonProperties);
             this.Controls.Add(this.buttonTransparency);
             this.Controls.Add(this.buttonSettings);
@@ -207,6 +221,7 @@
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Button buttonTransparency;
         private System.Windows.Forms.Button buttonProperties;
+        private System.Windows.Forms.Button buttonLog;
     }
 }
 

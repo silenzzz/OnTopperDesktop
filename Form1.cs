@@ -1,5 +1,6 @@
 ﻿using DmLib.Window;
 using OnTopper.Properties;
+using OnTopper.Stuff;
 using System;
 using System.Diagnostics;
 using System.Windows.Forms;
@@ -12,6 +13,7 @@ namespace OnTopper
         private readonly AboutForm aboutForm = new AboutForm();
         private readonly TransparencyForm transparencyForm = new TransparencyForm();
         private readonly SizeForm sizeForm = new SizeForm();
+        private readonly LogForm logForm = new LogForm();
 
         private bool ballonShowed = false;
 
@@ -25,6 +27,11 @@ namespace OnTopper
         }
 
         #region STUFF
+
+        public void AddActionToLogForm(Stuff.Action action)
+        {
+            this.logForm.AddAction(action);
+        }
 
         private void SetWindowState(State.WINDOW_STATE state)
         {
@@ -181,6 +188,7 @@ namespace OnTopper
                 return;
             }
             SetWindowState(State.WINDOW_STATE.TOP);
+            logForm.AddAction(new TopStateAction(listBoxProcesses.SelectedItem as Process, State.WINDOW_STATE.TOP));
         }
 
         private void ButtonUnsetTop_Click(object sender, EventArgs e)
@@ -191,6 +199,7 @@ namespace OnTopper
                 return;
             }
             SetWindowState(State.WINDOW_STATE.UNTOP);
+            logForm.AddAction(new TopStateAction(listBoxProcesses.SelectedItem as Process, State.WINDOW_STATE.UNTOP));
         }
 
         private void ButtonThisOnTop_Click(object sender, EventArgs e)
@@ -302,7 +311,10 @@ namespace OnTopper
                 ShowSelectProcessMessageBox();
                 return;
             }
-            transparencyForm.ShowDialogAndSetTransparency((Process)listBoxProcesses.SelectedItem, this.TopMost);
+            transparencyForm.ShowDialogWithTopMostState(TopMost);
+            var p = listBoxProcesses.SelectedItem as Process;
+            Transparency.SetWindowTransparency(p, transparencyForm.current);
+            AddActionToLogForm(new OpacityAction(transparencyForm.previous, transparencyForm.current, p));
         }
 
         private void ButtonProperties_Click(object sender, EventArgs e)
@@ -314,6 +326,12 @@ namespace OnTopper
             }
             sizeForm.ShowDialogAndSetWindowSize((Process)listBoxProcesses.SelectedItem, this.TopMost);
         }
+
+        private void ButtonLog_Click(object sender, EventArgs e)
+        {
+            logForm.ShowDialogWithTopMostState(TopMost);
+        }
+
 
         #endregion
     }

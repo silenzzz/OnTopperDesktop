@@ -7,17 +7,19 @@ namespace OnTopper
 {
     public partial class TransparencyForm : Form
     {
-        private Process process;
+        public ushort previous = 100;
+        public ushort current = 100;
+
+        public event EventHandler SetOpacityEvent;
 
         public TransparencyForm()
         {
             InitializeComponent();
         }
 
-        public void ShowDialogAndSetTransparency(Process p, bool topMost)
+        public void ShowDialogWithTopMostState(bool topMost)
         {
             this.TopMost = topMost;
-            this.process = p;
             this.ShowDialog();
         }
 
@@ -33,7 +35,9 @@ namespace OnTopper
 
         private void ButtonApply_Click(object sender, EventArgs e)
         {
-            Transparency.SetWindowTransparency(process, trackBar.Value);
+            previous = current;
+            this.current = (ushort)trackBar.Value;
+             
             this.Close();
         }
     }
