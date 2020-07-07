@@ -10,6 +10,7 @@ namespace OnTopper
         // TODO: make private
         public bool hideNonIntaractive = true;
         public bool timerEnabled = false;
+        public bool showWindowTitles = false;
         public int interval = 3000;
 
         private const string APP_NAME = "OnTopper.exe";
@@ -51,6 +52,7 @@ namespace OnTopper
         {
             hideNonIntaractive = checkBoxHideUninteractive.Checked;
             timerEnabled = checkBoxAutoUpdate.Checked;
+            showWindowTitles = checkBoxShowWindowTitles.Checked;
             interval = (int)numericUpDownInterval.Value;
             Close();
         }

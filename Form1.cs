@@ -215,6 +215,13 @@ namespace OnTopper
         private void ButtonSettings_Click(object sender, EventArgs e)
         {
             settingsForm.ShowDialogWithTopMostState(TopMost);
+            if (settingsForm.showWindowTitles)
+            {
+                listBoxProcesses.DisplayMember = "MainWindowTitle";
+            } else
+            {
+                listBoxProcesses.DisplayMember = "ProcessName";
+            }
             if (settingsForm.timerEnabled)
             {
                 timer.Interval = settingsForm.interval;

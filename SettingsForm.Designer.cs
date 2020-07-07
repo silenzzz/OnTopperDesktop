@@ -37,6 +37,7 @@
             this.numericUpDownInterval = new System.Windows.Forms.NumericUpDown();
             this.groupBoxStartup = new System.Windows.Forms.GroupBox();
             this.checkBoxAutoHide = new System.Windows.Forms.CheckBox();
+            this.checkBoxShowWindowTitles = new System.Windows.Forms.CheckBox();
             this.groupBoxProcesses.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownInterval)).BeginInit();
             this.groupBoxStartup.SuspendLayout();
@@ -56,7 +57,7 @@
             // 
             // buttonApply
             // 
-            this.buttonApply.Location = new System.Drawing.Point(164, 96);
+            this.buttonApply.Location = new System.Drawing.Point(164, 107);
             this.buttonApply.Name = "buttonApply";
             this.buttonApply.Size = new System.Drawing.Size(121, 23);
             this.buttonApply.TabIndex = 1;
@@ -67,7 +68,7 @@
             // checkBoxAutoUpdate
             // 
             this.checkBoxAutoUpdate.AutoSize = true;
-            this.checkBoxAutoUpdate.Location = new System.Drawing.Point(6, 42);
+            this.checkBoxAutoUpdate.Location = new System.Drawing.Point(6, 56);
             this.checkBoxAutoUpdate.Name = "checkBoxAutoUpdate";
             this.checkBoxAutoUpdate.Size = new System.Drawing.Size(84, 17);
             this.checkBoxAutoUpdate.TabIndex = 3;
@@ -88,13 +89,14 @@
             // 
             // groupBoxProcesses
             // 
+            this.groupBoxProcesses.Controls.Add(this.checkBoxShowWindowTitles);
             this.groupBoxProcesses.Controls.Add(this.labelInterval);
             this.groupBoxProcesses.Controls.Add(this.numericUpDownInterval);
             this.groupBoxProcesses.Controls.Add(this.checkBoxAutoUpdate);
             this.groupBoxProcesses.Controls.Add(this.checkBoxHideUninteractive);
             this.groupBoxProcesses.Location = new System.Drawing.Point(6, 12);
             this.groupBoxProcesses.Name = "groupBoxProcesses";
-            this.groupBoxProcesses.Size = new System.Drawing.Size(152, 107);
+            this.groupBoxProcesses.Size = new System.Drawing.Size(152, 118);
             this.groupBoxProcesses.TabIndex = 5;
             this.groupBoxProcesses.TabStop = false;
             this.groupBoxProcesses.Text = "Processes";
@@ -102,7 +104,7 @@
             // labelInterval
             // 
             this.labelInterval.AutoSize = true;
-            this.labelInterval.Location = new System.Drawing.Point(6, 62);
+            this.labelInterval.Location = new System.Drawing.Point(6, 76);
             this.labelInterval.Name = "labelInterval";
             this.labelInterval.Size = new System.Drawing.Size(79, 13);
             this.labelInterval.TabIndex = 5;
@@ -116,7 +118,7 @@
             0,
             0,
             0});
-            this.numericUpDownInterval.Location = new System.Drawing.Point(6, 78);
+            this.numericUpDownInterval.Location = new System.Drawing.Point(6, 92);
             this.numericUpDownInterval.Maximum = new decimal(new int[] {
             60000,
             0,
@@ -144,7 +146,7 @@
             this.groupBoxStartup.Controls.Add(this.buttonAutorun);
             this.groupBoxStartup.Location = new System.Drawing.Point(164, 12);
             this.groupBoxStartup.Name = "groupBoxStartup";
-            this.groupBoxStartup.Size = new System.Drawing.Size(121, 78);
+            this.groupBoxStartup.Size = new System.Drawing.Size(121, 89);
             this.groupBoxStartup.TabIndex = 6;
             this.groupBoxStartup.TabStop = false;
             this.groupBoxStartup.Text = "Startup";
@@ -152,7 +154,7 @@
             // checkBoxAutoHide
             // 
             this.checkBoxAutoHide.AutoSize = true;
-            this.checkBoxAutoHide.Location = new System.Drawing.Point(13, 59);
+            this.checkBoxAutoHide.Location = new System.Drawing.Point(13, 65);
             this.checkBoxAutoHide.Name = "checkBoxAutoHide";
             this.checkBoxAutoHide.Size = new System.Drawing.Size(96, 17);
             this.checkBoxAutoHide.TabIndex = 6;
@@ -161,12 +163,22 @@
             this.checkBoxAutoHide.Visible = false;
             this.checkBoxAutoHide.CheckedChanged += new System.EventHandler(this.CheckBoxAutoHide_CheckedChanged);
             // 
+            // checkBoxShowWindowTitles
+            // 
+            this.checkBoxShowWindowTitles.AutoSize = true;
+            this.checkBoxShowWindowTitles.Location = new System.Drawing.Point(6, 37);
+            this.checkBoxShowWindowTitles.Name = "checkBoxShowWindowTitles";
+            this.checkBoxShowWindowTitles.Size = new System.Drawing.Size(116, 17);
+            this.checkBoxShowWindowTitles.TabIndex = 6;
+            this.checkBoxShowWindowTitles.Text = "Show window titles";
+            this.checkBoxShowWindowTitles.UseVisualStyleBackColor = true;
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(293, 127);
+            this.ClientSize = new System.Drawing.Size(289, 135);
             this.ControlBox = false;
             this.Controls.Add(this.groupBoxProcesses);
             this.Controls.Add(this.buttonApply);
@@ -199,5 +211,6 @@
         private System.Windows.Forms.NumericUpDown numericUpDownInterval;
         private System.Windows.Forms.GroupBox groupBoxStartup;
         private System.Windows.Forms.CheckBox checkBoxAutoHide;
+        private System.Windows.Forms.CheckBox checkBoxShowWindowTitles;
     }
 }
