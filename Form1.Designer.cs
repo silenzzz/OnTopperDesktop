@@ -50,10 +50,10 @@
             this.listBoxProcesses.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBoxProcesses.FormattingEnabled = true;
             this.listBoxProcesses.Location = new System.Drawing.Point(12, 36);
             this.listBoxProcesses.Name = "listBoxProcesses";
             this.listBoxProcesses.Size = new System.Drawing.Size(161, 186);
+            this.listBoxProcesses.Sorted = true;
             this.listBoxProcesses.TabIndex = 0;
             this.listBoxProcesses.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ListBoxProcesses_MouseDoubleClick);
             // 
