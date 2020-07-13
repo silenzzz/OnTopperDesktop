@@ -125,8 +125,6 @@ artifacts/
 *.svclog
 *.scc
 *.ico 
-*.resx
-
 
 
 # Chutzpah Test files
