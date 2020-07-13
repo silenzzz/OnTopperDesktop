@@ -83,7 +83,6 @@ bld/
 
 # Visual Studo 2015 cache/options directory
 .vs/
-*.sln
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
