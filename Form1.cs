@@ -24,6 +24,23 @@ namespace OnTopper
             listBoxProcesses.DisplayMember = "ProcessName";
             SetNotifyIcon();
             UpdateProcesses();
+
+            UpdateService updateService = UpdateService.GetInstance();
+            if (updateService.UpdateAvaliable())
+            {
+                var res = MessageBox.Show(string.Format("New version {0} is avaliable, want to install it now?", updateService.GetWebVersion()),
+                    "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (res == DialogResult.Yes)
+                {
+                    updateService.UpdateDownloaded += OnUpdateDownloaded;
+                    updateService.DownloadUpdate();
+                }
+            }
+        }
+
+        private void OnUpdateDownloaded(object sender, EventArgs e)
+        {
+            MessageBox.Show("Update downloaded, want to restart now?", "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
         }
 
         #region STUFF
@@ -227,7 +244,8 @@ namespace OnTopper
             if (settingsForm.showWindowTitles)
             {
                 listBoxProcesses.DisplayMember = "MainWindowTitle";
-            } else
+            }
+            else
             {
                 listBoxProcesses.DisplayMember = "ProcessName";
             }

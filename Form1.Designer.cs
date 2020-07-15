@@ -185,13 +185,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(285, 230);
+            this.Controls.Add(this.textBoxSearch);
             this.Controls.Add(this.buttonLog);
             this.Controls.Add(this.buttonProperties);
             this.Controls.Add(this.buttonTransparency);
             this.Controls.Add(this.buttonSettings);
             this.Controls.Add(this.buttonAbout);
             this.Controls.Add(this.buttonThisOnTop);
-            this.Controls.Add(this.textBoxSearch);
             this.Controls.Add(this.buttonUnsetTop);
             this.Controls.Add(this.buttonSetTop);
             this.Controls.Add(this.buttonUpdate);

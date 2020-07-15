@@ -70,9 +70,9 @@
             this.checkBoxAutoUpdate.AutoSize = true;
             this.checkBoxAutoUpdate.Location = new System.Drawing.Point(6, 56);
             this.checkBoxAutoUpdate.Name = "checkBoxAutoUpdate";
-            this.checkBoxAutoUpdate.Size = new System.Drawing.Size(84, 17);
+            this.checkBoxAutoUpdate.Size = new System.Drawing.Size(135, 17);
             this.checkBoxAutoUpdate.TabIndex = 3;
-            this.checkBoxAutoUpdate.Text = "Auto update";
+            this.checkBoxAutoUpdate.Text = "Auto update processes";
             this.checkBoxAutoUpdate.UseVisualStyleBackColor = true;
             this.checkBoxAutoUpdate.CheckedChanged += new System.EventHandler(this.CheckBoxAutoUpdate_CheckedChanged);
             // 
@@ -177,7 +177,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(294, 137);
+            this.ClientSize = new System.Drawing.Size(290, 133);
             this.ControlBox = false;
             this.Controls.Add(this.groupBoxProcesses);
             this.Controls.Add(this.buttonApply);

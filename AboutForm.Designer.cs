@@ -136,7 +136,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(344, 246);
+            this.ClientSize = new System.Drawing.Size(340, 242);
             this.ControlBox = false;
             this.Controls.Add(this.linkLabelTrello);
             this.Controls.Add(this.labelTrello);
@@ -154,7 +154,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "About";
+            this.Text = " ";
             this.ResumeLayout(false);
             this.PerformLayout();
 

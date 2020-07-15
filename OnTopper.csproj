@@ -133,6 +133,7 @@
     <Compile Include="TransparencyForm.Designer.cs">
       <DependentUpon>TransparencyForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UpdateService.cs" />
     <EmbeddedResource Include="AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </EmbeddedResource>
