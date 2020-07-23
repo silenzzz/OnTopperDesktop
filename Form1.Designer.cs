@@ -33,7 +33,6 @@
             this.listBoxProcesses = new System.Windows.Forms.ListBox();
             this.buttonUpdate = new System.Windows.Forms.Button();
             this.buttonSetTop = new System.Windows.Forms.Button();
-            this.buttonUnsetTop = new System.Windows.Forms.Button();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.buttonThisOnTop = new System.Windows.Forms.Button();
             this.buttonAbout = new System.Windows.Forms.Button();
@@ -52,15 +51,16 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listBoxProcesses.Location = new System.Drawing.Point(12, 36);
             this.listBoxProcesses.Name = "listBoxProcesses";
-            this.listBoxProcesses.Size = new System.Drawing.Size(161, 186);
+            this.listBoxProcesses.Size = new System.Drawing.Size(161, 147);
             this.listBoxProcesses.Sorted = true;
             this.listBoxProcesses.TabIndex = 0;
+            this.listBoxProcesses.Click += new System.EventHandler(this.ListBoxProcesses_Click);
             this.listBoxProcesses.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ListBoxProcesses_MouseDoubleClick);
             // 
             // buttonUpdate
             // 
             this.buttonUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonUpdate.Location = new System.Drawing.Point(179, 54);
+            this.buttonUpdate.Location = new System.Drawing.Point(179, 44);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Size = new System.Drawing.Size(94, 23);
             this.buttonUpdate.TabIndex = 1;
@@ -71,24 +71,13 @@
             // buttonSetTop
             // 
             this.buttonSetTop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSetTop.Location = new System.Drawing.Point(179, 170);
+            this.buttonSetTop.Location = new System.Drawing.Point(179, 160);
             this.buttonSetTop.Name = "buttonSetTop";
             this.buttonSetTop.Size = new System.Drawing.Size(94, 23);
             this.buttonSetTop.TabIndex = 2;
             this.buttonSetTop.Text = "Set top";
             this.buttonSetTop.UseVisualStyleBackColor = true;
             this.buttonSetTop.Click += new System.EventHandler(this.ButtonSetTop_Click);
-            // 
-            // buttonUnsetTop
-            // 
-            this.buttonUnsetTop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonUnsetTop.Location = new System.Drawing.Point(179, 199);
-            this.buttonUnsetTop.Name = "buttonUnsetTop";
-            this.buttonUnsetTop.Size = new System.Drawing.Size(94, 23);
-            this.buttonUnsetTop.TabIndex = 3;
-            this.buttonUnsetTop.Text = "Unset top";
-            this.buttonUnsetTop.UseVisualStyleBackColor = true;
-            this.buttonUnsetTop.Click += new System.EventHandler(this.ButtonUnsetTop_Click);
             // 
             // textBoxSearch
             // 
@@ -104,7 +93,7 @@
             // buttonThisOnTop
             // 
             this.buttonThisOnTop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonThisOnTop.Location = new System.Drawing.Point(179, 83);
+            this.buttonThisOnTop.Location = new System.Drawing.Point(179, 73);
             this.buttonThisOnTop.Name = "buttonThisOnTop";
             this.buttonThisOnTop.Size = new System.Drawing.Size(94, 23);
             this.buttonThisOnTop.TabIndex = 6;
@@ -149,7 +138,7 @@
             // buttonTransparency
             // 
             this.buttonTransparency.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonTransparency.Location = new System.Drawing.Point(179, 112);
+            this.buttonTransparency.Location = new System.Drawing.Point(179, 102);
             this.buttonTransparency.Name = "buttonTransparency";
             this.buttonTransparency.Size = new System.Drawing.Size(94, 23);
             this.buttonTransparency.TabIndex = 10;
@@ -160,7 +149,7 @@
             // buttonProperties
             // 
             this.buttonProperties.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonProperties.Location = new System.Drawing.Point(179, 141);
+            this.buttonProperties.Location = new System.Drawing.Point(179, 131);
             this.buttonProperties.Name = "buttonProperties";
             this.buttonProperties.Size = new System.Drawing.Size(94, 23);
             this.buttonProperties.TabIndex = 11;
@@ -184,7 +173,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(285, 230);
+            this.ClientSize = new System.Drawing.Size(285, 195);
             this.Controls.Add(this.buttonLog);
             this.Controls.Add(this.buttonProperties);
             this.Controls.Add(this.buttonTransparency);
@@ -192,12 +181,11 @@
             this.Controls.Add(this.buttonAbout);
             this.Controls.Add(this.buttonThisOnTop);
             this.Controls.Add(this.textBoxSearch);
-            this.Controls.Add(this.buttonUnsetTop);
             this.Controls.Add(this.buttonSetTop);
             this.Controls.Add(this.buttonUpdate);
             this.Controls.Add(this.listBoxProcesses);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(301, 269);
+            this.MinimumSize = new System.Drawing.Size(301, 234);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OnTopper";
@@ -212,7 +200,6 @@
         private System.Windows.Forms.ListBox listBoxProcesses;
         private System.Windows.Forms.Button buttonUpdate;
         private System.Windows.Forms.Button buttonSetTop;
-        private System.Windows.Forms.Button buttonUnsetTop;
         private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.Button buttonThisOnTop;
         private System.Windows.Forms.Button buttonAbout;

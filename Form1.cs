@@ -17,6 +17,8 @@ namespace OnTopper
 
         private bool ballonShowed = false;
 
+        private State.WINDOW_STATE newState;
+
         public MainForm()
         {
             InitializeComponent();
@@ -187,8 +189,16 @@ namespace OnTopper
                 ShowSelectProcessMessageBox();
                 return;
             }
-            SetWindowState(State.WINDOW_STATE.TOP);
-            logForm.AddAction(new TopStateAction(listBoxProcesses.SelectedItem as Process, State.WINDOW_STATE.TOP));
+            SetWindowState(newState);
+            if (newState == State.WINDOW_STATE.TOP)
+            {
+                logForm.AddAction(new TopStateAction(listBoxProcesses.SelectedItem as Process, State.WINDOW_STATE.TOP));
+            } else
+            {
+                logForm.AddAction(new TopStateAction(listBoxProcesses.SelectedItem as Process, State.WINDOW_STATE.UNTOP));
+            }
+            newState = newState == State.WINDOW_STATE.TOP ? State.WINDOW_STATE.UNTOP : State.WINDOW_STATE.TOP;
+            RefreshTopButton();
         }
 
         private void ButtonUnsetTop_Click(object sender, EventArgs e)
@@ -227,7 +237,8 @@ namespace OnTopper
             if (settingsForm.showWindowTitles)
             {
                 listBoxProcesses.DisplayMember = "MainWindowTitle";
-            } else
+            }
+            else
             {
                 listBoxProcesses.DisplayMember = "ProcessName";
             }
@@ -329,9 +340,43 @@ namespace OnTopper
 
         private void ButtonLog_Click(object sender, EventArgs e)
         {
-            logForm.ShowDialogWithTopMostState(TopMost);
+            logForm.ShowDialogWithTopMostState(State.IsTopMost(Process.GetCurrentProcess()));
+            UpdateProcesses();
+            RefreshTopButton();
         }
 
+
+        private void ListBoxProcesses_Click(object sender, EventArgs e)
+        {
+            if (listBoxProcesses.SelectedIndex == -1)
+            {
+                ShowSelectProcessMessageBox();
+                return;
+            }
+
+            var proc = listBoxProcesses.SelectedItem as Process;
+            if (!State.IsTopMost(proc))
+            {
+                newState = State.WINDOW_STATE.TOP;
+            }
+            else
+            {
+                newState = State.WINDOW_STATE.UNTOP;
+            }
+            RefreshTopButton();
+        }
+
+        private void RefreshTopButton()
+        {
+            if (newState == State.WINDOW_STATE.TOP)
+            {
+                buttonSetTop.Text = "Set top";
+            }
+            else
+            {
+                buttonSetTop.Text = "Unset top";
+            }
+        }
 
         #endregion
     }
