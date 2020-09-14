@@ -5,7 +5,6 @@
 ## How to use
 ![How to use](Docs/img/img1.png)
 
-__ВПоппер__
 ## Links
 ### [SourceForge](https://sourceforge.net/projects/ontopper/)
 ### [Roadmap](https://trello.com/b/DjuPzweK)
