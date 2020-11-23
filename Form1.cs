@@ -28,8 +28,6 @@ namespace OnTopper
             UpdateProcesses();
         }
 
-        #region STUFF
-
         public void AddActionToLogForm(Stuff.Action action)
         {
             this.logForm.AddAction(action);
@@ -61,11 +59,6 @@ namespace OnTopper
             }
         }
 
-        private bool HasMainWindow(Process p)
-        {
-            return p.MainWindowHandle != IntPtr.Zero;
-        }
-
         private bool InAutoRunAndMinimized()
         {
             return Settings.Default.AutoHide && Settings.Default.AutoStart;
@@ -83,7 +76,7 @@ namespace OnTopper
             {
                 if (settingsForm.hideNonIntaractive)
                 {
-                    if (HasMainWindow(process))
+                    if (State.HasMainWindow(process))
                     {
                         listBoxProcesses.Items.Add(process);
                     }
@@ -107,10 +100,6 @@ namespace OnTopper
         {
             MessageBox.Show("Select process first", "OnTopper", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
-
-        #endregion
-
-        #region UI_SETUP
 
         private void SetNotifyIcon()
         {
@@ -137,10 +126,6 @@ namespace OnTopper
             notifyIcon.ContextMenu = iconMenu;
         }
 
-        #endregion
-
-        #region UI_CONFIGURE
-
         private bool ToggleTaskbarVisibility()
         {
             if (this.ShowInTaskbar)
@@ -153,10 +138,6 @@ namespace OnTopper
             }
             return !this.ShowInTaskbar;
         }
-
-        #endregion
-
-        #region UI_SYS_EVENTS
 
         private void OnClickIconMenuItem(object sender, EventArgs e)
         {
@@ -193,7 +174,8 @@ namespace OnTopper
             if (newState == State.WINDOW_STATE.TOP)
             {
                 logForm.AddAction(new TopStateAction(listBoxProcesses.SelectedItem as Process, State.WINDOW_STATE.TOP));
-            } else
+            }
+            else
             {
                 logForm.AddAction(new TopStateAction(listBoxProcesses.SelectedItem as Process, State.WINDOW_STATE.UNTOP));
             }
@@ -313,6 +295,22 @@ namespace OnTopper
                 this.WindowState = FormWindowState.Minimized;
                 this.ShowInTaskbar = false;
             }
+            else
+            {
+                Updater updater = new Updater();
+                if (updater.UpdateAvaliable() && Settings.Default.UpdateVersion)
+                {
+                    var result = MessageBox.Show("New version available, update now?", "Update", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        updater.InstallUpdate();
+                    } else
+                    {
+                        Settings.Default.UpdateVersion = false;
+                        Settings.Default.Save();
+                    }
+                }
+            }
         }
 
         private void ButtonTransparency_Click(object sender, EventArgs e)
@@ -377,7 +375,5 @@ namespace OnTopper
                 buttonSetTop.Text = "Unset top";
             }
         }
-
-        #endregion
     }
 }

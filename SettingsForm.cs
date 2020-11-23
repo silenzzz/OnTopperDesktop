@@ -1,5 +1,6 @@
 ﻿using DmLib.Autorun;
 using OnTopper.Properties;
+using OnTopper.Stuff;
 using System.Windows.Forms;
 
 namespace OnTopper
@@ -15,6 +16,8 @@ namespace OnTopper
         private const string APP_NAME = "OnTopper.exe";
         private const string DELETE_AUTORUN = "Dont enable on startup";
         private const string ADD_AUTORUN = "Enable on startup";
+
+        private Updater updater = new Updater();
 
         public SettingsForm()
         {
@@ -40,8 +43,6 @@ namespace OnTopper
             checkBoxHideUninteractive.Checked = Settings.Default.HideNonInteractive;
         }
 
-        #region STUFF
-
         public void ShowDialogWithTopMostState(bool onTop)
         {
             this.TopMost = onTop;
@@ -52,10 +53,6 @@ namespace OnTopper
         {
             return Autorun.Contains(APP_NAME);
         }
-
-        #endregion
-
-        #region UI_SYS_EVENTS
 
         private void ButtonApply_Click(object sender, System.EventArgs e)
         {
@@ -106,6 +103,22 @@ namespace OnTopper
             }
         }
 
+        private void ButtonCheckUpdates_Click(object sender, System.EventArgs e)
+        {
+            if (updater.UpdateAvaliable())
+            {
+                // TODO: extract to resources
+                var result = MessageBox.Show("New version available, update now?", "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    updater.InstallUpdate();
+                } 
+            } else
+            {
+                MessageBox.Show("No update available", "Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
         private void SettingsForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Settings.Default.AutoUpdate = checkBoxAutoUpdate.Checked;
@@ -116,7 +129,5 @@ namespace OnTopper
 
             Settings.Default.Save();
         }
-
-        #endregion
     }
 }

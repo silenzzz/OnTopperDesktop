@@ -97,6 +97,21 @@ namespace OnTopper.Properties {
 
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool UpdateVersion
+        {
+            get
+            {
+                return ((bool)(this["UpdateVersion"]));
+            }
+            set
+            {
+                this["UpdateVersion"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool AutoStart {
             get {

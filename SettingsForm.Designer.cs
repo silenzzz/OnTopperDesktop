@@ -38,6 +38,7 @@
             this.numericUpDownInterval = new System.Windows.Forms.NumericUpDown();
             this.groupBoxStartup = new System.Windows.Forms.GroupBox();
             this.checkBoxAutoHide = new System.Windows.Forms.CheckBox();
+            this.buttonCheckUpdates = new System.Windows.Forms.Button();
             this.groupBoxProcesses.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownInterval)).BeginInit();
             this.groupBoxStartup.SuspendLayout();
@@ -57,7 +58,7 @@
             // 
             // buttonApply
             // 
-            this.buttonApply.Location = new System.Drawing.Point(164, 107);
+            this.buttonApply.Location = new System.Drawing.Point(164, 132);
             this.buttonApply.Name = "buttonApply";
             this.buttonApply.Size = new System.Drawing.Size(121, 23);
             this.buttonApply.TabIndex = 1;
@@ -96,7 +97,7 @@
             this.groupBoxProcesses.Controls.Add(this.checkBoxHideUninteractive);
             this.groupBoxProcesses.Location = new System.Drawing.Point(6, 12);
             this.groupBoxProcesses.Name = "groupBoxProcesses";
-            this.groupBoxProcesses.Size = new System.Drawing.Size(152, 118);
+            this.groupBoxProcesses.Size = new System.Drawing.Size(152, 143);
             this.groupBoxProcesses.TabIndex = 5;
             this.groupBoxProcesses.TabStop = false;
             this.groupBoxProcesses.Text = "Processes";
@@ -172,13 +173,24 @@
             this.checkBoxAutoHide.UseVisualStyleBackColor = true;
             this.checkBoxAutoHide.Visible = false;
             // 
+            // buttonCheckUpdates
+            // 
+            this.buttonCheckUpdates.Location = new System.Drawing.Point(164, 107);
+            this.buttonCheckUpdates.Name = "buttonCheckUpdates";
+            this.buttonCheckUpdates.Size = new System.Drawing.Size(121, 23);
+            this.buttonCheckUpdates.TabIndex = 7;
+            this.buttonCheckUpdates.Text = "Check for updates";
+            this.buttonCheckUpdates.UseVisualStyleBackColor = true;
+            this.buttonCheckUpdates.Click += new System.EventHandler(this.ButtonCheckUpdates_Click);
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(294, 137);
+            this.ClientSize = new System.Drawing.Size(290, 167);
             this.ControlBox = false;
+            this.Controls.Add(this.buttonCheckUpdates);
             this.Controls.Add(this.groupBoxProcesses);
             this.Controls.Add(this.buttonApply);
             this.Controls.Add(this.groupBoxStartup);
@@ -212,5 +224,6 @@
         private System.Windows.Forms.GroupBox groupBoxStartup;
         private System.Windows.Forms.CheckBox checkBoxAutoHide;
         private System.Windows.Forms.CheckBox checkBoxShowWindowTitles;
+        private System.Windows.Forms.Button buttonCheckUpdates;
     }
 }

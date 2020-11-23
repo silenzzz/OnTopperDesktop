@@ -127,6 +127,7 @@
     </Compile>
     <Compile Include="Stuff\Action.cs" />
     <Compile Include="Stuff\TopStateAction.cs" />
+    <Compile Include="Stuff\Updater.cs" />
     <Compile Include="TransparencyForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +151,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
