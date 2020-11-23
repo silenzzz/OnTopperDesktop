@@ -300,7 +300,7 @@ namespace OnTopper
                 Updater updater = new Updater();
                 if (updater.UpdateAvaliable() && Settings.Default.UpdateVersion)
                 {
-                    var result = MessageBox.Show("New version available, update now?", "Update", MessageBoxButtons.YesNo);
+                    var result = MessageBox.Show("New version available, update now?", "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
                     {
                         updater.InstallUpdate();
