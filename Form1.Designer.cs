@@ -46,89 +46,56 @@
             // 
             // listBoxProcesses
             // 
-            this.listBoxProcesses.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBoxProcesses.Location = new System.Drawing.Point(12, 36);
+            resources.ApplyResources(this.listBoxProcesses, "listBoxProcesses");
             this.listBoxProcesses.Name = "listBoxProcesses";
-            this.listBoxProcesses.Size = new System.Drawing.Size(161, 147);
             this.listBoxProcesses.Sorted = true;
-            this.listBoxProcesses.TabIndex = 0;
             this.listBoxProcesses.Click += new System.EventHandler(this.ListBoxProcesses_Click);
             this.listBoxProcesses.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ListBoxProcesses_MouseDoubleClick);
             // 
             // buttonUpdate
             // 
-            this.buttonUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonUpdate.Location = new System.Drawing.Point(179, 44);
+            resources.ApplyResources(this.buttonUpdate, "buttonUpdate");
             this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(94, 23);
-            this.buttonUpdate.TabIndex = 1;
-            this.buttonUpdate.Text = "Update";
             this.buttonUpdate.UseVisualStyleBackColor = true;
             this.buttonUpdate.Click += new System.EventHandler(this.ButtonUpdate_Click);
             // 
             // buttonSetTop
             // 
-            this.buttonSetTop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSetTop.Location = new System.Drawing.Point(179, 160);
+            resources.ApplyResources(this.buttonSetTop, "buttonSetTop");
             this.buttonSetTop.Name = "buttonSetTop";
-            this.buttonSetTop.Size = new System.Drawing.Size(94, 23);
-            this.buttonSetTop.TabIndex = 2;
-            this.buttonSetTop.Text = "Set top";
             this.buttonSetTop.UseVisualStyleBackColor = true;
             this.buttonSetTop.Click += new System.EventHandler(this.ButtonSetTop_Click);
             // 
             // textBoxSearch
             // 
-            this.textBoxSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxSearch.Location = new System.Drawing.Point(12, 11);
+            resources.ApplyResources(this.textBoxSearch, "textBoxSearch");
             this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(161, 20);
-            this.textBoxSearch.TabIndex = 4;
             this.textBoxSearch.TextChanged += new System.EventHandler(this.TextBoxSearch_TextChanged);
             // 
             // buttonThisOnTop
             // 
-            this.buttonThisOnTop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonThisOnTop.Location = new System.Drawing.Point(179, 73);
+            resources.ApplyResources(this.buttonThisOnTop, "buttonThisOnTop");
             this.buttonThisOnTop.Name = "buttonThisOnTop";
-            this.buttonThisOnTop.Size = new System.Drawing.Size(94, 23);
-            this.buttonThisOnTop.TabIndex = 6;
-            this.buttonThisOnTop.Text = "Set this";
             this.buttonThisOnTop.UseVisualStyleBackColor = true;
             this.buttonThisOnTop.Click += new System.EventHandler(this.ButtonThisOnTop_Click);
             // 
             // buttonAbout
             // 
-            this.buttonAbout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonAbout.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonAbout.Location = new System.Drawing.Point(253, 10);
+            resources.ApplyResources(this.buttonAbout, "buttonAbout");
             this.buttonAbout.Name = "buttonAbout";
-            this.buttonAbout.Size = new System.Drawing.Size(20, 20);
-            this.buttonAbout.TabIndex = 7;
-            this.buttonAbout.Text = "I";
             this.buttonAbout.UseVisualStyleBackColor = true;
             this.buttonAbout.Click += new System.EventHandler(this.ButtonAbout_Click);
             // 
             // buttonSettings
             // 
-            this.buttonSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSettings.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonSettings.Location = new System.Drawing.Point(179, 10);
+            resources.ApplyResources(this.buttonSettings, "buttonSettings");
             this.buttonSettings.Name = "buttonSettings";
-            this.buttonSettings.Size = new System.Drawing.Size(20, 20);
-            this.buttonSettings.TabIndex = 9;
-            this.buttonSettings.Text = "S";
             this.buttonSettings.UseVisualStyleBackColor = true;
             this.buttonSettings.Click += new System.EventHandler(this.ButtonSettings_Click);
             // 
             // notifyIcon
             // 
-            this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
-            this.notifyIcon.Text = "OnTopper";
+            resources.ApplyResources(this.notifyIcon, "notifyIcon");
             // 
             // timer
             // 
@@ -137,43 +104,29 @@
             // 
             // buttonTransparency
             // 
-            this.buttonTransparency.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonTransparency.Location = new System.Drawing.Point(179, 102);
+            resources.ApplyResources(this.buttonTransparency, "buttonTransparency");
             this.buttonTransparency.Name = "buttonTransparency";
-            this.buttonTransparency.Size = new System.Drawing.Size(94, 23);
-            this.buttonTransparency.TabIndex = 10;
-            this.buttonTransparency.Text = "Opacity";
             this.buttonTransparency.UseVisualStyleBackColor = true;
             this.buttonTransparency.Click += new System.EventHandler(this.ButtonTransparency_Click);
             // 
             // buttonProperties
             // 
-            this.buttonProperties.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonProperties.Location = new System.Drawing.Point(179, 131);
+            resources.ApplyResources(this.buttonProperties, "buttonProperties");
             this.buttonProperties.Name = "buttonProperties";
-            this.buttonProperties.Size = new System.Drawing.Size(94, 23);
-            this.buttonProperties.TabIndex = 11;
-            this.buttonProperties.Text = "Properties";
             this.buttonProperties.UseVisualStyleBackColor = true;
             this.buttonProperties.Click += new System.EventHandler(this.ButtonProperties_Click);
             // 
             // buttonLog
             // 
-            this.buttonLog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonLog.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonLog.Location = new System.Drawing.Point(216, 10);
+            resources.ApplyResources(this.buttonLog, "buttonLog");
             this.buttonLog.Name = "buttonLog";
-            this.buttonLog.Size = new System.Drawing.Size(20, 20);
-            this.buttonLog.TabIndex = 12;
-            this.buttonLog.Text = "L";
             this.buttonLog.UseVisualStyleBackColor = true;
             this.buttonLog.Click += new System.EventHandler(this.ButtonLog_Click);
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(285, 195);
             this.Controls.Add(this.buttonLog);
             this.Controls.Add(this.buttonProperties);
             this.Controls.Add(this.buttonTransparency);
@@ -184,11 +137,7 @@
             this.Controls.Add(this.buttonSetTop);
             this.Controls.Add(this.buttonUpdate);
             this.Controls.Add(this.listBoxProcesses);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(301, 234);
             this.Name = "MainForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "OnTopper";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.SizeChanged += new System.EventHandler(this.MainForm_SizeChanged);
             this.ResumeLayout(false);
