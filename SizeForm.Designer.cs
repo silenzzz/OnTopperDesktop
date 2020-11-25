@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SizeForm));
             this.buttonApply = new System.Windows.Forms.Button();
             this.textBoxHeight = new System.Windows.Forms.TextBox();
             this.labelH = new System.Windows.Forms.Label();
@@ -46,124 +47,83 @@
             // 
             // buttonApply
             // 
-            this.buttonApply.Location = new System.Drawing.Point(112, 94);
+            resources.ApplyResources(this.buttonApply, "buttonApply");
             this.buttonApply.Name = "buttonApply";
-            this.buttonApply.Size = new System.Drawing.Size(100, 23);
-            this.buttonApply.TabIndex = 0;
-            this.buttonApply.Text = "Apply";
             this.buttonApply.UseVisualStyleBackColor = true;
             this.buttonApply.Click += new System.EventHandler(this.ButtonApply_Click);
             // 
             // textBoxHeight
             // 
-            this.textBoxHeight.Location = new System.Drawing.Point(9, 39);
-            this.textBoxHeight.MaxLength = 4;
+            resources.ApplyResources(this.textBoxHeight, "textBoxHeight");
             this.textBoxHeight.Name = "textBoxHeight";
-            this.textBoxHeight.Size = new System.Drawing.Size(74, 20);
-            this.textBoxHeight.TabIndex = 1;
             // 
             // labelH
             // 
-            this.labelH.AutoSize = true;
-            this.labelH.Location = new System.Drawing.Point(9, 23);
+            resources.ApplyResources(this.labelH, "labelH");
             this.labelH.Name = "labelH";
-            this.labelH.Size = new System.Drawing.Size(38, 13);
-            this.labelH.TabIndex = 2;
-            this.labelH.Text = "Height";
             // 
             // labelW
             // 
-            this.labelW.AutoSize = true;
-            this.labelW.Location = new System.Drawing.Point(9, 71);
+            resources.ApplyResources(this.labelW, "labelW");
             this.labelW.Name = "labelW";
-            this.labelW.Size = new System.Drawing.Size(35, 13);
-            this.labelW.TabIndex = 4;
-            this.labelW.Text = "Width";
             // 
             // textBoxWidth
             // 
-            this.textBoxWidth.Location = new System.Drawing.Point(9, 87);
-            this.textBoxWidth.MaxLength = 4;
+            resources.ApplyResources(this.textBoxWidth, "textBoxWidth");
             this.textBoxWidth.Name = "textBoxWidth";
-            this.textBoxWidth.Size = new System.Drawing.Size(74, 20);
-            this.textBoxWidth.TabIndex = 3;
             // 
             // groupBoxSize
             // 
+            resources.ApplyResources(this.groupBoxSize, "groupBoxSize");
             this.groupBoxSize.Controls.Add(this.labelH);
             this.groupBoxSize.Controls.Add(this.labelW);
             this.groupBoxSize.Controls.Add(this.textBoxWidth);
             this.groupBoxSize.Controls.Add(this.textBoxHeight);
-            this.groupBoxSize.Location = new System.Drawing.Point(10, 7);
             this.groupBoxSize.Name = "groupBoxSize";
-            this.groupBoxSize.Size = new System.Drawing.Size(96, 139);
-            this.groupBoxSize.TabIndex = 5;
             this.groupBoxSize.TabStop = false;
-            this.groupBoxSize.Text = "Size";
             // 
             // groupBoxPosition
             // 
+            resources.ApplyResources(this.groupBoxPosition, "groupBoxPosition");
             this.groupBoxPosition.Controls.Add(this.labelX);
             this.groupBoxPosition.Controls.Add(this.labelY);
             this.groupBoxPosition.Controls.Add(this.textBoxY);
             this.groupBoxPosition.Controls.Add(this.textBoxX);
-            this.groupBoxPosition.Location = new System.Drawing.Point(112, 7);
             this.groupBoxPosition.Name = "groupBoxPosition";
-            this.groupBoxPosition.Size = new System.Drawing.Size(100, 81);
-            this.groupBoxPosition.TabIndex = 6;
             this.groupBoxPosition.TabStop = false;
-            this.groupBoxPosition.Text = "Position";
             // 
             // labelX
             // 
-            this.labelX.AutoSize = true;
-            this.labelX.Location = new System.Drawing.Point(11, 26);
+            resources.ApplyResources(this.labelX, "labelX");
             this.labelX.Name = "labelX";
-            this.labelX.Size = new System.Drawing.Size(14, 13);
-            this.labelX.TabIndex = 6;
-            this.labelX.Text = "X";
             // 
             // labelY
             // 
-            this.labelY.AutoSize = true;
-            this.labelY.Location = new System.Drawing.Point(11, 55);
+            resources.ApplyResources(this.labelY, "labelY");
             this.labelY.Name = "labelY";
-            this.labelY.Size = new System.Drawing.Size(14, 13);
-            this.labelY.TabIndex = 8;
-            this.labelY.Text = "Y";
             // 
             // textBoxY
             // 
-            this.textBoxY.Location = new System.Drawing.Point(31, 52);
-            this.textBoxY.MaxLength = 4;
+            resources.ApplyResources(this.textBoxY, "textBoxY");
             this.textBoxY.Name = "textBoxY";
-            this.textBoxY.Size = new System.Drawing.Size(56, 20);
-            this.textBoxY.TabIndex = 7;
             // 
             // textBoxX
             // 
-            this.textBoxX.Location = new System.Drawing.Point(31, 23);
-            this.textBoxX.MaxLength = 4;
+            resources.ApplyResources(this.textBoxX, "textBoxX");
             this.textBoxX.Name = "textBoxX";
-            this.textBoxX.Size = new System.Drawing.Size(56, 20);
-            this.textBoxX.TabIndex = 5;
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(112, 123);
+            resources.ApplyResources(this.buttonCancel, "buttonCancel");
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(100, 23);
-            this.buttonCancel.TabIndex = 7;
-            this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.ButtonCancel_Click);
             // 
             // SizeForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(224, 158);
             this.ControlBox = false;
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.groupBoxPosition);
@@ -173,8 +133,6 @@
             this.Name = "SizeForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Window properties";
             this.groupBoxSize.ResumeLayout(false);
             this.groupBoxSize.PerformLayout();
             this.groupBoxPosition.ResumeLayout(false);

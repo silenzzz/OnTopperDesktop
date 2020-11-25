@@ -2,7 +2,6 @@
 using System;
 using System.Diagnostics;
 using System.Drawing;
-using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace OnTopper
@@ -36,7 +35,8 @@ namespace OnTopper
             if (string.IsNullOrWhiteSpace(textBoxHeight.Text) || string.IsNullOrWhiteSpace(textBoxWidth.Text) || 
                 string.IsNullOrWhiteSpace(textBoxX.Text) || string.IsNullOrWhiteSpace(textBoxY.Text))
             {
-                MessageBox.Show("Set window height and width");
+                // TODO: translate
+                MessageBox.Show("Set window height and width", "Info", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 

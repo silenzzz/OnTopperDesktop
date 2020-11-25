@@ -159,6 +159,9 @@
     <EmbeddedResource Include="SizeForm.resx">
       <DependentUpon>SizeForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SizeForm.ru.resx">
+      <DependentUpon>SizeForm.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="icons8_top_docking.ico" />
