@@ -117,16 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Window properties</value>
+  <data name="&gt;&gt;buttonApply.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>220, 154</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="textBoxX.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+  <data name="&gt;&gt;textBoxX.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="buttonApply.Text" xml:space="preserve">
     <value>Apply</value>
@@ -134,17 +129,25 @@
   <data name="&gt;&gt;textBoxY.Name" xml:space="preserve">
     <value>textBoxY</value>
   </data>
+  <data name="&gt;&gt;labelX.Name" xml:space="preserve">
+    <value>labelX</value>
+  </data>
   <data name="&gt;&gt;buttonCancel.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="buttonCancel.Location" type="System.Drawing.Point, System.Drawing">
     <value>112, 123</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="textBoxHeight.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="&gt;&gt;textBoxWidth.Name" xml:space="preserve">
     <value>textBoxWidth</value>
+  </data>
+  <data name="labelW.Text" xml:space="preserve">
+    <value>Width</value>
   </data>
   <data name="&gt;&gt;labelH.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -152,8 +155,8 @@
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>SizeForm</value>
   </data>
-  <data name="&gt;&gt;buttonCancel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;groupBoxPosition.Name" xml:space="preserve">
+    <value>groupBoxPosition</value>
   </data>
   <data name="labelW.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 71</value>
@@ -201,8 +204,8 @@
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterParent</value>
   </data>
-  <data name="&gt;&gt;textBoxWidth.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;labelY.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="groupBoxSize.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -222,26 +225,26 @@
   <data name="labelH.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;labelY.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="groupBoxPosition.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
-  <data name="&gt;&gt;groupBoxPosition.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="buttonCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
   </data>
   <data name="&gt;&gt;labelX.Parent" xml:space="preserve">
     <value>groupBoxPosition</value>
   </data>
+  <data name="&gt;&gt;labelX.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="labelH.Text" xml:space="preserve">
     <value>Height</value>
   </data>
-  <data name="&gt;&gt;groupBoxPosition.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;buttonCancel.Name" xml:space="preserve">
+    <value>buttonCancel</value>
   </data>
-  <data name="&gt;&gt;textBoxHeight.Name" xml:space="preserve">
-    <value>textBoxHeight</value>
+  <data name="&gt;&gt;textBoxX.Parent" xml:space="preserve">
+    <value>groupBoxPosition</value>
   </data>
   <data name="buttonApply.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -264,8 +267,8 @@
   <data name="labelX.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;buttonCancel.Name" xml:space="preserve">
-    <value>buttonCancel</value>
+  <data name="&gt;&gt;labelH.Parent" xml:space="preserve">
+    <value>groupBoxSize</value>
   </data>
   <data name="labelY.Text" xml:space="preserve">
     <value>Y</value>
@@ -282,17 +285,14 @@
   <data name="&gt;&gt;labelH.Name" xml:space="preserve">
     <value>labelH</value>
   </data>
-  <data name="&gt;&gt;textBoxX.Parent" xml:space="preserve">
-    <value>groupBoxPosition</value>
-  </data>
-  <data name="textBoxY.Size" type="System.Drawing.Size, System.Drawing">
-    <value>56, 20</value>
-  </data>
   <data name="textBoxHeight.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 39</value>
   </data>
   <data name="&gt;&gt;labelY.Name" xml:space="preserve">
     <value>labelY</value>
+  </data>
+  <data name="textBoxWidth.Size" type="System.Drawing.Size, System.Drawing">
+    <value>74, 20</value>
   </data>
   <data name="&gt;&gt;buttonApply.Parent" xml:space="preserve">
     <value>$this</value>
@@ -321,8 +321,8 @@
   <data name="&gt;&gt;textBoxX.Name" xml:space="preserve">
     <value>textBoxX</value>
   </data>
-  <data name="&gt;&gt;labelX.Name" xml:space="preserve">
-    <value>labelX</value>
+  <data name="&gt;&gt;textBoxWidth.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="textBoxHeight.MaxLength" type="System.Int32, mscorlib">
     <value>4</value>
@@ -339,11 +339,11 @@
   <data name="&gt;&gt;textBoxHeight.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;groupBoxPosition.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="labelH.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
-  </data>
-  <data name="&gt;&gt;labelW.Parent" xml:space="preserve">
-    <value>groupBoxSize</value>
   </data>
   <data name="labelH.Size" type="System.Drawing.Size, System.Drawing">
     <value>38, 13</value>
@@ -357,20 +357,20 @@
   <data name="groupBoxPosition.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 81</value>
   </data>
-  <data name="&gt;&gt;buttonApply.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="labelX.Location" type="System.Drawing.Point, System.Drawing">
     <value>11, 26</value>
   </data>
-  <data name="labelW.Text" xml:space="preserve">
-    <value>Width</value>
+  <data name="&gt;&gt;textBoxHeight.Name" xml:space="preserve">
+    <value>textBoxHeight</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Window properties</value>
   </data>
   <data name="&gt;&gt;labelW.Name" xml:space="preserve">
     <value>labelW</value>
   </data>
-  <data name="&gt;&gt;labelX.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="textBoxX.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
   <data name="&gt;&gt;groupBoxSize.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -384,8 +384,8 @@
   <data name="&gt;&gt;labelW.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="groupBoxSize.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 139</value>
+  <data name="&gt;&gt;labelW.Parent" xml:space="preserve">
+    <value>groupBoxSize</value>
   </data>
   <data name="&gt;&gt;buttonApply.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -395,9 +395,6 @@
   </data>
   <data name="labelW.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="&gt;&gt;textBoxX.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <data name="buttonApply.Location" type="System.Drawing.Point, System.Drawing">
     <value>112, 94</value>
@@ -411,11 +408,11 @@
   <data name="textBoxX.MaxLength" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;groupBoxPosition.Name" xml:space="preserve">
-    <value>groupBoxPosition</value>
+  <data name="&gt;&gt;buttonCancel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="buttonCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 23</value>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>220, 154</value>
   </data>
   <data name="&gt;&gt;groupBoxSize.Parent" xml:space="preserve">
     <value>$this</value>
@@ -426,22 +423,22 @@
   <data name="groupBoxSize.Location" type="System.Drawing.Point, System.Drawing">
     <value>10, 7</value>
   </data>
+  <data name="groupBoxSize.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 139</value>
+  </data>
   <data name="textBoxWidth.MaxLength" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="textBoxWidth.Size" type="System.Drawing.Size, System.Drawing">
-    <value>74, 20</value>
+  <data name="textBoxY.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 20</value>
   </data>
   <data name="labelH.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 23</value>
   </data>
-  <data name="&gt;&gt;labelH.Parent" xml:space="preserve">
-    <value>groupBoxSize</value>
+  <data name="&gt;&gt;groupBoxPosition.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>ru</value>
   </metadata>
 </root>
