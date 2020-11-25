@@ -45,14 +45,6 @@ namespace OnTopper
             Close();
         }
 
-        private void TextBoxHeight_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
         private void ButtonCancel_Click(object sender, EventArgs e)
         {
             this.Close();

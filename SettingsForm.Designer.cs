@@ -188,7 +188,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(290, 167);
+            this.ClientSize = new System.Drawing.Size(293, 163);
             this.ControlBox = false;
             this.Controls.Add(this.buttonCheckUpdates);
             this.Controls.Add(this.groupBoxProcesses);
@@ -201,7 +201,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Settings";
+            this.Text = " ";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SettingsForm_FormClosing);
             this.groupBoxProcesses.ResumeLayout(false);
             this.groupBoxProcesses.PerformLayout();
