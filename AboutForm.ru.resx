@@ -117,4 +117,74 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="label.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 9</value>
+  </data>
+  <data name="label.Size" type="System.Drawing.Size, System.Drawing">
+    <value>327, 78</value>
+  </data>
+  <data name="label.Text" xml:space="preserve">
+    <value>OnTopper v{0} Создано DeMmAge
+demmagesoft@gmail.com
+Инструкция:
+Выберите процесс и установите приоритет
+
+Если Вам понравилась эта программа, оставьте отзыв здесь</value>
+  </data>
+  <data name="buttonClose.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 185</value>
+  </data>
+  <data name="buttonClose.Size" type="System.Drawing.Size, System.Drawing">
+    <value>316, 23</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="linkLabelSF.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="linkLabelSF.Location" type="System.Drawing.Point, System.Drawing">
+    <value>67, 87</value>
+  </data>
+  <data name="labelSF.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 100</value>
+  </data>
+  <data name="labelSF.Size" type="System.Drawing.Size, System.Drawing">
+    <value>312, 13</value>
+  </data>
+  <data name="labelSF.Text" xml:space="preserve">
+    <value>Сообщить о баге или предложить функционал можно здесь</value>
+  </data>
+  <data name="linkLabelSFTicket.Location" type="System.Drawing.Point, System.Drawing">
+    <value>55, 113</value>
+  </data>
+  <data name="linkLabelGit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>54, 139</value>
+  </data>
+  <data name="labelSFTicker.Location" type="System.Drawing.Point, System.Drawing">
+    <value>64, 126</value>
+  </data>
+  <data name="labelSFTicker.Size" type="System.Drawing.Size, System.Drawing">
+    <value>223, 13</value>
+  </data>
+  <data name="labelSFTicker.Text" xml:space="preserve">
+    <value>Исходный код программы доступен здесь</value>
+  </data>
+  <data name="labelTrello.Location" type="System.Drawing.Point, System.Drawing">
+    <value>132, 152</value>
+  </data>
+  <data name="labelTrello.Size" type="System.Drawing.Size, System.Drawing">
+    <value>87, 13</value>
+  </data>
+  <data name="labelTrello.Text" xml:space="preserve">
+    <value>Карта развития</value>
+  </data>
+  <data name="linkLabelTrello.Location" type="System.Drawing.Point, System.Drawing">
+    <value>99, 165</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>340, 220</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>О программе</value>
+  </data>
 </root>

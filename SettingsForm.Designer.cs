@@ -76,12 +76,12 @@
             // 
             // groupBoxProcesses
             // 
+            resources.ApplyResources(this.groupBoxProcesses, "groupBoxProcesses");
             this.groupBoxProcesses.Controls.Add(this.checkBoxShowWindowTitles);
             this.groupBoxProcesses.Controls.Add(this.labelInterval);
             this.groupBoxProcesses.Controls.Add(this.numericUpDownInterval);
             this.groupBoxProcesses.Controls.Add(this.checkBoxAutoUpdate);
             this.groupBoxProcesses.Controls.Add(this.checkBoxHideUninteractive);
-            resources.ApplyResources(this.groupBoxProcesses, "groupBoxProcesses");
             this.groupBoxProcesses.Name = "groupBoxProcesses";
             this.groupBoxProcesses.TabStop = false;
             // 
@@ -98,12 +98,12 @@
             // 
             // numericUpDownInterval
             // 
+            resources.ApplyResources(this.numericUpDownInterval, "numericUpDownInterval");
             this.numericUpDownInterval.Increment = new decimal(new int[] {
             100,
             0,
             0,
             0});
-            resources.ApplyResources(this.numericUpDownInterval, "numericUpDownInterval");
             this.numericUpDownInterval.Maximum = new decimal(new int[] {
             60000,
             0,
@@ -123,9 +123,9 @@
             // 
             // groupBoxStartup
             // 
+            resources.ApplyResources(this.groupBoxStartup, "groupBoxStartup");
             this.groupBoxStartup.Controls.Add(this.checkBoxAutoHide);
             this.groupBoxStartup.Controls.Add(this.buttonAutorun);
-            resources.ApplyResources(this.groupBoxStartup, "groupBoxStartup");
             this.groupBoxStartup.Name = "groupBoxStartup";
             this.groupBoxStartup.TabStop = false;
             // 

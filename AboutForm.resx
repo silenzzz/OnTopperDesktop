@@ -134,9 +134,6 @@
     <value>If you want to report bug or suggest something leave it here
 </value>
   </data>
-  <data name="labelTrello.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="buttonClose.Size" type="System.Drawing.Size, System.Drawing">
     <value>326, 23</value>
@@ -153,8 +150,14 @@
   <data name="labelSFTicker.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="labelSFTicker.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
   <data name="linkLabelGit.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
+  </data>
+  <data name="&gt;&gt;linkLabelTrello.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="buttonClose.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 211</value>
@@ -174,8 +177,8 @@
   <data name="&gt;&gt;labelSFTicker.Name" xml:space="preserve">
     <value>labelSFTicker</value>
   </data>
-  <data name="labelSFTicker.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
   </data>
   <data name="&gt;&gt;linkLabelSFTicket.Parent" xml:space="preserve">
     <value>$this</value>
@@ -241,17 +244,14 @@ If you like this software please leave review on sourceforge</value>
   <data name="&gt;&gt;linkLabelGit.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
-  </data>
   <data name="labelSF.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
   <data name="&gt;&gt;linkLabelSF.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="linkLabelSF.Size" type="System.Drawing.Size, System.Drawing">
-    <value>211, 13</value>
+  <data name="&gt;&gt;labelTrello.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;labelTrello.Parent" xml:space="preserve">
     <value>$this</value>
@@ -262,8 +262,14 @@ If you like this software please leave review on sourceforge</value>
   <data name="buttonClose.Text" xml:space="preserve">
     <value>Ok</value>
   </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>About</value>
+  </data>
   <data name="&gt;&gt;label.Name" xml:space="preserve">
     <value>label</value>
+  </data>
+  <data name="labelSFTicker.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 13</value>
   </data>
   <data name="linkLabelGit.Location" type="System.Drawing.Point, System.Drawing">
     <value>55, 159</value>
@@ -280,8 +286,8 @@ If you like this software please leave review on sourceforge</value>
   <data name="&gt;&gt;labelSF.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="labelSFTicker.Size" type="System.Drawing.Size, System.Drawing">
-    <value>222, 13</value>
+  <data name="labelTrello.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="linkLabelSF.Location" type="System.Drawing.Point, System.Drawing">
     <value>70, 100</value>
@@ -298,17 +304,11 @@ If you like this software please leave review on sourceforge</value>
   <data name="labelTrello.Text" xml:space="preserve">
     <value>Roadmap here</value>
   </data>
-  <data name="&gt;&gt;labelTrello.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="linkLabelTrello.Location" type="System.Drawing.Point, System.Drawing">
     <value>100, 187</value>
   </data>
   <data name="label.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="linkLabelSF.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
   </data>
   <data name="&gt;&gt;linkLabelTrello.Name" xml:space="preserve">
     <value>linkLabelTrello</value>
@@ -322,8 +322,8 @@ If you like this software please leave review on sourceforge</value>
   <data name="&gt;&gt;linkLabelSFTicket.Name" xml:space="preserve">
     <value>linkLabelSFTicket</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>About</value>
+  <data name="linkLabelSF.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="buttonClose.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -338,8 +338,8 @@ If you like this software please leave review on sourceforge</value>
   <data name="&gt;&gt;labelSFTicker.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;linkLabelTrello.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="linkLabelSF.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 13</value>
   </data>
   <data name="labelSF.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>

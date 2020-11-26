@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogForm));
             this.listBoxActions = new System.Windows.Forms.ListBox();
             this.buttonRevert = new System.Windows.Forms.Button();
             this.buttonClear = new System.Windows.Forms.Button();
@@ -35,54 +36,36 @@
             // 
             // listBoxActions
             // 
-            this.listBoxActions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.listBoxActions, "listBoxActions");
             this.listBoxActions.FormattingEnabled = true;
-            this.listBoxActions.Location = new System.Drawing.Point(12, 12);
             this.listBoxActions.Name = "listBoxActions";
-            this.listBoxActions.Size = new System.Drawing.Size(310, 147);
-            this.listBoxActions.TabIndex = 0;
             // 
             // buttonRevert
             // 
-            this.buttonRevert.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonRevert.Location = new System.Drawing.Point(75, 165);
+            resources.ApplyResources(this.buttonRevert, "buttonRevert");
             this.buttonRevert.Name = "buttonRevert";
-            this.buttonRevert.Size = new System.Drawing.Size(247, 23);
-            this.buttonRevert.TabIndex = 1;
-            this.buttonRevert.Text = "Revert selected";
             this.buttonRevert.UseVisualStyleBackColor = true;
             this.buttonRevert.Click += new System.EventHandler(this.ButtonRevert_Click);
             // 
             // buttonClear
             // 
-            this.buttonClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonClear.Location = new System.Drawing.Point(12, 165);
+            resources.ApplyResources(this.buttonClear, "buttonClear");
             this.buttonClear.Name = "buttonClear";
-            this.buttonClear.Size = new System.Drawing.Size(57, 23);
-            this.buttonClear.TabIndex = 2;
-            this.buttonClear.Text = "Clear";
             this.buttonClear.UseVisualStyleBackColor = true;
             this.buttonClear.Click += new System.EventHandler(this.ButtonClear_Click);
             // 
             // LogForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(334, 193);
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.buttonRevert);
             this.Controls.Add(this.listBoxActions);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(350, 232);
             this.Name = "LogForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Log";
             this.ResumeLayout(false);
 
         }
