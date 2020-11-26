@@ -14,10 +14,10 @@ namespace OnTopper
         public int interval = 3000;
 
         private const string APP_NAME = "OnTopper.exe";
-        private const string DELETE_AUTORUN = "Dont enable on startup";
-        private const string ADD_AUTORUN = "Enable on startup";
+        private readonly string deleteFromAutorun = LocalizedMessageProvider.GetMessage("DELETE_AUTORUN");
+        private readonly string addToAutorun = LocalizedMessageProvider.GetMessage("ADD_AUTORUN");
 
-        private Updater updater = new Updater();
+        private readonly Updater updater = new Updater();
 
         public SettingsForm()
         {
@@ -26,7 +26,7 @@ namespace OnTopper
             if (InAutorun())
             {
                 checkBoxAutoHide.Visible = true;
-                buttonAutorun.Text = DELETE_AUTORUN;
+                buttonAutorun.Text = deleteFromAutorun;
             }
             if (Settings.Default.AutoHide)
             {
@@ -73,18 +73,20 @@ namespace OnTopper
             if (InAutorun())
             {
                 Autorun.Remove(APP_NAME);
-                MessageBox.Show("Deleted from autorun", "Autostart", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(LocalizedMessageProvider.GetMessage("DELETED_AUTORUN"),
+                    LocalizedMessageProvider.GetMessage("AUTORUN"), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 checkBoxAutoHide.Visible = false;
                 Settings.Default.AutoStart = false;
-                buttonAutorun.Text = ADD_AUTORUN;
+                buttonAutorun.Text = deleteFromAutorun;
             }
             else
             {
                 Autorun.Add(APP_NAME, Application.ExecutablePath.ToString());
-                MessageBox.Show("Added to autorun", "Autostart", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(LocalizedMessageProvider.GetMessage("ADDED_AUTORUN"),
+                    LocalizedMessageProvider.GetMessage("AUTORUN"), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 checkBoxAutoHide.Visible = true;
                 Settings.Default.AutoStart = true;
-                buttonAutorun.Text = DELETE_AUTORUN;
+                buttonAutorun.Text = addToAutorun;
             }
             Settings.Default.Save();
         }
@@ -108,14 +110,17 @@ namespace OnTopper
             if (updater.UpdateAvaliable())
             {
                 // TODO: extract to resources
-                var result = MessageBox.Show("New version available, update now?", "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                var result = MessageBox.Show(LocalizedMessageProvider.GetMessage("NEW_VERSION_AVAILABLE_QUESTION"),
+                    LocalizedMessageProvider.GetMessage("UPDATE"), MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
                     updater.InstallUpdate();
-                } 
-            } else
+                }
+            }
+            else
             {
-                MessageBox.Show("No update available", "Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(LocalizedMessageProvider.GetMessage("NO_UPDATE"),
+                    LocalizedMessageProvider.GetMessage("UPDATE"), MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

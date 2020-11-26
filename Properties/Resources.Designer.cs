@@ -61,6 +61,24 @@ namespace OnTopper.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Enable on startup.
+        /// </summary>
+        internal static string EN_ADD_AUTORUN {
+            get {
+                return ResourceManager.GetString("EN_ADD_AUTORUN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Added to autorun.
+        /// </summary>
+        internal static string EN_ADDED_AUTORUN {
+            get {
+                return ResourceManager.GetString("EN_ADDED_AUTORUN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на OnTopper.
         /// </summary>
         internal static string EN_APP_NAME {
@@ -70,11 +88,38 @@ namespace OnTopper.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Autorun.
+        /// </summary>
+        internal static string EN_AUTORUN {
+            get {
+                return ResourceManager.GetString("EN_AUTORUN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Close.
         /// </summary>
         internal static string EN_CLOSE {
             get {
                 return ResourceManager.GetString("EN_CLOSE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Dont enable on startup.
+        /// </summary>
+        internal static string EN_DELETE_AUTORUN {
+            get {
+                return ResourceManager.GetString("EN_DELETE_AUTORUN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Deleted from autorun.
+        /// </summary>
+        internal static string EN_DELETED_AUTORUN {
+            get {
+                return ResourceManager.GetString("EN_DELETED_AUTORUN", resourceCulture);
             }
         }
         
@@ -120,6 +165,15 @@ namespace OnTopper.Properties {
         internal static string EN_NEW_VERSION_AVAILABLE_QUESTION {
             get {
                 return ResourceManager.GetString("EN_NEW_VERSION_AVAILABLE_QUESTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на No update available.
+        /// </summary>
+        internal static string EN_NO_UPDATE {
+            get {
+                return ResourceManager.GetString("EN_NO_UPDATE", resourceCulture);
             }
         }
         
@@ -196,11 +250,56 @@ namespace OnTopper.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Не запускать вместе с OS.
+        /// </summary>
+        internal static string RU_ADD_AUTORUN {
+            get {
+                return ResourceManager.GetString("RU_ADD_AUTORUN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Добавлено в автозапуск.
+        /// </summary>
+        internal static string RU_ADDED_AUTORUN {
+            get {
+                return ResourceManager.GetString("RU_ADDED_AUTORUN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Автозапуск.
+        /// </summary>
+        internal static string RU_AUTORUN {
+            get {
+                return ResourceManager.GetString("RU_AUTORUN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Закрыть.
         /// </summary>
         internal static string RU_CLOSE {
             get {
                 return ResourceManager.GetString("RU_CLOSE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Запускать вместе с OS.
+        /// </summary>
+        internal static string RU_DELETE_AUTORUN {
+            get {
+                return ResourceManager.GetString("RU_DELETE_AUTORUN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Удалено из автозапуска.
+        /// </summary>
+        internal static string RU_DELETED_AUTORUN {
+            get {
+                return ResourceManager.GetString("RU_DELETED_AUTORUN", resourceCulture);
             }
         }
         
@@ -246,6 +345,15 @@ namespace OnTopper.Properties {
         internal static string RU_NEW_VERSION_AVAILABLE_QUESTIO {
             get {
                 return ResourceManager.GetString("RU_NEW_VERSION_AVAILABLE_QUESTIO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Установлена новейшая версия.
+        /// </summary>
+        internal static string RU_NO_UPDATE {
+            get {
+                return ResourceManager.GetString("RU_NO_UPDATE", resourceCulture);
             }
         }
         

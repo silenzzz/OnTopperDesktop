@@ -117,11 +117,27 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="EN_ADDED_AUTORUN" xml:space="preserve">
+    <value>Added to autorun</value>
+  </data>
+  <data name="EN_ADD_AUTORUN" xml:space="preserve">
+    <value>Enable on startup</value>
+  </data>
   <data name="EN_APP_NAME" xml:space="preserve">
     <value>OnTopper</value>
   </data>
+  <data name="EN_AUTORUN" xml:space="preserve">
+    <value>Autorun</value>
+  </data>
   <data name="EN_CLOSE" xml:space="preserve">
     <value>Close</value>
+  </data>
+  <data name="EN_DELETED_AUTORUN" xml:space="preserve">
+    <value>Deleted from autorun</value>
+  </data>
+  <data name="EN_DELETE_AUTORUN" xml:space="preserve">
+    <value>Dont enable on startup</value>
+    <comment>Settings start</comment>
   </data>
   <data name="EN_ERROR" xml:space="preserve">
     <value>Error</value>
@@ -138,6 +154,9 @@
   <data name="EN_NEW_VERSION_AVAILABLE_QUESTION" xml:space="preserve">
     <value>New version available, update now?</value>
   </data>
+  <data name="EN_NO_UPDATE" xml:space="preserve">
+    <value>No update available</value>
+  </data>
   <data name="EN_OPEN" xml:space="preserve">
     <value>Open</value>
   </data>
@@ -146,6 +165,7 @@
   </data>
   <data name="EN_SELECT_PROCESS" xml:space="preserve">
     <value>Select process first</value>
+    <comment>Form1 start</comment>
   </data>
   <data name="EN_SET_THIS" xml:space="preserve">
     <value>Set this</value>
@@ -162,8 +182,23 @@
   <data name="EN_UPDATE" xml:space="preserve">
     <value>Update</value>
   </data>
+  <data name="RU_ADDED_AUTORUN" xml:space="preserve">
+    <value>Добавлено в автозапуск</value>
+  </data>
+  <data name="RU_ADD_AUTORUN" xml:space="preserve">
+    <value>Не запускать вместе с OS</value>
+  </data>
+  <data name="RU_AUTORUN" xml:space="preserve">
+    <value>Автозапуск</value>
+  </data>
   <data name="RU_CLOSE" xml:space="preserve">
     <value>Закрыть</value>
+  </data>
+  <data name="RU_DELETED_AUTORUN" xml:space="preserve">
+    <value>Удалено из автозапуска</value>
+  </data>
+  <data name="RU_DELETE_AUTORUN" xml:space="preserve">
+    <value>Запускать вместе с OS</value>
   </data>
   <data name="RU_ERROR" xml:space="preserve">
     <value>Ошибка</value>
@@ -179,6 +214,9 @@
   </data>
   <data name="RU_NEW_VERSION_AVAILABLE_QUESTIO" xml:space="preserve">
     <value>Доступна новая версия, обновить сейчас?</value>
+  </data>
+  <data name="RU_NO_UPDATE" xml:space="preserve">
+    <value>Установлена новейшая версия</value>
   </data>
   <data name="RU_OPEN" xml:space="preserve">
     <value>Открыть</value>
@@ -200,6 +238,7 @@
   </data>
   <data name="RU_UNSET_TOP" xml:space="preserve">
     <value>Установить ниже</value>
+    <comment>Form1 end</comment>
   </data>
   <data name="RU_UPDATE" xml:space="preserve">
     <value>Обновить</value>
