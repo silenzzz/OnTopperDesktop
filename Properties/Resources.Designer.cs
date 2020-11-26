@@ -61,11 +61,263 @@ namespace OnTopper.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на .
+        ///   Ищет локализованную строку, похожую на OnTopper.
         /// </summary>
-        internal static string RU_ABC {
+        internal static string EN_APP_NAME {
             get {
-                return ResourceManager.GetString("RU_ABC", resourceCulture);
+                return ResourceManager.GetString("EN_APP_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Close.
+        /// </summary>
+        internal static string EN_CLOSE {
+            get {
+                return ResourceManager.GetString("EN_CLOSE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Error.
+        /// </summary>
+        internal static string EN_ERROR {
+            get {
+                return ResourceManager.GetString("EN_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Hide in taskbar.
+        /// </summary>
+        internal static string EN_HIDE_IN_TASKBAR {
+            get {
+                return ResourceManager.GetString("EN_HIDE_IN_TASKBAR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на OnTopper minimized.
+        /// </summary>
+        internal static string EN_MINIMIZED {
+            get {
+                return ResourceManager.GetString("EN_MINIMIZED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на OnTopper has been minimized, right click on the icon below to open.
+        /// </summary>
+        internal static string EN_MINIMIZED_RIGHT_CLICK {
+            get {
+                return ResourceManager.GetString("EN_MINIMIZED_RIGHT_CLICK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на New version available, update now?.
+        /// </summary>
+        internal static string EN_NEW_VERSION_AVAILABLE_QUESTION {
+            get {
+                return ResourceManager.GetString("EN_NEW_VERSION_AVAILABLE_QUESTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Open.
+        /// </summary>
+        internal static string EN_OPEN {
+            get {
+                return ResourceManager.GetString("EN_OPEN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Process doesn&apos;t exists anymore.
+        /// </summary>
+        internal static string EN_PROCESS_DOESNT_EXISTS {
+            get {
+                return ResourceManager.GetString("EN_PROCESS_DOESNT_EXISTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Select process first.
+        /// </summary>
+        internal static string EN_SELECT_PROCESS {
+            get {
+                return ResourceManager.GetString("EN_SELECT_PROCESS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Set this.
+        /// </summary>
+        internal static string EN_SET_THIS {
+            get {
+                return ResourceManager.GetString("EN_SET_THIS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Set top.
+        /// </summary>
+        internal static string EN_SET_TOP {
+            get {
+                return ResourceManager.GetString("EN_SET_TOP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Unset this.
+        /// </summary>
+        internal static string EN_UNSET_THIS {
+            get {
+                return ResourceManager.GetString("EN_UNSET_THIS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Unset top.
+        /// </summary>
+        internal static string EN_UNSET_TOP {
+            get {
+                return ResourceManager.GetString("EN_UNSET_TOP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Update.
+        /// </summary>
+        internal static string EN_UPDATE {
+            get {
+                return ResourceManager.GetString("EN_UPDATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Закрыть.
+        /// </summary>
+        internal static string RU_CLOSE {
+            get {
+                return ResourceManager.GetString("RU_CLOSE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Ошибка.
+        /// </summary>
+        internal static string RU_ERROR {
+            get {
+                return ResourceManager.GetString("RU_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Скрыть в меню задач.
+        /// </summary>
+        internal static string RU_HIDE_IN_TASKBAR {
+            get {
+                return ResourceManager.GetString("RU_HIDE_IN_TASKBAR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на OnTopper свернут.
+        /// </summary>
+        internal static string RU_MINIMIZED {
+            get {
+                return ResourceManager.GetString("RU_MINIMIZED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на OnTopper свернут. Нажмите правой кнопкой на иконку снизу, чтобы открыть снова.
+        /// </summary>
+        internal static string RU_MINIMIZED_RIGHT_CLICK {
+            get {
+                return ResourceManager.GetString("RU_MINIMIZED_RIGHT_CLICK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Доступна новая версия, обновить сейчас?.
+        /// </summary>
+        internal static string RU_NEW_VERSION_AVAILABLE_QUESTIO {
+            get {
+                return ResourceManager.GetString("RU_NEW_VERSION_AVAILABLE_QUESTIO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Открыть.
+        /// </summary>
+        internal static string RU_OPEN {
+            get {
+                return ResourceManager.GetString("RU_OPEN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Данный процесс больше не существует.
+        /// </summary>
+        internal static string RU_PROCESS_DOESNT_EXISTS {
+            get {
+                return ResourceManager.GetString("RU_PROCESS_DOESNT_EXISTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Выберите процесс.
+        /// </summary>
+        internal static string RU_SELECT_PROCESS {
+            get {
+                return ResourceManager.GetString("RU_SELECT_PROCESS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Приоритет.
+        /// </summary>
+        internal static string RU_SET_THIS {
+            get {
+                return ResourceManager.GetString("RU_SET_THIS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Установить выше.
+        /// </summary>
+        internal static string RU_SET_TOP {
+            get {
+                return ResourceManager.GetString("RU_SET_TOP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Не приоритет.
+        /// </summary>
+        internal static string RU_UNSET_THIS {
+            get {
+                return ResourceManager.GetString("RU_UNSET_THIS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Установить ниже.
+        /// </summary>
+        internal static string RU_UNSET_TOP {
+            get {
+                return ResourceManager.GetString("RU_UNSET_TOP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Обновить.
+        /// </summary>
+        internal static string RU_UPDATE {
+            get {
+                return ResourceManager.GetString("RU_UPDATE", resourceCulture);
             }
         }
     }

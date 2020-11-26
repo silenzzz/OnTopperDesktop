@@ -41,8 +41,8 @@ namespace OnTopper
             }
             catch (ProcessNotExistsException)
             {
-                MessageBox.Show("Process doesn't exists anymore",
-                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(LocalizedMessageProvider.GetMessage("PROCESS_DOESNT_EXISTS"),
+                    LocalizedMessageProvider.GetMessage("ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 UpdateProcesses();
             }
         }
@@ -98,19 +98,20 @@ namespace OnTopper
 
         private void ShowSelectProcessMessageBox()
         {
-            MessageBox.Show("Select process first", "OnTopper", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            MessageBox.Show(LocalizedMessageProvider.GetMessage("SELECT_PROCESS"),
+                LocalizedMessageProvider.GetMessage("ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
 
         private void SetNotifyIcon()
         {
             ContextMenu iconMenu = new ContextMenu();
-            MenuItem openItem = new MenuItem("&Open");
-            MenuItem hideItem = new MenuItem("&Hide in task bar");
+            MenuItem openItem = new MenuItem(LocalizedMessageProvider.GetMessage("OPEN"));
+            MenuItem hideItem = new MenuItem(LocalizedMessageProvider.GetMessage("HIDE_IN_TASKBAR"));
             if (InAutoRunAndMinimized())
             {
                 hideItem.Checked = true;
             }
-            MenuItem closeItem = new MenuItem("&Close");
+            MenuItem closeItem = new MenuItem(LocalizedMessageProvider.GetMessage("CLOSE"));
 
             var handler = new EventHandler(OnClickIconMenuItem);
             openItem.Click += handler;
@@ -121,8 +122,8 @@ namespace OnTopper
             iconMenu.MenuItems.Add(closeItem);
 
             notifyIcon.Text = "OnTopper";
-            notifyIcon.BalloonTipTitle = "OnTopper minimized";
-            notifyIcon.BalloonTipText = "OnTopper has been minimized, right click on the icon below to open";
+            notifyIcon.BalloonTipTitle = LocalizedMessageProvider.GetMessage("MINIMIZED");
+            notifyIcon.BalloonTipText = LocalizedMessageProvider.GetMessage("MINIMIZED_RIGHT_CLICK");
             notifyIcon.ContextMenu = iconMenu;
         }
 
@@ -144,15 +145,15 @@ namespace OnTopper
             var item = sender as MenuItem;
             string text = item.Text;
             // TODO: rewrite этот бля поиск по строке
-            if (text.Equals("&Open"))
+            if (text.Equals(LocalizedMessageProvider.GetMessage("OPEN")))
             {
                 this.WindowState = FormWindowState.Normal;
             }
-            else if (text.Equals("&Hide in task bar"))
+            else if (text.Equals(LocalizedMessageProvider.GetMessage("HIDE_IN_TASKBAR")))
             {
                 item.Checked = ToggleTaskbarVisibility();
             }
-            else if (text.Equals("&Close"))
+            else if (text.Equals(LocalizedMessageProvider.GetMessage("CLOSE")))
             {
                 this.Close();
             }
@@ -198,12 +199,12 @@ namespace OnTopper
         {
             if (TopMost)
             {
-                buttonThisOnTop.Text = "Set this";
+                buttonThisOnTop.Text = LocalizedMessageProvider.GetMessage("SET_THIS");
                 TopMost = false;
             }
             else
             {
-                buttonThisOnTop.Text = "Unset this";
+                buttonThisOnTop.Text = LocalizedMessageProvider.GetMessage("UNSET_THIS");
                 TopMost = true;
             }
         }
@@ -300,7 +301,8 @@ namespace OnTopper
                 Updater updater = new Updater();
                 if (updater.UpdateAvaliable() && Settings.Default.UpdateVersion)
                 {
-                    var result = MessageBox.Show("New version available, update now?", "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    var result = MessageBox.Show(LocalizedMessageProvider.GetMessage("EN_NEW_VERSION_AVAILABLE_QUESTION"),
+                        LocalizedMessageProvider.GetMessage("UPDATE"), MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
                     {
                         updater.InstallUpdate();
@@ -368,11 +370,11 @@ namespace OnTopper
         {
             if (newState == State.WINDOW_STATE.TOP)
             {
-                buttonSetTop.Text = "Set top";
+                buttonSetTop.Text = LocalizedMessageProvider.GetMessage("SET_TOP");
             }
             else
             {
-                buttonSetTop.Text = "Unset top";
+                buttonSetTop.Text = LocalizedMessageProvider.GetMessage("UNSET_TOP");
             }
         }
     }

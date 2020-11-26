@@ -8,7 +8,12 @@ namespace OnTopper.Stuff
 
         public static string GetMessage(string name)
         {
-            return Properties.Resources.ResourceManager.GetString(local + "_" + name);
+            string message = Properties.Resources.ResourceManager.GetString(local + "_" + name);
+            if (message == null)
+            {
+                return Properties.Resources.ResourceManager.GetString("EN_" + name);
+            }
+            return message;
         }
     }
 }
