@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OnTopper.Stuff;
+using System;
 using System.Diagnostics;
 using System.Windows.Forms;
 
@@ -9,6 +10,7 @@ namespace OnTopper
         public AboutForm()
         {
             InitializeComponent();
+            MessageBox.Show(LocalizedMessageProvider.GetMessage("ABC"));
             label.Text = string.Format(label.Text, typeof(Program).Assembly.GetName().Version.ToString());
         }
 

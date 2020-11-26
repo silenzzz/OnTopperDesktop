@@ -61,11 +61,11 @@ namespace OnTopper.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на 123.
+        ///   Ищет локализованную строку, похожую на .
         /// </summary>
-        internal static string _123 {
+        internal static string RU_ABC {
             get {
-                return ResourceManager.GetString("123", resourceCulture);
+                return ResourceManager.GetString("RU_ABC", resourceCulture);
             }
         }
     }
