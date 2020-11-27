@@ -1,4 +1,5 @@
 ﻿using DmLib.Window;
+using OnTopper.Stuff;
 using System;
 using System.Diagnostics;
 using System.Drawing;
@@ -35,8 +36,8 @@ namespace OnTopper
             if (string.IsNullOrWhiteSpace(textBoxHeight.Text) || string.IsNullOrWhiteSpace(textBoxWidth.Text) || 
                 string.IsNullOrWhiteSpace(textBoxX.Text) || string.IsNullOrWhiteSpace(textBoxY.Text))
             {
-                // TODO: translate
-                MessageBox.Show("Set window height and width", "Info", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(LocalizedMessageProvider.GetMessage("SET_HEIGHT_WIDTH"),
+                    LocalizedMessageProvider.GetMessage("ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 

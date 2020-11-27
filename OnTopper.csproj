@@ -175,6 +175,12 @@
     <EmbeddedResource Include="SizeForm.ru.resx">
       <DependentUpon>SizeForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TransparencyForm.resx">
+      <DependentUpon>TransparencyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransparencyForm.ru.resx">
+      <DependentUpon>TransparencyForm.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="icons8_top_docking.ico" />
@@ -190,9 +196,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Docs\img\img1.png" />

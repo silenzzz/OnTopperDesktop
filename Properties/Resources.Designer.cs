@@ -205,6 +205,15 @@ namespace OnTopper.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Please set window height and width.
+        /// </summary>
+        internal static string EN_SET_HEIGHT_WIDTH {
+            get {
+                return ResourceManager.GetString("EN_SET_HEIGHT_WIDTH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Set this.
         /// </summary>
         internal static string EN_SET_THIS {
@@ -342,9 +351,9 @@ namespace OnTopper.Properties {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Доступна новая версия, обновить сейчас?.
         /// </summary>
-        internal static string RU_NEW_VERSION_AVAILABLE_QUESTIO {
+        internal static string RU_NEW_VERSION_AVAILABLE_QUESTION {
             get {
-                return ResourceManager.GetString("RU_NEW_VERSION_AVAILABLE_QUESTIO", resourceCulture);
+                return ResourceManager.GetString("RU_NEW_VERSION_AVAILABLE_QUESTION", resourceCulture);
             }
         }
         
@@ -381,6 +390,15 @@ namespace OnTopper.Properties {
         internal static string RU_SELECT_PROCESS {
             get {
                 return ResourceManager.GetString("RU_SELECT_PROCESS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Установите высоту и ширину окна.
+        /// </summary>
+        internal static string RU_SET_HEIGHT_WIDTH {
+            get {
+                return ResourceManager.GetString("RU_SET_HEIGHT_WIDTH", resourceCulture);
             }
         }
         

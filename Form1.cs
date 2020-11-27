@@ -301,7 +301,7 @@ namespace OnTopper
                 Updater updater = new Updater();
                 if (updater.UpdateAvaliable() && Settings.Default.UpdateVersion)
                 {
-                    var result = MessageBox.Show(LocalizedMessageProvider.GetMessage("EN_NEW_VERSION_AVAILABLE_QUESTION"),
+                    var result = MessageBox.Show(LocalizedMessageProvider.GetMessage("NEW_VERSION_AVAILABLE_QUESTION"),
                         LocalizedMessageProvider.GetMessage("UPDATE"), MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
                     {

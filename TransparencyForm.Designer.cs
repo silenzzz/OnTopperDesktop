@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TransparencyForm));
             this.trackBar = new System.Windows.Forms.TrackBar();
             this.numericUpDown = new System.Windows.Forms.NumericUpDown();
             this.buttonApply = new System.Windows.Forms.Button();
@@ -37,22 +38,17 @@
             // 
             // trackBar
             // 
-            this.trackBar.Location = new System.Drawing.Point(12, 2);
+            resources.ApplyResources(this.trackBar, "trackBar");
             this.trackBar.Maximum = 100;
             this.trackBar.Name = "trackBar";
-            this.trackBar.Size = new System.Drawing.Size(265, 45);
-            this.trackBar.TabIndex = 0;
             this.trackBar.TickStyle = System.Windows.Forms.TickStyle.None;
             this.trackBar.Value = 100;
             this.trackBar.Scroll += new System.EventHandler(this.TrackBar_Scroll);
             // 
             // numericUpDown
             // 
-            this.numericUpDown.Location = new System.Drawing.Point(12, 27);
+            resources.ApplyResources(this.numericUpDown, "numericUpDown");
             this.numericUpDown.Name = "numericUpDown";
-            this.numericUpDown.Size = new System.Drawing.Size(80, 20);
-            this.numericUpDown.TabIndex = 1;
-            this.numericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numericUpDown.Value = new decimal(new int[] {
             100,
             0,
@@ -62,20 +58,16 @@
             // 
             // buttonApply
             // 
-            this.buttonApply.Location = new System.Drawing.Point(202, 27);
+            resources.ApplyResources(this.buttonApply, "buttonApply");
             this.buttonApply.Name = "buttonApply";
-            this.buttonApply.Size = new System.Drawing.Size(75, 23);
-            this.buttonApply.TabIndex = 2;
-            this.buttonApply.Text = "Apply";
             this.buttonApply.UseVisualStyleBackColor = true;
             this.buttonApply.Click += new System.EventHandler(this.ButtonApply_Click);
             // 
             // TransparencyForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(289, 57);
             this.ControlBox = false;
             this.Controls.Add(this.buttonApply);
             this.Controls.Add(this.numericUpDown);
@@ -84,8 +76,6 @@
             this.Name = "TransparencyForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Window transparency";
             ((System.ComponentModel.ISupportInitialize)(this.trackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown)).EndInit();
             this.ResumeLayout(false);
