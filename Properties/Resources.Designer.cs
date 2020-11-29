@@ -196,6 +196,15 @@ namespace OnTopper.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Restart program to change language.
+        /// </summary>
+        internal static string EN_RESTART_PROGRAM_CHANGE_LANGUAGE {
+            get {
+                return ResourceManager.GetString("EN_RESTART_PROGRAM_CHANGE_LANGUAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Select process first.
         /// </summary>
         internal static string EN_SELECT_PROCESS {
@@ -381,6 +390,15 @@ namespace OnTopper.Properties {
         internal static string RU_PROCESS_DOESNT_EXISTS {
             get {
                 return ResourceManager.GetString("RU_PROCESS_DOESNT_EXISTS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Перезапустите программу для смены языка.
+        /// </summary>
+        internal static string RU_RESTART_PROGRAM_CHANGE_LANGUAGE {
+            get {
+                return ResourceManager.GetString("RU_RESTART_PROGRAM_CHANGE_LANGUAGE", resourceCulture);
             }
         }
         

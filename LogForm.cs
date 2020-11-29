@@ -1,4 +1,7 @@
-﻿using OnTopper.Stuff;
+﻿using OnTopper.Properties;
+using OnTopper.Stuff;
+using System.Globalization;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace OnTopper
@@ -7,7 +10,8 @@ namespace OnTopper
     {
         public LogForm()
         {
-            InitializeComponent();
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.LanguageAbbreviation.ToLower());
+            this.InitializeComponent();
         }
 
         public void ShowDialogWithTopMostState(bool onTop)

@@ -162,11 +162,14 @@
   <data name="EN_PROCESS_DOESNT_EXISTS" xml:space="preserve">
     <value>Process doesn't exists anymore</value>
   </data>
+  <data name="EN_RESTART_PROGRAM_CHANGE_LANGUAGE" xml:space="preserve">
+    <value>Restart program to change language</value>
+  </data>
   <data name="EN_SELECT_PROCESS" xml:space="preserve">
     <value>Select process first</value>
   </data>
   <data name="EN_SET_HEIGHT_WIDTH" xml:space="preserve">
-    <value>Set window height and width</value>
+    <value>Please set window height and width</value>
   </data>
   <data name="EN_SET_THIS" xml:space="preserve">
     <value>Set this</value>
@@ -225,11 +228,14 @@
   <data name="RU_PROCESS_DOESNT_EXISTS" xml:space="preserve">
     <value>Данный процесс больше не существует</value>
   </data>
+  <data name="RU_RESTART_PROGRAM_CHANGE_LANGUAGE" xml:space="preserve">
+    <value>Перезапустите программу для смены языка</value>
+  </data>
   <data name="RU_SELECT_PROCESS" xml:space="preserve">
     <value>Выберите процесс</value>
   </data>
   <data name="RU_SET_HEIGHT_WIDTH" xml:space="preserve">
-    <value>Установить высоту и ширину окна</value>
+    <value>Установите высоту и ширину окна</value>
   </data>
   <data name="RU_SET_THIS" xml:space="preserve">
     <value>Приоритет</value>

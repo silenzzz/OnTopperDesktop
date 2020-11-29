@@ -171,6 +171,12 @@
   <data name="buttonCheckUpdates.Text" xml:space="preserve">
     <value>Обновления</value>
   </data>
+  <data name="labelLanguage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 13</value>
+  </data>
+  <data name="labelLanguage.Text" xml:space="preserve">
+    <value>Язык</value>
+  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Настройки</value>
   </data>

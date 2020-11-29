@@ -1,6 +1,7 @@
-﻿using DmLib.Window;
+﻿using OnTopper.Properties;
 using System;
-using System.Diagnostics;
+using System.Globalization;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace OnTopper
@@ -12,7 +13,8 @@ namespace OnTopper
 
         public TransparencyForm()
         {
-            InitializeComponent();
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.LanguageAbbreviation.ToLower());
+            this.InitializeComponent();
         }
 
         public void ShowDialogWithTopMostState(bool topMost)

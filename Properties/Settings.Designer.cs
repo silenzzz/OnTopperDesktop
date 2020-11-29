@@ -22,7 +22,37 @@ namespace OnTopper.Properties {
                 return defaultInstance;
             }
         }
-        
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("EN")]
+        public string LanguageAbbreviation
+        {
+            get
+            {
+                return ((string)(this["LanguageAbbreviation"]));
+            }
+            set
+            {
+                this["LanguageAbbreviation"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Settings")]
+        public string Language
+        {
+            get
+            {
+                return ((string)(this["Language"]));
+            }
+            set
+            {
+                this["Language"] = value;
+            }
+        }
+
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]

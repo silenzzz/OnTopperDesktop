@@ -168,7 +168,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;buttonApply.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="checkBoxAutoUpdate.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -313,7 +313,7 @@
     <value>6, 12</value>
   </data>
   <data name="groupBoxProcesses.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 143</value>
+    <value>152, 118</value>
   </data>
   <data name="groupBoxProcesses.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -331,7 +331,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;groupBoxProcesses.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="checkBoxAutoHide.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -385,7 +385,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;groupBoxStartup.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="buttonCheckUpdates.Location" type="System.Drawing.Point, System.Drawing">
     <value>164, 107</value>
@@ -409,11 +409,65 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;buttonCheckUpdates.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="comboBoxLanguage.Items" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="comboBoxLanguage.Items1" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="comboBoxLanguage.Items2" xml:space="preserve">
+    <value>Русский</value>
+  </data>
+  <data name="comboBoxLanguage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>70, 132</value>
+  </data>
+  <data name="comboBoxLanguage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 21</value>
+  </data>
+  <data name="comboBoxLanguage.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;comboBoxLanguage.Name" xml:space="preserve">
+    <value>comboBoxLanguage</value>
+  </data>
+  <data name="&gt;&gt;comboBoxLanguage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;comboBoxLanguage.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;comboBoxLanguage.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="labelLanguage.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelLanguage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 135</value>
+  </data>
+  <data name="labelLanguage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 13</value>
+  </data>
+  <data name="labelLanguage.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="labelLanguage.Text" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="&gt;&gt;labelLanguage.Name" xml:space="preserve">
+    <value>labelLanguage</value>
+  </data>
+  <data name="&gt;&gt;labelLanguage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelLanguage.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;labelLanguage.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>ru</value>
-  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>

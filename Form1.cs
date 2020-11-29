@@ -3,6 +3,8 @@ using OnTopper.Properties;
 using OnTopper.Stuff;
 using System;
 using System.Diagnostics;
+using System.Globalization;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace OnTopper
@@ -22,7 +24,9 @@ namespace OnTopper
         public MainForm()
         {
             InitializeComponent();
-            // TODO: store only machine name field in listbox
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.LanguageAbbreviation.ToLower());
+            this.Controls.Clear();
+            this.InitializeComponent();
             listBoxProcesses.DisplayMember = "ProcessName";
             SetNotifyIcon();
             UpdateProcesses();

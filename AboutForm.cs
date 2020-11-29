@@ -1,6 +1,8 @@
-﻿using OnTopper.Stuff;
+﻿using OnTopper.Properties;
 using System;
 using System.Diagnostics;
+using System.Globalization;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace OnTopper
@@ -9,7 +11,8 @@ namespace OnTopper
     {
         public AboutForm()
         {
-            InitializeComponent();
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.LanguageAbbreviation.ToLower());
+            this.InitializeComponent();
             label.Text = string.Format(label.Text, typeof(Program).Assembly.GetName().Version.ToString());
         }
 

@@ -40,6 +40,8 @@
             this.groupBoxStartup = new System.Windows.Forms.GroupBox();
             this.checkBoxAutoHide = new System.Windows.Forms.CheckBox();
             this.buttonCheckUpdates = new System.Windows.Forms.Button();
+            this.comboBoxLanguage = new System.Windows.Forms.ComboBox();
+            this.labelLanguage = new System.Windows.Forms.Label();
             this.groupBoxProcesses.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownInterval)).BeginInit();
             this.groupBoxStartup.SuspendLayout();
@@ -142,12 +144,29 @@
             this.buttonCheckUpdates.UseVisualStyleBackColor = true;
             this.buttonCheckUpdates.Click += new System.EventHandler(this.ButtonCheckUpdates_Click);
             // 
+            // comboBoxLanguage
+            // 
+            this.comboBoxLanguage.FormattingEnabled = true;
+            this.comboBoxLanguage.Items.AddRange(new object[] {
+            resources.GetString("comboBoxLanguage.Items"),
+            resources.GetString("comboBoxLanguage.Items1"),
+            resources.GetString("comboBoxLanguage.Items2")});
+            resources.ApplyResources(this.comboBoxLanguage, "comboBoxLanguage");
+            this.comboBoxLanguage.Name = "comboBoxLanguage";
+            // 
+            // labelLanguage
+            // 
+            resources.ApplyResources(this.labelLanguage, "labelLanguage");
+            this.labelLanguage.Name = "labelLanguage";
+            // 
             // SettingsForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ControlBox = false;
+            this.Controls.Add(this.labelLanguage);
+            this.Controls.Add(this.comboBoxLanguage);
             this.Controls.Add(this.buttonCheckUpdates);
             this.Controls.Add(this.groupBoxProcesses);
             this.Controls.Add(this.buttonApply);
@@ -165,6 +184,7 @@
             this.groupBoxStartup.ResumeLayout(false);
             this.groupBoxStartup.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -181,5 +201,7 @@
         private System.Windows.Forms.CheckBox checkBoxAutoHide;
         private System.Windows.Forms.CheckBox checkBoxShowWindowTitles;
         private System.Windows.Forms.Button buttonCheckUpdates;
+        private System.Windows.Forms.ComboBox comboBoxLanguage;
+        private System.Windows.Forms.Label labelLanguage;
     }
 }
