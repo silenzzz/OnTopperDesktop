@@ -68,8 +68,7 @@ namespace OnTopper
 
             if (comboBoxLanguage.SelectedItem.ToString() != Settings.Default.Language)
             {
-                MessageBox.Show(LocalizedMessageProvider.GetMessage("RESTART_PROGRAM_CHANGE_LANGUAGE"),
-                    LocalizedMessageProvider.GetMessage("APP_NAME"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Application.Restart();
             }
 
             Close();
@@ -121,7 +120,6 @@ namespace OnTopper
         {
             if (updater.UpdateAvaliable())
             {
-                // TODO: extract to resources
                 var result = MessageBox.Show(LocalizedMessageProvider.GetMessage("NEW_VERSION_AVAILABLE_QUESTION"),
                     LocalizedMessageProvider.GetMessage("UPDATE"), MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
