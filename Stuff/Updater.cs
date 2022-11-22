@@ -19,7 +19,11 @@ namespace OnTopper.Stuff
                 WebResponse response = request.GetResponse();
                 StreamReader reader = new StreamReader(response.GetResponseStream());
                 string webVersion = reader.ReadToEnd();
-                if (webVersion.Equals(currentVersion) == false)
+
+                int parsedWebVersion = Convert.ToInt16(webVersion.Replace(".", ""));
+                int parsedCurrentVersion = Convert.ToInt16(currentVersion.Replace(".", ""));
+
+                if (parsedWebVersion > parsedCurrentVersion)
                 {
                     return true;
                 }
