@@ -1,6 +1,10 @@
 ﻿using DmLib.Autorun;
 using OnTopper.Properties;
+using OnTopper.Stuff;
+using System.Globalization;
+using System.Threading;
 using System.Windows.Forms;
+using static DmLib.Autorun.Autorun;
 
 namespace OnTopper
 {
@@ -13,17 +17,20 @@ namespace OnTopper
         public int interval = 3000;
 
         private const string APP_NAME = "OnTopper.exe";
-        private const string DELETE_AUTORUN = "Dont enable on startup";
-        private const string ADD_AUTORUN = "Enable on startup";
+        private readonly string deleteFromAutorun = LocalizedMessageProvider.GetMessage("DELETE_AUTORUN");
+        private readonly string addToAutorun = LocalizedMessageProvider.GetMessage("ADD_AUTORUN");
+
+        private readonly Updater updater = new Updater();
 
         public SettingsForm()
         {
-            InitializeComponent();
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.LanguageAbbreviation.ToLower());
+            this.InitializeComponent();
             ApplyUiFromSettings();
             if (InAutorun())
             {
                 checkBoxAutoHide.Visible = true;
-                buttonAutorun.Text = DELETE_AUTORUN;
+                buttonAutorun.Text = deleteFromAutorun;
             }
             if (Settings.Default.AutoHide)
             {
@@ -38,9 +45,8 @@ namespace OnTopper
             numericUpDownInterval.Value = Settings.Default.UpdateInterval;
             checkBoxShowWindowTitles.Checked = Settings.Default.WindowTitles;
             checkBoxHideUninteractive.Checked = Settings.Default.HideNonInteractive;
+            comboBoxLanguage.SelectedItem = Settings.Default.Language;
         }
-
-        #region STUFF
 
         public void ShowDialogWithTopMostState(bool onTop)
         {
@@ -50,12 +56,8 @@ namespace OnTopper
 
         private bool InAutorun()
         {
-            return Autorun.Contains(APP_NAME);
+            return Autorun.Contains(APP_NAME, TARGET.USER);
         }
-
-        #endregion
-
-        #region UI_SYS_EVENTS
 
         private void ButtonApply_Click(object sender, System.EventArgs e)
         {
@@ -63,6 +65,12 @@ namespace OnTopper
             timerEnabled = checkBoxAutoUpdate.Checked;
             showWindowTitles = checkBoxShowWindowTitles.Checked;
             interval = (int)numericUpDownInterval.Value;
+
+            if (comboBoxLanguage.SelectedItem.ToString() != Settings.Default.Language)
+            {
+                Application.Restart();
+            }
+
             Close();
         }
 
@@ -75,19 +83,21 @@ namespace OnTopper
         {
             if (InAutorun())
             {
-                Autorun.Remove(APP_NAME);
-                MessageBox.Show("Deleted from autorun", "Autostart", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Autorun.Remove(APP_NAME, TARGET.USER);
+                MessageBox.Show(LocalizedMessageProvider.GetMessage("DELETED_AUTORUN"),
+                    LocalizedMessageProvider.GetMessage("AUTORUN"), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 checkBoxAutoHide.Visible = false;
                 Settings.Default.AutoStart = false;
-                buttonAutorun.Text = ADD_AUTORUN;
+                buttonAutorun.Text = deleteFromAutorun;
             }
             else
             {
-                Autorun.Add(APP_NAME, Application.ExecutablePath.ToString());
-                MessageBox.Show("Added to autorun", "Autostart", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Autorun.Add(APP_NAME, Application.ExecutablePath.ToString(), TARGET.USER);
+                MessageBox.Show(LocalizedMessageProvider.GetMessage("ADDED_AUTORUN"),
+                    LocalizedMessageProvider.GetMessage("AUTORUN"), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 checkBoxAutoHide.Visible = true;
                 Settings.Default.AutoStart = true;
-                buttonAutorun.Text = DELETE_AUTORUN;
+                buttonAutorun.Text = addToAutorun;
             }
             Settings.Default.Save();
         }
@@ -106,6 +116,24 @@ namespace OnTopper
             }
         }
 
+        private void ButtonCheckUpdates_Click(object sender, System.EventArgs e)
+        {
+            if (updater.UpdateAvaliable())
+            {
+                var result = MessageBox.Show(LocalizedMessageProvider.GetMessage("NEW_VERSION_AVAILABLE_QUESTION"),
+                    LocalizedMessageProvider.GetMessage("UPDATE"), MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    updater.InstallUpdate();
+                }
+            }
+            else
+            {
+                MessageBox.Show(LocalizedMessageProvider.GetMessage("NO_UPDATE"),
+                    LocalizedMessageProvider.GetMessage("UPDATE"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
         private void SettingsForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Settings.Default.AutoUpdate = checkBoxAutoUpdate.Checked;
@@ -113,10 +141,9 @@ namespace OnTopper
             Settings.Default.UpdateInterval = (int)numericUpDownInterval.Value;
             Settings.Default.WindowTitles = checkBoxShowWindowTitles.Checked;
             Settings.Default.HideNonInteractive = checkBoxHideUninteractive.Checked;
-
+            Settings.Default.Language = comboBoxLanguage.SelectedItem.ToString();
+ 
             Settings.Default.Save();
         }
-
-        #endregion
     }
 }

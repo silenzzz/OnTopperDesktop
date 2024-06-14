@@ -1,8 +1,11 @@
 ﻿using DmLib.Window;
+using OnTopper.Properties;
+using OnTopper.Stuff;
 using System;
 using System.Diagnostics;
 using System.Drawing;
-using System.Runtime.InteropServices;
+using System.Globalization;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace OnTopper
@@ -14,7 +17,8 @@ namespace OnTopper
 
         public SizeForm()
         {
-            InitializeComponent();
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.LanguageAbbreviation.ToLower());
+            this.InitializeComponent();
         }
 
         public void ShowDialogAndSetWindowSize(Process p, bool topMost)
@@ -36,21 +40,14 @@ namespace OnTopper
             if (string.IsNullOrWhiteSpace(textBoxHeight.Text) || string.IsNullOrWhiteSpace(textBoxWidth.Text) || 
                 string.IsNullOrWhiteSpace(textBoxX.Text) || string.IsNullOrWhiteSpace(textBoxY.Text))
             {
-                MessageBox.Show("Set window height and width");
+                MessageBox.Show(LocalizedMessageProvider.GetMessage("SET_HEIGHT_WIDTH"),
+                    LocalizedMessageProvider.GetMessage("ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             Borders.EditWindow(process, int.Parse(textBoxX.Text), int.Parse(textBoxY.Text),
                 int.Parse(textBoxHeight.Text), int.Parse(textBoxWidth.Text));
             Close();
-        }
-
-        private void TextBoxHeight_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
         }
 
         private void ButtonCancel_Click(object sender, EventArgs e)

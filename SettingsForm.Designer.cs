@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
             this.checkBoxHideUninteractive = new System.Windows.Forms.CheckBox();
             this.buttonApply = new System.Windows.Forms.Button();
             this.checkBoxAutoUpdate = new System.Windows.Forms.CheckBox();
@@ -38,6 +39,9 @@
             this.numericUpDownInterval = new System.Windows.Forms.NumericUpDown();
             this.groupBoxStartup = new System.Windows.Forms.GroupBox();
             this.checkBoxAutoHide = new System.Windows.Forms.CheckBox();
+            this.buttonCheckUpdates = new System.Windows.Forms.Button();
+            this.comboBoxLanguage = new System.Windows.Forms.ComboBox();
+            this.labelLanguage = new System.Windows.Forms.Label();
             this.groupBoxProcesses.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownInterval)).BeginInit();
             this.groupBoxStartup.SuspendLayout();
@@ -45,45 +49,30 @@
             // 
             // checkBoxHideUninteractive
             // 
-            this.checkBoxHideUninteractive.AutoSize = true;
+            resources.ApplyResources(this.checkBoxHideUninteractive, "checkBoxHideUninteractive");
             this.checkBoxHideUninteractive.Checked = true;
             this.checkBoxHideUninteractive.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxHideUninteractive.Location = new System.Drawing.Point(6, 19);
             this.checkBoxHideUninteractive.Name = "checkBoxHideUninteractive";
-            this.checkBoxHideUninteractive.Size = new System.Drawing.Size(121, 17);
-            this.checkBoxHideUninteractive.TabIndex = 0;
-            this.checkBoxHideUninteractive.Text = "Hide non interactive";
             this.checkBoxHideUninteractive.UseVisualStyleBackColor = true;
             // 
             // buttonApply
             // 
-            this.buttonApply.Location = new System.Drawing.Point(164, 107);
+            resources.ApplyResources(this.buttonApply, "buttonApply");
             this.buttonApply.Name = "buttonApply";
-            this.buttonApply.Size = new System.Drawing.Size(121, 23);
-            this.buttonApply.TabIndex = 1;
-            this.buttonApply.Text = "Apply";
             this.buttonApply.UseVisualStyleBackColor = true;
             this.buttonApply.Click += new System.EventHandler(this.ButtonApply_Click);
             // 
             // checkBoxAutoUpdate
             // 
-            this.checkBoxAutoUpdate.AutoSize = true;
-            this.checkBoxAutoUpdate.Location = new System.Drawing.Point(6, 56);
+            resources.ApplyResources(this.checkBoxAutoUpdate, "checkBoxAutoUpdate");
             this.checkBoxAutoUpdate.Name = "checkBoxAutoUpdate";
-            this.checkBoxAutoUpdate.Size = new System.Drawing.Size(135, 17);
-            this.checkBoxAutoUpdate.TabIndex = 3;
-            this.checkBoxAutoUpdate.Text = "Auto update processes";
             this.checkBoxAutoUpdate.UseVisualStyleBackColor = true;
             this.checkBoxAutoUpdate.CheckedChanged += new System.EventHandler(this.CheckBoxAutoUpdate_CheckedChanged);
             // 
             // buttonAutorun
             // 
-            this.buttonAutorun.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonAutorun.Location = new System.Drawing.Point(6, 19);
+            resources.ApplyResources(this.buttonAutorun, "buttonAutorun");
             this.buttonAutorun.Name = "buttonAutorun";
-            this.buttonAutorun.Size = new System.Drawing.Size(111, 40);
-            this.buttonAutorun.TabIndex = 4;
-            this.buttonAutorun.Text = "Enable on startup";
             this.buttonAutorun.UseVisualStyleBackColor = true;
             this.buttonAutorun.Click += new System.EventHandler(this.ButtonAutorunOff_Click);
             // 
@@ -94,32 +83,20 @@
             this.groupBoxProcesses.Controls.Add(this.numericUpDownInterval);
             this.groupBoxProcesses.Controls.Add(this.checkBoxAutoUpdate);
             this.groupBoxProcesses.Controls.Add(this.checkBoxHideUninteractive);
-            this.groupBoxProcesses.Location = new System.Drawing.Point(6, 12);
+            resources.ApplyResources(this.groupBoxProcesses, "groupBoxProcesses");
             this.groupBoxProcesses.Name = "groupBoxProcesses";
-            this.groupBoxProcesses.Size = new System.Drawing.Size(152, 118);
-            this.groupBoxProcesses.TabIndex = 5;
             this.groupBoxProcesses.TabStop = false;
-            this.groupBoxProcesses.Text = "Processes";
             // 
             // checkBoxShowWindowTitles
             // 
-            this.checkBoxShowWindowTitles.AutoSize = true;
-            this.checkBoxShowWindowTitles.Location = new System.Drawing.Point(6, 37);
+            resources.ApplyResources(this.checkBoxShowWindowTitles, "checkBoxShowWindowTitles");
             this.checkBoxShowWindowTitles.Name = "checkBoxShowWindowTitles";
-            this.checkBoxShowWindowTitles.Size = new System.Drawing.Size(116, 17);
-            this.checkBoxShowWindowTitles.TabIndex = 6;
-            this.checkBoxShowWindowTitles.Text = "Show window titles";
             this.checkBoxShowWindowTitles.UseVisualStyleBackColor = true;
             // 
             // labelInterval
             // 
-            this.labelInterval.AutoSize = true;
-            this.labelInterval.Location = new System.Drawing.Point(6, 76);
+            resources.ApplyResources(this.labelInterval, "labelInterval");
             this.labelInterval.Name = "labelInterval";
-            this.labelInterval.Size = new System.Drawing.Size(79, 13);
-            this.labelInterval.TabIndex = 5;
-            this.labelInterval.Text = "Update interval";
-            this.labelInterval.Visible = false;
             // 
             // numericUpDownInterval
             // 
@@ -128,7 +105,7 @@
             0,
             0,
             0});
-            this.numericUpDownInterval.Location = new System.Drawing.Point(6, 92);
+            resources.ApplyResources(this.numericUpDownInterval, "numericUpDownInterval");
             this.numericUpDownInterval.Maximum = new decimal(new int[] {
             60000,
             0,
@@ -140,45 +117,57 @@
             0,
             0});
             this.numericUpDownInterval.Name = "numericUpDownInterval";
-            this.numericUpDownInterval.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.numericUpDownInterval.Size = new System.Drawing.Size(79, 20);
-            this.numericUpDownInterval.TabIndex = 4;
             this.numericUpDownInterval.Value = new decimal(new int[] {
             3000,
             0,
             0,
             0});
-            this.numericUpDownInterval.Visible = false;
             // 
             // groupBoxStartup
             // 
             this.groupBoxStartup.Controls.Add(this.checkBoxAutoHide);
             this.groupBoxStartup.Controls.Add(this.buttonAutorun);
-            this.groupBoxStartup.Location = new System.Drawing.Point(164, 12);
+            resources.ApplyResources(this.groupBoxStartup, "groupBoxStartup");
             this.groupBoxStartup.Name = "groupBoxStartup";
-            this.groupBoxStartup.Size = new System.Drawing.Size(121, 89);
-            this.groupBoxStartup.TabIndex = 6;
             this.groupBoxStartup.TabStop = false;
-            this.groupBoxStartup.Text = "Startup";
             // 
             // checkBoxAutoHide
             // 
-            this.checkBoxAutoHide.AutoSize = true;
-            this.checkBoxAutoHide.Location = new System.Drawing.Point(13, 65);
+            resources.ApplyResources(this.checkBoxAutoHide, "checkBoxAutoHide");
             this.checkBoxAutoHide.Name = "checkBoxAutoHide";
-            this.checkBoxAutoHide.Size = new System.Drawing.Size(96, 17);
-            this.checkBoxAutoHide.TabIndex = 6;
-            this.checkBoxAutoHide.Text = "Start minimized";
             this.checkBoxAutoHide.UseVisualStyleBackColor = true;
-            this.checkBoxAutoHide.Visible = false;
+            // 
+            // buttonCheckUpdates
+            // 
+            resources.ApplyResources(this.buttonCheckUpdates, "buttonCheckUpdates");
+            this.buttonCheckUpdates.Name = "buttonCheckUpdates";
+            this.buttonCheckUpdates.UseVisualStyleBackColor = true;
+            this.buttonCheckUpdates.Click += new System.EventHandler(this.ButtonCheckUpdates_Click);
+            // 
+            // comboBoxLanguage
+            // 
+            this.comboBoxLanguage.FormattingEnabled = true;
+            this.comboBoxLanguage.Items.AddRange(new object[] {
+            resources.GetString("comboBoxLanguage.Items"),
+            resources.GetString("comboBoxLanguage.Items1"),
+            resources.GetString("comboBoxLanguage.Items2")});
+            resources.ApplyResources(this.comboBoxLanguage, "comboBoxLanguage");
+            this.comboBoxLanguage.Name = "comboBoxLanguage";
+            // 
+            // labelLanguage
+            // 
+            resources.ApplyResources(this.labelLanguage, "labelLanguage");
+            this.labelLanguage.Name = "labelLanguage";
             // 
             // SettingsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(290, 133);
             this.ControlBox = false;
+            this.Controls.Add(this.labelLanguage);
+            this.Controls.Add(this.comboBoxLanguage);
+            this.Controls.Add(this.buttonCheckUpdates);
             this.Controls.Add(this.groupBoxProcesses);
             this.Controls.Add(this.buttonApply);
             this.Controls.Add(this.groupBoxStartup);
@@ -188,8 +177,6 @@
             this.Name = "SettingsForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Settings";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SettingsForm_FormClosing);
             this.groupBoxProcesses.ResumeLayout(false);
             this.groupBoxProcesses.PerformLayout();
@@ -197,6 +184,7 @@
             this.groupBoxStartup.ResumeLayout(false);
             this.groupBoxStartup.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -212,5 +200,8 @@
         private System.Windows.Forms.GroupBox groupBoxStartup;
         private System.Windows.Forms.CheckBox checkBoxAutoHide;
         private System.Windows.Forms.CheckBox checkBoxShowWindowTitles;
+        private System.Windows.Forms.Button buttonCheckUpdates;
+        private System.Windows.Forms.ComboBox comboBoxLanguage;
+        private System.Windows.Forms.Label labelLanguage;
     }
 }
