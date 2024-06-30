@@ -119,10 +119,14 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 9</value>
+    <value>14, 14</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="label.Size" type="System.Drawing.Size, System.Drawing">
-    <value>327, 78</value>
+    <value>489, 138</value>
   </data>
   <data name="label.Text" xml:space="preserve">
     <value>OnTopper v{0} Создано DeMmAge
@@ -133,56 +137,97 @@ demmagesoft@gmail.com
 Если Вам понравилась эта программа, оставьте отзыв здесь</value>
   </data>
   <data name="buttonClose.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 185</value>
+    <value>18, 285</value>
+  </data>
+  <data name="buttonClose.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 5, 4, 5</value>
   </data>
   <data name="buttonClose.Size" type="System.Drawing.Size, System.Drawing">
-    <value>316, 23</value>
+    <value>474, 35</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="linkLabelSF.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="linkLabelSF.Location" type="System.Drawing.Point, System.Drawing">
-    <value>67, 87</value>
+    <value>100, 134</value>
+  </data>
+  <data name="linkLabelSF.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="linkLabelSF.Size" type="System.Drawing.Size, System.Drawing">
+    <value>301, 20</value>
   </data>
   <data name="labelSF.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 100</value>
+    <value>24, 154</value>
+  </data>
+  <data name="labelSF.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="labelSF.Size" type="System.Drawing.Size, System.Drawing">
-    <value>312, 13</value>
+    <value>469, 20</value>
   </data>
   <data name="labelSF.Text" xml:space="preserve">
     <value>Сообщить о баге или предложить функционал можно здесь</value>
   </data>
   <data name="linkLabelSFTicket.Location" type="System.Drawing.Point, System.Drawing">
-    <value>55, 113</value>
+    <value>82, 174</value>
+  </data>
+  <data name="linkLabelSFTicket.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="linkLabelSFTicket.Size" type="System.Drawing.Size, System.Drawing">
+    <value>337, 20</value>
   </data>
   <data name="linkLabelGit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>54, 139</value>
+    <value>81, 214</value>
+  </data>
+  <data name="linkLabelGit.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="linkLabelGit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>350, 20</value>
   </data>
   <data name="labelSFTicker.Location" type="System.Drawing.Point, System.Drawing">
-    <value>64, 126</value>
+    <value>96, 194</value>
+  </data>
+  <data name="labelSFTicker.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="labelSFTicker.Size" type="System.Drawing.Size, System.Drawing">
-    <value>223, 13</value>
+    <value>329, 20</value>
   </data>
   <data name="labelSFTicker.Text" xml:space="preserve">
     <value>Исходный код программы доступен здесь</value>
   </data>
   <data name="labelTrello.Location" type="System.Drawing.Point, System.Drawing">
-    <value>132, 152</value>
+    <value>198, 234</value>
+  </data>
+  <data name="labelTrello.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="labelTrello.Size" type="System.Drawing.Size, System.Drawing">
-    <value>87, 13</value>
+    <value>130, 20</value>
   </data>
   <data name="labelTrello.Text" xml:space="preserve">
     <value>Карта развития</value>
   </data>
   <data name="linkLabelTrello.Location" type="System.Drawing.Point, System.Drawing">
-    <value>99, 165</value>
+    <value>148, 254</value>
+  </data>
+  <data name="linkLabelTrello.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="linkLabelTrello.Size" type="System.Drawing.Size, System.Drawing">
+    <value>214, 20</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>9, 20</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>340, 220</value>
+    <value>510, 338</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 5, 4, 5</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>О программе</value>

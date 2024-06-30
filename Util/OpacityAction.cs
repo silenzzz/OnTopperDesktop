@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using DmLib.Window;
 
-namespace OnTopper.Stuff
+namespace OnTopper.Util
 {
     public class OpacityAction : Action
     {
@@ -10,7 +10,7 @@ namespace OnTopper.Stuff
 
         public OpacityAction(ushort previous, ushort current, Process p)
         {
-            this.proc = p;
+            this.Proc = p;
             this.previous = previous;
             this.current = current;
             this.Reverted = false;
@@ -18,7 +18,7 @@ namespace OnTopper.Stuff
 
         private OpacityAction(ushort previous, ushort current, Process p, bool reverted)
         {
-            this.proc = p;
+            this.Proc = p;
             this.previous = previous;
             this.current = current;
             this.Reverted = reverted;
@@ -26,18 +26,14 @@ namespace OnTopper.Stuff
 
         public override Action Revert()
         {
-            Transparency.SetWindowTransparency(proc, previous);
-            return new OpacityAction(current, previous, proc, !Reverted);
+            Transparency.SetWindowTransparency(Proc, previous);
+            return new OpacityAction(current, previous, Proc, !Reverted);
         }
 
         public override string ToString()
         {
-            string s = string.Format("{0}: Set opacity of {1} from {2} to {3}", time, proc.ProcessName, previous, current);
-            if (Reverted)
-            {
-                return s + " (reverted)";
-            }
-            return s;
+            var s = $"{Time}: Set opacity of {Proc.ProcessName} from {previous} to {current}";
+            return Reverted ? s + " (reverted)" : s;
         }
     }
 }

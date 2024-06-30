@@ -4,34 +4,25 @@ using System.IO;
 using System.Net;
 using System.Windows.Forms;
 
-namespace OnTopper.Stuff
+namespace OnTopper.Util
 {
     public class Updater
     {
         private readonly string currentVersion = typeof(Program).Assembly.GetName().Version.ToString();
 
-        public bool UpdateAvaliable()
+        public bool UpdateAvailable()
         {
-            // TODO: ¯\_(ツ)_ /¯ 
-            WebRequest request = WebRequest.Create("https://pastebin.com/raw/PyGgwApk");
+            var request = WebRequest.Create("https://pastebin.com/raw/PyGgwApk");
             try
             {
-                WebResponse response = request.GetResponse();
-                StreamReader reader = new StreamReader(response.GetResponseStream());
-                string webVersion = reader.ReadToEnd();
+                var response = request.GetResponse();
+                var reader = new StreamReader(response.GetResponseStream() ?? throw new InvalidOperationException());
+                var webVersion = reader.ReadToEnd();
 
                 int parsedWebVersion = Convert.ToInt16(webVersion.Replace(".", ""));
                 int parsedCurrentVersion = Convert.ToInt16(currentVersion.Replace(".", ""));
 
-                if (parsedWebVersion > parsedCurrentVersion)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-
+                return parsedWebVersion > parsedCurrentVersion;
             }
             catch (Exception)
             {
@@ -39,7 +30,7 @@ namespace OnTopper.Stuff
             }
         }
 
-        public void InstallUpdate()
+        public static void InstallUpdate()
         {
             Process.Start("OnTopperUpdater.exe");
             Application.Exit();
