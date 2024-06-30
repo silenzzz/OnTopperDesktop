@@ -1,11 +1,12 @@
 ﻿using DmLib.Window;
 using OnTopper.Properties;
-using OnTopper.Stuff;
 using System;
 using System.Diagnostics;
 using System.Globalization;
 using System.Threading;
 using System.Windows.Forms;
+using OnTopper.Util;
+using Action = OnTopper.Util.Action;
 
 namespace OnTopper
 {
@@ -17,48 +18,49 @@ namespace OnTopper
         private readonly SizeForm sizeForm = new SizeForm();
         private readonly LogForm logForm = new LogForm();
 
-        private bool ballonShowed = false;
+        private bool balloonShowed;
 
         private State.WINDOW_STATE newState;
+        private readonly Settings settings = Settings.Default;
 
         public MainForm()
         {
             InitializeComponent();
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.LanguageAbbreviation.ToLower());
-            this.Controls.Clear();
-            this.InitializeComponent();
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(settings.LanguageAbbreviation.ToLower());
+            Controls.Clear();
+            InitializeComponent();
             listBoxProcesses.DisplayMember = "ProcessName";
             SetNotifyIcon();
             UpdateProcesses();
 
-            UpdateService updateService = UpdateService.GetInstance();
-            if (updateService.UpdateAvaliable())
-            {
-                var res = MessageBox.Show(string.Format("New version {0} is avaliable, want to install it now?", updateService.GetWebVersion()),
-                    "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (res == DialogResult.Yes)
-                {
-                    updateService.UpdateDownloaded += OnUpdateDownloaded;
-                    updateService.DownloadUpdate();
-                }
-            }
+            var updateService = UpdateService.GetInstance();
+            if (!updateService.UpdateAvailable()) return;
+            var res = MessageBox.Show(
+                $"New version {updateService.GetWebVersion()} is available, want to install it now?",
+                "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (res != DialogResult.Yes) return;
+
+            updateService.UpdateDownloaded += OnUpdateDownloaded;
+            updateService.DownloadUpdate();
         }
 
-        private void OnUpdateDownloaded(object sender, EventArgs e)
+        private static void OnUpdateDownloaded(object sender, EventArgs e)
         {
-            MessageBox.Show("Update downloaded, want to restart now?", "Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            MessageBox.Show("Update downloaded, want to restart now?", "Update", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
         }
 
-        public void AddActionToLogForm(Stuff.Action action)
+        private void AddActionToLogForm(Action action)
         {
-            this.logForm.AddAction(action);
+            logForm.AddAction(action);
         }
 
         private void SetWindowState(State.WINDOW_STATE state)
         {
             try
             {
-                State.SetWindowState((Process)listBoxProcesses.SelectedItem, state);
+                State.SetWindowState((Process) listBoxProcesses.SelectedItem, state);
             }
             catch (ProcessNotExistsException)
             {
@@ -72,7 +74,7 @@ namespace OnTopper
         {
             try
             {
-                return ((Process)listBoxProcesses.Items[index]).ProcessName;
+                return ((Process) listBoxProcesses.Items[index]).ProcessName;
             }
             catch (Exception)
             {
@@ -82,42 +84,40 @@ namespace OnTopper
 
         private bool InAutoRunAndMinimized()
         {
-            return Settings.Default.AutoHide && Settings.Default.AutoStart;
+            return settings.AutoHide && settings.AutoStart;
         }
 
         private void UpdateProcesses()
         {
-            int selected = listBoxProcesses.SelectedIndex;
-            // TODO: maybe rewrite
-            string selectedName = GetProcessNameByIndex(selected);
+            var selected = listBoxProcesses.SelectedIndex;
+            var selectedName = GetProcessNameByIndex(selected);
+
             listBoxProcesses.BeginUpdate();
             listBoxProcesses.Items.Clear();
-            // TODO: optimize
+            
             foreach (var process in Process.GetProcesses())
             {
-                if (settingsForm.hideNonIntaractive)
+                if (settingsForm.HideNonInteractive)
                 {
-                    if (State.HasMainWindow(process))
-                    {
-                        listBoxProcesses.Items.Add(process);
-                    }
-                }
-                else
-                {
+                    if (!State.HasMainWindow(process)) continue;
                     listBoxProcesses.Items.Add(process);
+                    continue;
                 }
+
+                listBoxProcesses.Items.Add(process);
             }
+
             listBoxProcesses.EndUpdate();
-            if (selected != -1)
+
+            if (selected == -1) return;
+
+            if (selectedName.Equals(GetProcessNameByIndex(selected)))
             {
-                if (selectedName.Equals(GetProcessNameByIndex(selected)))
-                {
-                    listBoxProcesses.SelectedIndex = selected;
-                }
+                listBoxProcesses.SelectedIndex = selected;
             }
         }
 
-        private void ShowSelectProcessMessageBox()
+        private static void ShowSelectProcessMessageBox()
         {
             MessageBox.Show(LocalizedMessageProvider.GetMessage("SELECT_PROCESS"),
                 LocalizedMessageProvider.GetMessage("ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
@@ -125,14 +125,15 @@ namespace OnTopper
 
         private void SetNotifyIcon()
         {
-            ContextMenu iconMenu = new ContextMenu();
-            MenuItem openItem = new MenuItem(LocalizedMessageProvider.GetMessage("OPEN"));
-            MenuItem hideItem = new MenuItem(LocalizedMessageProvider.GetMessage("HIDE_IN_TASKBAR"));
+            var iconMenu = new ContextMenu();
+            var openItem = new MenuItem(LocalizedMessageProvider.GetMessage("OPEN"));
+            var hideItem = new MenuItem(LocalizedMessageProvider.GetMessage("HIDE_IN_TASKBAR"));
             if (InAutoRunAndMinimized())
             {
                 hideItem.Checked = true;
             }
-            MenuItem closeItem = new MenuItem(LocalizedMessageProvider.GetMessage("CLOSE"));
+
+            var closeItem = new MenuItem(LocalizedMessageProvider.GetMessage("CLOSE"));
 
             var handler = new EventHandler(OnClickIconMenuItem);
             openItem.Click += handler;
@@ -150,25 +151,18 @@ namespace OnTopper
 
         private bool ToggleTaskbarVisibility()
         {
-            if (this.ShowInTaskbar)
-            {
-                this.ShowInTaskbar = false;
-            }
-            else
-            {
-                this.ShowInTaskbar = true;
-            }
-            return !this.ShowInTaskbar;
+            ShowInTaskbar = !ShowInTaskbar;
+            return !ShowInTaskbar;
         }
 
         private void OnClickIconMenuItem(object sender, EventArgs e)
         {
-            var item = sender as MenuItem;
-            string text = item.Text;
-            // TODO: rewrite этот бля поиск по строке
+            if (!(sender is MenuItem item)) return;
+            var text = item.Text;
+
             if (text.Equals(LocalizedMessageProvider.GetMessage("OPEN")))
             {
-                this.WindowState = FormWindowState.Normal;
+                WindowState = FormWindowState.Normal;
             }
             else if (text.Equals(LocalizedMessageProvider.GetMessage("HIDE_IN_TASKBAR")))
             {
@@ -176,7 +170,7 @@ namespace OnTopper
             }
             else if (text.Equals(LocalizedMessageProvider.GetMessage("CLOSE")))
             {
-                this.Close();
+                Close();
             }
         }
 
@@ -192,28 +186,15 @@ namespace OnTopper
                 ShowSelectProcessMessageBox();
                 return;
             }
+
             SetWindowState(newState);
-            if (newState == State.WINDOW_STATE.TOP)
-            {
-                logForm.AddAction(new TopStateAction(listBoxProcesses.SelectedItem as Process, State.WINDOW_STATE.TOP));
-            }
-            else
-            {
-                logForm.AddAction(new TopStateAction(listBoxProcesses.SelectedItem as Process, State.WINDOW_STATE.UNTOP));
-            }
+
+            logForm.AddAction(newState == State.WINDOW_STATE.TOP
+                ? new TopStateAction(listBoxProcesses.SelectedItem as Process, State.WINDOW_STATE.TOP)
+                : new TopStateAction(listBoxProcesses.SelectedItem as Process, State.WINDOW_STATE.UNTOP));
+
             newState = newState == State.WINDOW_STATE.TOP ? State.WINDOW_STATE.UNTOP : State.WINDOW_STATE.TOP;
             RefreshTopButton();
-        }
-
-        private void ButtonUnsetTop_Click(object sender, EventArgs e)
-        {
-            if (listBoxProcesses.SelectedItem == null)
-            {
-                ShowSelectProcessMessageBox();
-                return;
-            }
-            SetWindowState(State.WINDOW_STATE.UNTOP);
-            logForm.AddAction(new TopStateAction(listBoxProcesses.SelectedItem as Process, State.WINDOW_STATE.UNTOP));
         }
 
         private void ButtonThisOnTop_Click(object sender, EventArgs e)
@@ -238,29 +219,23 @@ namespace OnTopper
         private void ButtonSettings_Click(object sender, EventArgs e)
         {
             settingsForm.ShowDialogWithTopMostState(TopMost);
-            if (settingsForm.showWindowTitles)
+            listBoxProcesses.DisplayMember = settingsForm.ShowWindowTitles ? "MainWindowTitle" : "ProcessName";
+            if (settingsForm.TimerEnabled)
             {
-                listBoxProcesses.DisplayMember = "MainWindowTitle";
-            }
-            else
-            {
-                listBoxProcesses.DisplayMember = "ProcessName";
-            }
-            if (settingsForm.timerEnabled)
-            {
-                timer.Interval = settingsForm.interval;
+                timer.Interval = settingsForm.Interval;
                 timer.Start();
             }
             else
             {
                 timer.Stop();
             }
+
             UpdateProcesses();
         }
 
         private void TextBoxSearch_TextChanged(object sender, EventArgs e)
         {
-            int index = listBoxProcesses.FindString(textBoxSearch.Text);
+            var index = listBoxProcesses.FindString(textBoxSearch.Text);
             if (index != -1)
             {
                 listBoxProcesses.SelectedIndex = index;
@@ -269,19 +244,25 @@ namespace OnTopper
 
         private void MainForm_SizeChanged(object sender, EventArgs e)
         {
-            if (this.WindowState == FormWindowState.Minimized)
+            switch (WindowState)
             {
-                notifyIcon.Visible = true;
-                if (!ballonShowed)
+                case FormWindowState.Minimized:
                 {
-                    notifyIcon.ShowBalloonTip(5000);
-                    ballonShowed = true;
+                    notifyIcon.Visible = true;
+                    if (!balloonShowed)
+                    {
+                        notifyIcon.ShowBalloonTip(5000);
+                        balloonShowed = true;
+                    }
+
+                    break;
                 }
-            }
-            else if (this.WindowState == FormWindowState.Maximized ||
-                this.WindowState == FormWindowState.Normal)
-            {
-                notifyIcon.Visible = false;
+                case FormWindowState.Maximized:
+                case FormWindowState.Normal:
+                    notifyIcon.Visible = false;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
         }
 
@@ -292,21 +273,22 @@ namespace OnTopper
 
         private void ListBoxProcesses_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            int index = listBoxProcesses.SelectedIndex;
-            if (index != -1)
+            var index = listBoxProcesses.SelectedIndex;
+            if (index == -1) return;
+            try
             {
-                try
-                {
-                    var proc = (Process)listBoxProcesses.Items[index];
-                    MessageBox.Show(string.Format("Priority: {0}\nId: {1}\nName: {2}\nResponding: {3}\nStarted: {4}\n" +
-                        "Threads: {5}\nTop most: {6}\nVirtual mem size: {7}b", proc.BasePriority, proc.Id, proc.ProcessName,
-                        proc.Responding, proc.StartTime, proc.Threads.Count, State.IsTopMost(proc), proc.VirtualMemorySize64),
-                        "Process info");
-                }
-                catch (Exception)
-                {
-                    UpdateProcesses();
-                }
+                var proc = (Process) listBoxProcesses.Items[index];
+                MessageBox.Show(
+                    $"Priority: {proc.BasePriority}\n" +
+                    $"Id: {proc.Id}\nName: {proc.ProcessName}\n" +
+                    $"Responding: {proc.Responding}\n" +
+                    $"Started: {proc.StartTime}\n" +
+                    $"Top most: {State.IsTopMost(proc)}",
+                    "Process info");
+            }
+            catch (Exception)
+            {
+                UpdateProcesses();
             }
         }
 
@@ -314,25 +296,24 @@ namespace OnTopper
         {
             if (InAutoRunAndMinimized())
             {
-                this.WindowState = FormWindowState.Minimized;
-                this.ShowInTaskbar = false;
+                WindowState = FormWindowState.Minimized;
+                ShowInTaskbar = false;
             }
             else
             {
-                Updater updater = new Updater();
-                if (updater.UpdateAvaliable() && Settings.Default.UpdateVersion)
+                var updater = new Updater();
+                if (!updater.UpdateAvailable() || !settings.UpdateVersion) return;
+                var result = MessageBox.Show(LocalizedMessageProvider.GetMessage("NEW_VERSION_AVAILABLE_QUESTION"),
+                    LocalizedMessageProvider.GetMessage("UPDATE"), MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
                 {
-                    var result = MessageBox.Show(LocalizedMessageProvider.GetMessage("NEW_VERSION_AVAILABLE_QUESTION"),
-                        LocalizedMessageProvider.GetMessage("UPDATE"), MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (result == DialogResult.Yes)
-                    {
-                        updater.InstallUpdate();
-                    } else
-                    {
-                        Settings.Default.UpdateVersion = false;
-                        Settings.Default.Save();
-                    }
+                    Updater.InstallUpdate();
+                    return;
                 }
+
+                settings.UpdateVersion = false;
+                settings.Save();
             }
         }
 
@@ -343,10 +324,11 @@ namespace OnTopper
                 ShowSelectProcessMessageBox();
                 return;
             }
+
             transparencyForm.ShowDialogWithTopMostState(TopMost);
             var p = listBoxProcesses.SelectedItem as Process;
-            Transparency.SetWindowTransparency(p, transparencyForm.current);
-            AddActionToLogForm(new OpacityAction(transparencyForm.previous, transparencyForm.current, p));
+            Transparency.SetWindowTransparency(p, transparencyForm.Current);
+            AddActionToLogForm(new OpacityAction(transparencyForm.Previous, transparencyForm.Current, p));
         }
 
         private void ButtonProperties_Click(object sender, EventArgs e)
@@ -356,7 +338,8 @@ namespace OnTopper
                 ShowSelectProcessMessageBox();
                 return;
             }
-            sizeForm.ShowDialogAndSetWindowSize((Process)listBoxProcesses.SelectedItem, this.TopMost);
+
+            sizeForm.ShowDialogAndSetWindowSize((Process) listBoxProcesses.SelectedItem, this.TopMost);
         }
 
         private void ButtonLog_Click(object sender, EventArgs e)
@@ -365,7 +348,6 @@ namespace OnTopper
             UpdateProcesses();
             RefreshTopButton();
         }
-
 
         private void ListBoxProcesses_Click(object sender, EventArgs e)
         {
@@ -376,27 +358,14 @@ namespace OnTopper
             }
 
             var proc = listBoxProcesses.SelectedItem as Process;
-            if (!State.IsTopMost(proc))
-            {
-                newState = State.WINDOW_STATE.TOP;
-            }
-            else
-            {
-                newState = State.WINDOW_STATE.UNTOP;
-            }
+            newState = !State.IsTopMost(proc) ? State.WINDOW_STATE.TOP : State.WINDOW_STATE.UNTOP;
             RefreshTopButton();
         }
 
         private void RefreshTopButton()
         {
-            if (newState == State.WINDOW_STATE.TOP)
-            {
-                buttonSetTop.Text = LocalizedMessageProvider.GetMessage("SET_TOP");
-            }
-            else
-            {
-                buttonSetTop.Text = LocalizedMessageProvider.GetMessage("UNSET_TOP");
-            }
+            buttonSetTop.Text =
+                LocalizedMessageProvider.GetMessage(newState == State.WINDOW_STATE.TOP ? "SET_TOP" : "UNSET_TOP");
         }
     }
 }

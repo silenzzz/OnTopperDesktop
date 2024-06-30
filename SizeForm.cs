@@ -1,12 +1,12 @@
 ﻿using DmLib.Window;
 using OnTopper.Properties;
-using OnTopper.Stuff;
 using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.Threading;
 using System.Windows.Forms;
+using OnTopper.Util;
 
 namespace OnTopper
 {
@@ -18,21 +18,21 @@ namespace OnTopper
         public SizeForm()
         {
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.LanguageAbbreviation.ToLower());
-            this.InitializeComponent();
+            InitializeComponent();
         }
 
         public void ShowDialogAndSetWindowSize(Process p, bool topMost)
         {
-            this.TopMost = topMost;
-            this.process = p;
-            this.oldRectangle = Borders.GetWindowRectangle(p);
+            TopMost = topMost;
+            process = p;
+            oldRectangle = Borders.GetWindowRectangle(p);
 
             textBoxX.Text = oldRectangle.X.ToString();
             textBoxY.Text = oldRectangle.Y.ToString();
             textBoxHeight.Text = (oldRectangle.Height - oldRectangle.Y).ToString();
             textBoxWidth.Text = (oldRectangle.Width - oldRectangle.X).ToString();
 
-            this.ShowDialog();
+            ShowDialog();
         }
 
         private void ButtonApply_Click(object sender, EventArgs e)
@@ -52,7 +52,7 @@ namespace OnTopper
 
         private void ButtonCancel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }

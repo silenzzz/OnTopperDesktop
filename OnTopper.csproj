@@ -125,13 +125,13 @@
     <Compile Include="AboutForm.Designer.cs">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Stuff\LocalizedMessageProvider.cs" />
-    <Compile Include="Stuff\OpacityAction.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Util\LocalizedMessageProvider.cs" />
+    <Compile Include="Util\OpacityAction.cs" />
+    <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="LogForm.cs">
       <SubType>Form</SubType>
@@ -154,9 +154,9 @@
     <Compile Include="SizeForm.Designer.cs">
       <DependentUpon>SizeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Stuff\Action.cs" />
-    <Compile Include="Stuff\TopStateAction.cs" />
-    <Compile Include="Stuff\Updater.cs" />
+    <Compile Include="Util\Action.cs" />
+    <Compile Include="Util\TopStateAction.cs" />
+    <Compile Include="Util\Updater.cs" />
     <Compile Include="TransparencyForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,11 +170,11 @@
     <EmbeddedResource Include="AboutForm.ru.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.ru.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="MainForm.ru.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LogForm.resx">
       <DependentUpon>LogForm.cs</DependentUpon>

@@ -10,7 +10,7 @@ namespace OnTopper
     {
         private readonly string currentVersion;
         private readonly string webVersion;
-        private static UpdateService updateService = null;
+        private static UpdateService _updateService;
         private readonly WebClient web = new WebClient();
 
         public event EventHandler UpdateDownloaded;
@@ -20,60 +20,48 @@ namespace OnTopper
         private UpdateService()
         {
             currentVersion = typeof(Program).Assembly.GetName().Version.ToString();
-            web.DownloadFileCompleted += new System.ComponentModel.AsyncCompletedEventHandler(OnDownloadCompleted);
+            web.DownloadFileCompleted += OnDownloadCompleted;
             try
             {
                 webVersion = Encoding.UTF8.GetString(web.DownloadData("https://pastebin.com/raw/PyGgwApk"));
             }
             catch (Exception)
             {
-
+                // ignored
             }
         }
 
         private void OnDownloadCompleted(object sender, EventArgs e)
         {
             //ZipFile.ExtractToDirectory(zipPath, extractPath);
-            EventHandler handler = UpdateDownloaded;
+            var handler = UpdateDownloaded;
             handler?.Invoke(this, e);
         }
 
         public void DownloadUpdate()
         {
-            //C:\Users\hgt16\AppData\Roaming\DeMmAge Inc\OnTopper
             web.DownloadFileAsync(new Uri("https://sourceforge.net/projects/testprojtopper/files/OnTopper.zip/download"),
                 zipFilePath);
         }
 
         public static UpdateService GetInstance()
         {
-            if (updateService == null)
-            {
-                updateService = new UpdateService();
-            }
-            return updateService;
+            return _updateService ?? (_updateService = new UpdateService());
         }
 
-        public bool UpdateAvaliable() 
+        public bool UpdateAvailable() 
         {
-            WebRequest request = WebRequest.Create("https://pastebin.com/raw/PyGgwApk");
+            var request = WebRequest.Create("https://pastebin.com/raw/PyGgwApk");
             try
             {
-                WebResponse response = request.GetResponse();
-                StreamReader reader = new StreamReader(response.GetResponseStream());
-                string webVersion = reader.ReadToEnd();
+                var response = request.GetResponse();
+                var reader = new StreamReader(response.GetResponseStream());
+                var _webVersion = reader.ReadToEnd();
 
-                int parsedWebVersion = Convert.ToInt16(webVersion.Replace(".", ""));
+                int parsedWebVersion = Convert.ToInt16(_webVersion.Replace(".", ""));
                 int parsedCurrentVersion = Convert.ToInt16(currentVersion.Replace(".", ""));
 
-                if (parsedWebVersion > parsedCurrentVersion)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                return parsedWebVersion > parsedCurrentVersion;
 
             }
             catch (Exception)

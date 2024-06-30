@@ -1,8 +1,8 @@
 ﻿using OnTopper.Properties;
-using OnTopper.Stuff;
 using System.Globalization;
 using System.Threading;
 using System.Windows.Forms;
+using OnTopper.Util;
 
 namespace OnTopper
 {
@@ -11,7 +11,7 @@ namespace OnTopper
         public LogForm()
         {
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.LanguageAbbreviation.ToLower());
-            this.InitializeComponent();
+            InitializeComponent();
         }
 
         public void ShowDialogWithTopMostState(bool onTop)
@@ -32,7 +32,7 @@ namespace OnTopper
                 return;
             }
 
-            AddAction((listBoxActions.SelectedItem as Action).Revert());
+            AddAction((listBoxActions.SelectedItem as Action)?.Revert());
             listBoxActions.SelectedIndex = listBoxActions.Items.Count - 1;
         }
 

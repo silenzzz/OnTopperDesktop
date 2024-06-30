@@ -12,13 +12,13 @@ namespace OnTopper
         public AboutForm()
         {
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.LanguageAbbreviation.ToLower());
-            this.InitializeComponent();
-            label.Text = string.Format(label.Text, typeof(Program).Assembly.GetName().Version.ToString());
+            InitializeComponent();
+            label.Text = string.Format(label.Text, typeof(Program).Assembly.GetName().Version);
         }
 
         public void ShowDialogWithTopMostState(bool onTop)
         {
-            this.TopMost = onTop;
+            TopMost = onTop;
             ShowDialog();
         }
 

@@ -8,19 +8,19 @@ namespace OnTopper
 {
     public partial class TransparencyForm : Form
     {
-        public ushort previous = 100;
-        public ushort current = 100;
+        public ushort Previous = 100;
+        public ushort Current = 100;
 
         public TransparencyForm()
         {
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.LanguageAbbreviation.ToLower());
-            this.InitializeComponent();
+            InitializeComponent();
         }
 
         public void ShowDialogWithTopMostState(bool topMost)
         {
-            this.TopMost = topMost;
-            this.ShowDialog();
+            TopMost = topMost;
+            ShowDialog();
         }
 
         private void TrackBar_Scroll(object sender, EventArgs e)
@@ -35,10 +35,10 @@ namespace OnTopper
 
         private void ButtonApply_Click(object sender, EventArgs e)
         {
-            previous = current;
-            this.current = (ushort)trackBar.Value;
-             
-            this.Close();
+            Previous = Current;
+            Current = (ushort)trackBar.Value;
+            
+            Close();
         }
     }
 }
