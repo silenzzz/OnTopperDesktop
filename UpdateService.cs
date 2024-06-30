@@ -1,9 +1,8 @@
 ﻿using System;
 using System.IO;
+using System.IO.Compression;
 using System.Net;
 using System.Text;
-using System.IO.Compression.FileSystem;
-using System.Windows.Forms;
 
 namespace OnTopper
 {
@@ -34,7 +33,7 @@ namespace OnTopper
 
         private void OnDownloadCompleted(object sender, EventArgs e)
         {
-            ZipFile.ExtractToDirectory(zipPath, extractPath);
+            //ZipFile.ExtractToDirectory(zipPath, extractPath);
             EventHandler handler = UpdateDownloaded;
             handler?.Invoke(this, e);
         }
@@ -55,7 +54,33 @@ namespace OnTopper
             return updateService;
         }
 
-        public bool UpdateAvaliable() => !webVersion.Equals(currentVersion);
+        public bool UpdateAvaliable() 
+        {
+            WebRequest request = WebRequest.Create("https://pastebin.com/raw/PyGgwApk");
+            try
+            {
+                WebResponse response = request.GetResponse();
+                StreamReader reader = new StreamReader(response.GetResponseStream());
+                string webVersion = reader.ReadToEnd();
+
+                int parsedWebVersion = Convert.ToInt16(webVersion.Replace(".", ""));
+                int parsedCurrentVersion = Convert.ToInt16(currentVersion.Replace(".", ""));
+
+                if (parsedWebVersion > parsedCurrentVersion)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
 
         public string GetWebVersion() => webVersion;
     }
